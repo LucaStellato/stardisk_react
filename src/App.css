@@ -1,0 +1,7 @@
+.jumbo {
+    background-image: url(https://www.thomann.de/blog/app/uploads/sites/6/2020/10/vinylblog_header_770x425.jpg);
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+}
