@@ -5,12 +5,12 @@ import axios from "axios"
 
 
 export default function VinylsPage() {
-    const [vinyls, setVinyl] = useState([])
+    const [vinyls, setVinyls] = useState([])
     useEffect(() => {
         axios.get('http://localhost:3000/api/products')
             .then(response => {
                 console.log(response)
-                setVinyl(response.data)
+                setVinyls(response.data)
             })
             .catch(error => {
                 console.log("Error loading vinyls:", error)
