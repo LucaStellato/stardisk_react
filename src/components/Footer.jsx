@@ -3,7 +3,7 @@ export default function Footer() {
     return (
         <>
 
-            <footer style={{ backgroundColor: '#fff3e2', height: '' }}>
+            <footer className="bg-yellow">
                 <div className="container-fluid">
                     <div className='row p-5'>
 

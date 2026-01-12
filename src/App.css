@@ -8,11 +8,11 @@ a {
 }
 
 .jumbo {
-    background-image: url(https://www.thomann.de/blog/app/uploads/sites/6/2020/10/vinylblog_header_770x425.jpg);
-    height: 400px;
+    background-image: url(https://levitation.fm/cdn/shop/collections/vinyl-761556_1024x1024.jpg?v=1735924100);
     background-position: center;
     background-size: cover;
     width: 100%;
+    height: 400px;
 }
 
 .text-red {
@@ -21,4 +21,32 @@ a {
 
 .text-blue {
     color: #42517A !important;
+}
+
+.text-yellow {
+    color: #EBC256 !important;
+}
+
+.text-bg {
+    color: #FFF3E2 !important;
+}
+
+.bg-blue {
+    background-color: #42517A !important;
+}
+
+.bg-yellow {
+    background-color: #EBC256 !important;
+}
+
+.bg-red {
+    background-color: #D05335 !important;
+}
+
+.bg-darkblue {
+    background-color: #272838;
+}
+
+.bg-lightyellow {
+    background-color: #ffffff;
 }
