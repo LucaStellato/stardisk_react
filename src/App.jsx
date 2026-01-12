@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import "./App.css"
 import DefaultLayout from "./layouts/DefaultLayout"
 import HomePage from "./pages/HomePage"
+import VinylsPage from "./pages/VinylsPage"
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/vinyls" element={<VinylsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
