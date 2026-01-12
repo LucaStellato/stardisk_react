@@ -29,7 +29,7 @@ export default function HomePage() {
 
                                     <Link>
                                         <div className="card border-0">
-                                            <img src="..." className="card-img-top" alt="..." />
+                                            <img src={vinyl.img_url} className="card-img-top" alt="..." />
                                             <div className="card-body bg-lightyellow text-blue fw-bold">
                                                 <h5 className="card-title fw-bold">{vinyl.name}</h5>
                                                 <p className="card-text">{vinyl.full_price}</p>
@@ -60,10 +60,9 @@ export default function HomePage() {
                         {
                             vinyls.map((vinyl) => (
                                 <div className="col">
-
                                     <Link>
                                         <div className="card border-0">
-                                            <img src="..." className="card-img-top" alt="..." />
+                                            <img src={vinyl.img_url} className="card-img-top" alt="..." />
                                             <div className="card-body bg-lightyellow text-blue fw-bold">
                                                 <h5 className="card-title fw-bold">{vinyl.name}</h5>
                                                 <p className="card-text">{vinyl.full_price}</p>
