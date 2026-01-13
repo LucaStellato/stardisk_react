@@ -27,7 +27,7 @@ export default function VinylsPage() {
 
                                 <div className="vinyl-box">
                                     <Link
-                                        to={`/vinyls/${vinyl.slug}`}>
+                                        to={`/${vinyl.slug}`}>
                                         <img
                                             src={vinyl.img_url}
                                             alt={vinyl.name}

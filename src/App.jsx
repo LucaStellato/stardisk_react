@@ -15,7 +15,7 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/vinyls" element={<VinylsPage />} />
-            <Route path='/vinyls/:slug' element={<DetailPage />} />
+            <Route path='/:slug' element={<DetailPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -7,10 +7,13 @@ import { Link } from "react-router-dom"
 export default function HomePage() {
 
     const [vinyls, setVinyls] = useState([])
+    const [turntables, setTurnTables] = useState([])
+
+
     useEffect(() => {
         axios.get('http://localhost:3000/api/products')
             .then(response => {
-                const filteredData = response.data.filter(item => item.discount > 0)
+                const filteredData = response.data.filter(item => item.discount > 0 && item.category === "vinyl")
                 console.log(filteredData)
                 setVinyls(filteredData)
             })
@@ -27,7 +30,7 @@ export default function HomePage() {
                             vinyls.map((vinyl) => (
                                 <div className="col" key={vinyl.product_id}>
 
-                                    <Link to={`/vinyls/${vinyl.slug}`}>
+                                    <Link to={`/${vinyl.slug}`}>
                                         <div className="card border-0">
                                             <img src={vinyl.img_url} className="card-img-top bg-lightyellow" alt="..." />
                                             <div className="card-body bg-lightyellow text-blue fw-bold">
@@ -45,9 +48,9 @@ export default function HomePage() {
 
                 </div>
             </div>
-            <div className="bg-blue d-flex justify-content-center align-items-center p-5">
+            <div className="bg-yellow d-flex justify-content-center align-items-center p-5">
                 <div className="container align-items-center d-flex justify-content-between">
-                    <p className="text-yellow fw-bold fs-3">Rivivi il sound. La tua collezione ti aspetta.</p>
+                    <p className="text-blue fw-bold fs-3">Rivivi il sound. La tua collezione ti aspetta.</p>
                     <button className="btn btn-lg rounded-pill bg-red">
                         <Link to='/vinyls'><span className="text-yellow fw-bold">Vai al catalogo</span></Link>
                     </button>
