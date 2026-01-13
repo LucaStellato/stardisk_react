@@ -29,7 +29,7 @@ export default function HomePage() {
 
                                     <Link to={`/vinyls/${vinyl.slug}`}>
                                         <div className="card border-0">
-                                            <img src={vinyl.img_url} className="card-img-top" alt="..." />
+                                            <img src={vinyl.img_url} className="card-img-top bg-lightyellow" alt="..." />
                                             <div className="card-body bg-lightyellow text-blue fw-bold">
                                                 <h5 className="card-title fw-bold">{vinyl.name}</h5>
                                                 <p className="card-text">{vinyl.full_price}</p>
@@ -62,7 +62,7 @@ export default function HomePage() {
                                 <div className="col">
                                     <Link to={`/vinyls/${vinyl.slug}`}>
                                         <div className="card border-0">
-                                            <img src={vinyl.img_url} className="card-img-top" alt="..." />
+                                            <img src={vinyl.img_url} className="card-img-top bg-lightyellow" alt="..." />
                                             <div className="card-body bg-lightyellow text-blue fw-bold">
                                                 <h5 className="card-title fw-bold">{vinyl.name}</h5>
                                                 <p className="card-text">{vinyl.full_price}</p>
