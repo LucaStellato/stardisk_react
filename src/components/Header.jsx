@@ -1,4 +1,5 @@
-
+import HomePage from '../pages/HomePage'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
     return (
@@ -12,17 +13,19 @@ export default function Header() {
                     <div className="collapse navbar-collapse fs-5 pe-3" id="navbarNav">
                         <ul className="navbar-nav text-blue ms-auto">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                                <Link className="nav-link active" to="/">
+                                    Home
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Features</a>
+                                <Link className="nav-link active" to="/vinyls">
+                                    Catalog
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Pricing</a>
+                                <a className="nav-link" href="#">About Us</a>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">Catalog</a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
