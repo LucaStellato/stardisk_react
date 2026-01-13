@@ -26,30 +26,27 @@ export default function VinylsPage() {
                             <div className="vinyl-box-wrapper">
 
                                 <div className="vinyl-box">
-                                    <img
-                                        src={vinyl.img_url}
-                                        alt={vinyl.name}
-                                        className="vinyl-disc vinyl-disc-top"
-                                    />
+                                    <Link
+                                        to={`/vinyls/${vinyl.slug}`}>
+                                        <img
+                                            src={vinyl.img_url}
+                                            alt={vinyl.name}
+                                            className="vinyl-disc vinyl-disc-top"
+                                        />
 
-                                    <img
-                                        src="/plain-vinyl.webp"
-                                        alt="vinyl disc"
-                                        className="vinyl-disc vinyl-disc-bottom"
-                                    />
+                                        <img
+                                            src="/plain-vinyl.webp"
+                                            alt="vinyl disc"
+                                            className="vinyl-disc vinyl-disc-bottom"
+                                        />
 
-                                    <div className="vinyl-cover">
-                                        <p className="vinyl-title mb-0">
-                                            {vinyl.name}
-                                        </p>
-                                    </div>
+                                        <div className="vinyl-cover">
+                                            <p className="vinyl-title mb-0">
+                                                {vinyl.name}
+                                            </p>
+                                        </div>
+                                    </Link>
                                 </div>
-
-                                <Link
-                                    to={`/vinyls/${vinyl.slug}`}
-                                    className="btn btn-outline-dark w-100 mt-2">
-                                    View details
-                                </Link>
                             </div>
                         </div>
                     ))}
