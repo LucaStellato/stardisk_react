@@ -18,7 +18,7 @@ export default function VinylsPage() {
     return (
         <div className="bg-lightyellow">
             <div className="container py-5">
-                <h1 className="text-center mb-4">Vinyl Catalog</h1>
+                <h1 className="text-center mb-4 fw-bold text-blue">Vinyl Catalog</h1>
 
                 <div className="row g-4 justify-content-center">
                     {vinyls.map(vinyl => (
