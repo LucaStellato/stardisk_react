@@ -1,18 +1,38 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* GENERICS */
+
+body {
+    font-family: sans-serif;
+}
+
 a {
     text-decoration: none !important;
     color: #42517A !important;
 }
 
-.active {
-    font-weight: bold !important;
+/* UTILS */
+
+.container {
+    width: 70%;
+    max-width: 1176px;
+    margin: 0 auto;
 }
+
+/* JUMBOTRON */
 
 .jumbo {
     background-image: url(https://levitation.fm/cdn/shop/collections/vinyl-761556_1024x1024.jpg?v=1735924100);
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 400px;
+    height: 450px;
 }
 
 .text-red {
@@ -43,13 +63,11 @@ a {
     background-color: #D05335 !important;
 }
 
-.bg-darkblue {
-    background-color: #272838;
-}
-
 .bg-lightyellow {
     background-color: #f7f5f2;
 }
+
+/* VINYLS */
 
 .vinyl-box-wrapper {
     text-align: center;
@@ -60,20 +78,17 @@ a {
     position: relative;
     width: min(300px, 80vw);
     aspect-ratio: 1 / 1;
-    /* contenitore quadrato */
-    /* margin: 0 auto; */
     cursor: pointer;
 }
 
-/* Disco */
+/* DISK */
+
 .vinyl-disc {
     position: absolute;
     width: 70%;
     left: 50%;
     top: 50%;
-    /* centrato verticalmente */
     transform: translate(-50%, -55%);
-    /* leggermente più in alto */
     transition: transform 0.5s ease;
     box-shadow: 0 1px 3px #272838;
 }
@@ -89,7 +104,8 @@ a {
     z-index: 3;
 }
 
-/* Cover */
+/* COVER */
+
 .vinyl-cover {
     position: absolute;
     bottom: 0;
@@ -106,7 +122,7 @@ a {
     z-index: 4;
 }
 
-/* Hover */
+/*VINYL BOX HOVER */
 .vinyl-box:hover .vinyl-disc {
     transform: translate(-50%, -85%);
 
