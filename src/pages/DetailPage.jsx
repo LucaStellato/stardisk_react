@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-
 export default function DetailPage() {
 
     const [currentVinyl, setCurrentVinyl] = useState(null)
@@ -19,7 +18,7 @@ export default function DetailPage() {
 
     return (
         <>
-            <div className="bg-lightyellow">
+            <div className="bg-lightyellow schizzi">
                 <div className="container">
                     <div className="row">
                         {!currentVinyl ? (
@@ -27,36 +26,36 @@ export default function DetailPage() {
                         ) : (
                             <>
                                 <div className="col-7 p-5">
-                                    <img className="card-img-top p-5" src={`${currentVinyl.img_url}`} alt="Title" />
+                                    <img className="p-5 card-img-top" src={`${currentVinyl.img_url}`} alt="Title" />
                                 </div>
-                                <div className="col-5 p-5 bg-lightyellow">
-                                    <div className="card border-0 ">
-                                        <div className="card-body bg-lightyellow ps-5">
-                                            <h1 className="card-title fw-bold text-center text-red pb-4 mt-5">{`${currentVinyl.name}`}</h1>
-                                            <p className="fw-bold fs-3 text-blue">Artist Name:
-                                                <span className="text-yellow ms-2">
+                                <div className="col-5 p-5">
+                                    <div className=" border-0 ">
+                                        <div className=" ps-5">
+                                            <h1 className=" fw-bold text-center text-red pb-4 mt-5">{`${currentVinyl.name}`}</h1>
+                                            <p className="fw-bold fs-3 text-blue mt-2">Artist Name:
+                                                <span className="text-yellow ms-2 ">
                                                     {`${currentVinyl.artist_name}`}
                                                 </span>
                                             </p>
-                                            <p className="fw-bold fs-3 text-blue">Release Year:
+                                            <p className="fw-bold fs-3 text-blue mt-2">Release Year:
                                                 <span className="text-yellow ms-2">
                                                     {`${currentVinyl.release_year}`}
                                                 </span>
                                             </p>
 
-                                            <p className="fw-bold fs-3 text-blue">Genre:
+                                            <p className="fw-bold fs-3 text-blue mt-2">Genre:
                                                 <span className="text-yellow ms-2">
                                                     {`${currentVinyl.genre_name}`}
                                                 </span>
                                             </p>
 
-                                            <p className="fw-bold fs-3 text-blue">Record Label:
+                                            <p className="fw-bold fs-3 text-blue mt-2">Record Label:
                                                 <span className="text-yellow ms-2">
                                                     {`${currentVinyl.record_label}`}
                                                 </span>
                                             </p>
 
-                                            <p className="card-text fs-3 text-blue fw-bold">Price:
+                                            <p className=" fs-2 text-blue fw-bold mt-2">Price:
                                                 {currentVinyl.discount > 0 ? (
                                                     <>
                                                         <span>

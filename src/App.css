@@ -62,10 +62,21 @@ a {
     background-color: #f7f5f2;
 }
 
+.turntable {
+    height: 280px !important;
+}
+
+.schizzi {
+    background-image: url("./schizzi.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+}
+
 /* JUMBOTRON */
 
 .jumbo {
-    background-image: url(https://levitation.fm/cdn/shop/collections/vinyl-761556_1024x1024.jpg?v=1735924100);
+    background-image: url(./jumbo.PNG);
     background-position: center;
     background-size: cover;
     width: 100%;
