@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 export default function Footer() {
     return (
         <>
@@ -10,8 +10,8 @@ export default function Footer() {
                         <div className='col-3 ps-5 d-flex flex-column'>
                             <h3 className="mb-1 ps-3 fw-bold text-red">Menu</h3>
                             <ul className='list-unstyled p-3 text-blue fw-bold'>
-                                <li>Home</li>
-                                <li>Catalog</li>
+                                <li><Link to='/'>Home</Link></li>
+                                <li><Link to='/vinyls'>Catalog</Link></li>
                                 <li>About us</li>
                                 <li>Contacts</li>
                             </ul>
@@ -20,9 +20,10 @@ export default function Footer() {
                         <div className='col-3 ps-5 d-flex flex-column'>
                             <h3 className="mb-1 ps-3 fw-bold text-red">Social</h3>
                             <ul className='list-unstyled p-3 text-blue fw-bold'>
-                                <li><i className="bi bi-facebook pe-2"></i>Facebook</li>
-                                <li><i className="bi bi-instagram pe-2"></i>Instagram</li>
-                                <li><i className="bi bi-tiktok pe-2"></i>TikTok</li>
+                                <li><a href="https://facebook.com"><i className="bi bi-facebook pe-2"></i>Facebook</a></li>
+                                <li><a href="https://www.instagram.com/"><i className="bi bi-instagram pe-2"></i>Instagram</a></li>
+                                <li><a href="https://www.tiktok.com/"><i className="bi bi-tiktok pe-2"></i>TikTok</a></li>
+
                             </ul>
                         </div>
 
