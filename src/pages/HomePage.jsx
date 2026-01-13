@@ -25,7 +25,7 @@ export default function HomePage() {
                     <div className="row row-cols-12 row-cols-md-3 row-cols-lg-4 py-5 g-5">
                         {
                             vinyls.map((vinyl) => (
-                                <div className="col">
+                                <div className="col" key={vinyl.product_id}>
 
                                     <Link to={`/vinyls/${vinyl.slug}`}>
                                         <div className="card border-0">
@@ -59,7 +59,7 @@ export default function HomePage() {
                     <div className="row row-cols-12 row-cols-md-3 row-cols-lg-4 py-5 g-5">
                         {
                             vinyls.map((vinyl) => (
-                                <div className="col">
+                                <div className="col" key={vinyl.product_id}>
                                     <Link to={`/vinyls/${vinyl.slug}`}>
                                         <div className="card border-0">
                                             <img src={vinyl.img_url} className="card-img-top bg-lightyellow" alt="..." />
@@ -72,10 +72,7 @@ export default function HomePage() {
                                 </div>
                             ))
                         }
-
                     </div>
-
-
                 </div>
             </div>
         </>

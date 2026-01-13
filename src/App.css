@@ -61,7 +61,7 @@ a {
     width: min(300px, 80vw);
     aspect-ratio: 1 / 1;
     /* contenitore quadrato */
-    margin: 0 auto;
+    /* margin: 0 auto; */
     cursor: pointer;
 }
 
@@ -113,6 +113,6 @@ a {
 }
 
 .vinyl-box:hover .vinyl-disc-bottom {
-    margin-left: 15%;
+    margin-left: 28%;
     transition-delay: 0.5s;
 }
