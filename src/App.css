@@ -73,6 +73,8 @@ a {
     width: 100%;
 }
 
+
+
 /* JUMBOTRON */
 
 .jumbo {
@@ -92,11 +94,24 @@ a {
     rotate: -5deg;
 }
 
+/* CARD */
+
+.card {
+    transition: all 0.35s ease-out;
+}
+
+.card:hover {
+    scale: 1.04;
+}
+
+
+
 /* VINYLS */
 
 .vinyl-box-wrapper {
     text-align: center;
     margin-top: 4rem;
+
 }
 
 .vinyl-box {
@@ -104,6 +119,14 @@ a {
     width: min(300px, 80vw);
     aspect-ratio: 1 / 1;
     cursor: pointer;
+    background-image: url(../bg-box.png);
+    background-position: left;
+    transition: all 0.5s ease;
+    box-shadow: 6px 12px rgba(50, 25, 0, 0.4);
+
+    &:hover {
+        box-shadow: 10px 17px rgba(50, 25, 0, 0.4);
+    }
 }
 
 /* DISK */
@@ -123,6 +146,7 @@ a {
     border-radius: 50%;
     transition: transform 0.5s ease, margin-left 0.4s ease;
     margin-left: 0;
+
 }
 
 .vinyl-disc-top {
@@ -141,13 +165,21 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     font-weight: bold;
     box-shadow: 0 2px 8px #272838;
     font-size: clamp(0.7rem, 2vw, 1rem);
     z-index: 4;
+    background-image: url(../bg-box.png);
+    background-position: left;
 }
 
 /*VINYL BOX HOVER */
+
+.vinyl-box:hover {
+    scale: 1.03;
+}
+
 .vinyl-box:hover .vinyl-disc {
     transform: translate(-50%, -85%);
 
@@ -155,7 +187,7 @@ a {
 
 .vinyl-box:hover .vinyl-disc-bottom {
     margin-left: 28%;
-    transition-delay: 0.5s;
+    transition-delay: 0.2s;
 }
 
 /* CART */

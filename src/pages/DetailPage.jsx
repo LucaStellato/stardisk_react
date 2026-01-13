@@ -1,6 +1,8 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
+
 export default function DetailPage() {
 
     const [currentVinyl, setCurrentVinyl] = useState(null)
@@ -20,18 +22,24 @@ export default function DetailPage() {
         <>
             <div className="bg-lightyellow schizzi">
                 <div className="container">
+                    <div className="container pt-5 mb-3 text-center">
+                        <Link to="/" className="btn btn-lg bg-blue text-yellow fw-bold w-25">
+                            <i className="bi bi-arrow-left me-2"></i> {/* Icona opzionale */}
+                            Torna alla Home
+                        </Link>
+                    </div>
                     <div className="row">
                         {!currentVinyl ? (
                             <h1>stellina</h1>
                         ) : (
                             <>
-                                <div className="col-7 p-5">
+                                <div className="col-12 col-md-6 p-5">
                                     <img className="p-5 card-img-top" src={`${currentVinyl.img_url}`} alt="Title" />
                                 </div>
-                                <div className="col-5 p-5">
+                                <div className="col-12 col-md-6 p-5">
                                     <div className=" border-0 ">
-                                        <div className=" ps-5">
-                                            <h1 className=" fw-bold text-center text-red pb-4 mt-5">{`${currentVinyl.name}`}</h1>
+                                        <div className=" ps-5 pt-5">
+                                            <h1 className=" fw-bold text-red pb-4 mt-5">{`${currentVinyl.name}`}</h1>
                                             <p className="fw-bold fs-3 text-blue mt-2">Artist Name:
                                                 <span className="text-yellow ms-2 ">
                                                     {`${currentVinyl.artist_name}`}
@@ -73,6 +81,8 @@ export default function DetailPage() {
                                                 )}
                                             </p>
 
+                                            <Link to="/" className="btn btn-lg bg-yellow fw-bold w-100 mt-3">Add to Cart</Link>
+
                                         </div>
                                     </div>
 
@@ -82,6 +92,10 @@ export default function DetailPage() {
                         )}
 
                     </div>
+
+
+
+
                 </div>
             </div >
         </>

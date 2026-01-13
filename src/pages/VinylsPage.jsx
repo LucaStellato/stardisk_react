@@ -8,7 +8,9 @@ export default function VinylsPage() {
     useEffect(() => {
         axios.get('http://localhost:3000/api/products')
             .then(response => {
-                setVinyls(response.data)
+                const filteredData = response.data.filter(item => item.category === "vinyl")
+                setVinyls(filteredData)
+
             })
             .catch(error => {
                 console.log("Error loading vinyls:", error)
@@ -16,16 +18,16 @@ export default function VinylsPage() {
     }, [])
 
     return (
-        <div className="bg-lightyellow">
+        <div className="bg-lightyellow schizzi">
             <div className="container py-5">
                 <h1 className="fw-bold text-blue">VINYL CATALOG</h1>
 
                 <div className="row">
                     {vinyls.map(vinyl => (
-                        <div className="col-12 col-sm-6 col-md-4" key={vinyl.id}>
+                        <div className="col-12 col-md-6 col-xl-4" key={vinyl.id}>
                             <div className="vinyl-box-wrapper">
 
-                                <div className="vinyl-box">
+                                <div className="vinyl-box ">
                                     <Link
                                         to={`/${vinyl.slug}`}>
                                         <img
@@ -41,8 +43,11 @@ export default function VinylsPage() {
                                         />
 
                                         <div className="vinyl-cover">
-                                            <p className="vinyl-title mb-0">
-                                                {vinyl.name}
+                                            <p className="vinyl-title fs-5 fw-bold text-light mb-0">
+                                                {vinyl.artist_name}
+                                            </p>
+                                            <p className="vinyl-title fs-2 fw-bold text-light mb-0">
+                                                {vinyl.name.toUpperCase()}
                                             </p>
                                         </div>
                                     </Link>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import Copyright from "./copyright"
 export default function Footer() {
     return (
         <>
@@ -37,6 +38,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
+                <Copyright />
             </footer>
         </>
     )
