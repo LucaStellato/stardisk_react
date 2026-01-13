@@ -49,7 +49,7 @@ export default function HomePage() {
                 <div className="container align-items-center d-flex justify-content-between">
                     <p className="text-yellow fw-bold fs-3">Rivivi il sound. La tua collezione ti aspetta.</p>
                     <button className="btn btn-lg rounded-pill bg-red">
-                        <span className="text-yellow fw-bold">Vai al catalogo</span>
+                        <Link to='/vinyls'><span className="text-yellow fw-bold">Vai al catalogo</span></Link>
                     </button>
                 </div>
             </div>
