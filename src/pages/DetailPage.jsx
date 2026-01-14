@@ -30,7 +30,7 @@ export default function DetailPage() {
                     </div>
                     <div className="row">
                         {!currentProduct ? (
-                            <h1>stellina</h1>
+                            <h1>Loading Data...</h1>
                         ) : (
                             <>
                                 <div className="col-12 col-md-6 p-5">
