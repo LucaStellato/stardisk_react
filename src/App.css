@@ -172,6 +172,11 @@ a {
     z-index: 4;
     background-image: url(../bg-box.png);
     background-position: left;
+
+    p {
+        -webkit-text-stroke-width: 1.3px;
+        -webkit-text-stroke-color: rgb(30, 29, 29);
+    }
 }
 
 /*VINYL BOX HOVER */
