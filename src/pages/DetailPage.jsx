@@ -25,7 +25,7 @@ export default function DetailPage() {
                     <div className="container pt-5 mb-3 text-center">
                         <Link to="/" className="btn btn-lg bg-blue text-yellow fw-bold w-25">
                             <i className="bi bi-arrow-left me-2"></i> {/* Icona opzionale */}
-                            Torna alla Home
+                            Back to home
                         </Link>
                     </div>
                     <div className="row">

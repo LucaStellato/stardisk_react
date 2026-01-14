@@ -44,7 +44,23 @@ export default function HomePage() {
                                             <img src={vinyl.img_url} className="card-img-top bg-lightyellow" alt="..." />
                                             <div className="card-body bg-lightyellow text-blue fw-bold">
                                                 <h5 className="card-title fw-bold">{vinyl.name}</h5>
-                                                <p className="card-text">{vinyl.full_price}</p>
+                                                <p className=" fs-6 text-blue fw-bold mt-2">
+                                                    {vinyl.discount > 0 ? (
+                                                        <>
+                                                            <span>
+                                                                {` ${(vinyl.full_price * (1 - vinyl.discount / 100)).toFixed(2)}€`}
+                                                            </span>
+                                                            <span className="text-decoration-line-through ms-2 text-yellow">
+                                                                {`${vinyl.full_price}€`}
+                                                            </span>
+                                                            <span className="text-red ms-2">
+                                                                {`-${vinyl.discount}%`}
+                                                            </span>
+                                                        </>
+                                                    ) : (
+                                                        <span>{`${vinyl.full_price} €`}</span>
+                                                    )}
+                                                </p>
                                             </div>
                                         </div>
                                     </Link>
@@ -59,9 +75,9 @@ export default function HomePage() {
             </div>
             <div className="bg-yellow d-flex justify-content-center align-items-center p-5">
                 <div className="container align-items-center d-flex justify-content-between">
-                    <p className="text-blue fw-bold fs-3">Rivivi il sound. La tua collezione ti aspetta.</p>
+                    <p className="text-blue fw-bold fs-3">Relive the sound. Your collection awaits.</p>
                     <button className="btn btn-lg rounded-pill bg-red">
-                        <Link to='/vinyls'><span className="text-yellow fw-bold">Vai al catalogo</span></Link>
+                        <Link to='/vinyls'><span className="text-yellow fw-bold">View catalog</span></Link>
                     </button>
                 </div>
             </div>
