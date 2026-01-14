@@ -174,8 +174,12 @@ a {
     background-position: left;
 
     p {
-        -webkit-text-stroke-width: 1.3px;
-        -webkit-text-stroke-color: rgb(30, 29, 29);
+        color: white;
+        text-shadow:
+            -1px -1px 0 #1e1d1d,
+            1px -1px 0 #1e1d1d,
+            -1px 1px 0 #1e1d1d,
+            1px 1px 0 #1e1d1d;
     }
 }
 
