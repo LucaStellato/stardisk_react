@@ -101,12 +101,12 @@ export default function DetailPage() {
                                             <p className=" fs-2 text-blue fw-bold mt-2">Price:
                                                 {currentProduct.discount > 0 ? (
                                                     <>
-                                                        <span>{` ${(currentProduct.full_price * (1 - currentProduct.discount / 100)).toFixed(2)}€`}</span>
+                                                        <span> {` ${(currentProduct.full_price * (1 - currentProduct.discount / 100)).toFixed(2)}€`}</span>
                                                         <span className="text-decoration-line-through ms-2 text-yellow">{`${currentProduct.full_price}€`}</span>
                                                         <span className="text-red ms-2">{`-${currentProduct.discount}%`}</span>
                                                     </>
                                                 ) : (
-                                                    <span>{`${currentProduct.full_price} €`}</span>
+                                                    <span> {`${currentProduct.full_price} €`}</span>
                                                 )}
                                             </p>
 
