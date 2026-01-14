@@ -195,3 +195,9 @@ a {
 .cart-section {
     width: 175px;
 }
+
+/* ACCORDION */
+
+.accordion-button:focus {
+    box-shadow: none !important;
+}
