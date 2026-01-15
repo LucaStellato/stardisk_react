@@ -39,8 +39,8 @@ export default function VinylsPage() {
             <div className="container py-5">
                 <h1 className="fw-bold text-blue">VINYL CATALOG</h1>
                 <div>
-                    <input type="text" placeholder="type to search..." value={query} onChange={(e) => setQuery(e.target.value)} style={{ width: '30%', padding: '8px' }} />
-                    <button type="button" onClick={handleSearch} style={{ marginTop: '10px' }} className="p-2 text-blue">Search</button>
+                    <input type="text" className="text-blue mx-2" placeholder="type to search..." value={query} onChange={(e) => setQuery(e.target.value)} style={{ width: '30%', padding: '8px', border: '0' }} />
+                    <button type="button" onClick={handleSearch} style={{ marginTop: '10px', border: '0px' }} className="p-2 bg-yellow text-blue">Search</button>
                 </div>
 
                 {results.length > 0 ? (
