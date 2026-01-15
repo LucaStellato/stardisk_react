@@ -1,80 +1,65 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { useLocation, useNavigate } from "react-router-dom"
 import CatalogBox from "../components/CatalogBox"
 
 export default function VinylsPage() {
-
     const [vinyls, setVinyls] = useState([])
-    const [query, setQuery] = useState("")
-    const [results, setResults] = useState(null)
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const params = new URLSearchParams(location.search)
+    const currentQuery = params.get("query") || ""
+    const [query, setQuery] = useState(currentQuery)
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/products')
-            .then(response => {
-                const filteredData = response.data.filter(item => item.category === "vinyl")
-                setVinyls(filteredData)
+        setQuery(currentQuery)
+
+        const apiUrl = currentQuery
+            ? `http://localhost:3000/api/products/search?query=${currentQuery}`
+            : `http://localhost:3000/api/products`
+
+        axios.get(apiUrl)
+            .then(res => {
+                console.log("Dati ricevuti:", res.data)
+
+                const data = res.data.filter(item =>
+                    item.category?.toString().toLowerCase().trim() === "vinyl"
+                )
+
+                setVinyls(data)
             })
-            .catch(error => {
-                console.log("Error loading vinyls:", error)
-            })
-    }, [])
+            .catch(err => console.error("Errore API:", err))
+    }, [location.search])
 
     const handleSearch = (e) => {
         e.preventDefault()
-
-        fetch(`http://localhost:3000/api/products/search?query=${encodeURIComponent(query)}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setResults(data)
-            })
+        navigate(query.trim() ? `/vinyls?query=${query}` : `/vinyls`)
     }
 
     return (
-        <div className="bg-lightyellow schizzi">
-            <div className="container py-5">
-                <h1 className="fw-bold text-blue">VINYL CATALOG</h1>
+        <div className="container py-5">
+            <form onSubmit={handleSearch} className="mb-4 d-flex gap-2">
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Cerca vinili..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                />
+                <button type="submit" className="btn btn-primary">Search</button>
+            </form>
 
-                <form onSubmit={handleSearch}>
-                    <input
-                        type="text"
-                        className="text-blue mx-2 rounded-pill"
-                        placeholder="type to search..."
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                        style={{ width: '30%', padding: '8px', border: '0' }}
-                    />
-
-                    <button
-                        type="submit"
-                        style={{ marginTop: '10px', border: '0px' }}
-                        className="p-2 bg-yellow text-blue rounded-pill"
-                    >
-                        Search
-                    </button>
-                </form>
-
-
-
-                {results === null ? (
-
-                    <div className="row">
-                        {vinyls.map(vinyl => (
-                            <div className="col-12 col-md-6 col-xl-4" key={vinyl.slug}>
-                                <CatalogBox vinyl={vinyl} />
-                            </div>
-                        ))}
-                    </div>
-                ) : results.length === 0 ? (
-
-                    <p className="text-blue mt-4">Nessun vinile trovato</p>
+            <div className="row g-4">
+                {vinyls.length > 0 ? (
+                    vinyls.map(v => (
+                        <div className="col-md-4" key={v.slug}>
+                            <CatalogBox vinyl={v} />
+                        </div>
+                    ))
                 ) : (
-
-                    <div className="row">
-                        {results.map(result => (
-                            <div className="col-12 col-md-6 col-xl-4" key={result.slug}>
-                                <CatalogBox vinyl={result} />
-                            </div>
-                        ))}
+                    <div className="text-center w-100">
+                        <p>Nessun vinile trovato. Controlla la console (F12) per i dettagli.</p>
                     </div>
                 )}
             </div>

@@ -30,7 +30,7 @@ export default function Header() {
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">About Us</a>
+                                {/* <a className="nav-link" href="#">About Us</a> */}
                             </li>
 
                         </ul>

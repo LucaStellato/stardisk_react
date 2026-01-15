@@ -20,10 +20,10 @@ function App() {
             <Route element={<DefaultLayout />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/vinyls" element={<VinylsPage />} />
-              <Route path='/:slug' element={<DetailPage />} />
               <Route path='/cart' element={<CartPage />} />
               <Route path='/checkout' element={<CheckoutPage />} />
               <Route path="/success" element={<SuccessPage />} />
+              <Route path='/:slug' element={<DetailPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
