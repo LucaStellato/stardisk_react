@@ -19,7 +19,8 @@ export default function VinylsPage() {
             })
     }, [])
 
-    const handleSearch = () => {
+    const handleSearch = (e) => {
+        e.preventDefault()
         fetch(`http://localhost:3000/api/products/search?query=${encodeURIComponent(query)}`)
             .then((res) => res.json())
             .then((data) => {
@@ -39,8 +40,11 @@ export default function VinylsPage() {
             <div className="container py-5">
                 <h1 className="fw-bold text-blue">VINYL CATALOG</h1>
                 <div>
-                    <input type="text" className="text-blue mx-2" placeholder="type to search..." value={query} onChange={(e) => setQuery(e.target.value)} style={{ width: '30%', padding: '8px', border: '0' }} />
-                    <button type="button" onClick={handleSearch} style={{ marginTop: '10px', border: '0px' }} className="p-2 bg-yellow text-blue">Search</button>
+                    <form onSubmit={handleSearch}>
+                        <input type="text" className="text-blue mx-2" placeholder="type to search..." value={query} onChange={(e) => setQuery(e.target.value)} style={{ width: '30%', padding: '8px', border: '0' }} />
+
+                        <button type="submit" style={{ marginTop: '10px', border: '0px' }} className="p-2 bg-yellow text-blue">Search</button>
+                    </form>
                 </div>
 
                 {results.length > 0 ? (
