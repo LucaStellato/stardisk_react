@@ -229,6 +229,80 @@ a {
     font-weight: bold;
 }
 
+/* WALL */
+.detail-wall {
+    min-height: 100vh;
+    padding: 3rem 0;
+    background-image:
+        url("./schizzi.png"),
+        linear-gradient(rgba(255, 243, 226, 0.5), rgba(255, 243, 226, 0.7)),
+        url('https://img.pixers.pics/pho_wat(s3:700/FO/46/75/81/99/700_FO46758199_2e40585bcec078d950c1220d7a47449e.jpg,700,501,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,451,jpg)/carte-da-parati-graffiti-muro-di-mattoni-sfondo-colorato.jpg.jpg');
+    background-size: contain, cover, cover;
+    background-repeat: no-repeat;
+
+    h1,
+    span {
+        text-shadow:
+            -1px -1px 0 #1e1d1d,
+            1px -1px 0 #1e1d1d,
+            -1px 1px 0 #1e1d1d,
+            1px 1px 0 #1e1d1d;
+    }
+}
+
+.vinyl-scene {
+    position: relative;
+    display: inline-block;
+}
+
+.vinyl-on-wall {
+    display: block;
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.35);
+}
+
+.vinyl-holder {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 60%;
+    height: 18px;
+
+    background: linear-gradient(to bottom, #555, #2b2b2b);
+    border-radius: 0 0 10px 10px;
+
+    z-index: 3;
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.4),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* SCREWS */
+.vinyl-holder::before,
+.vinyl-holder::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    width: 6px;
+    height: 6px;
+    background: #bfbfbf;
+    border-radius: 50%;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.vinyl-holder::before {
+    left: 10px;
+}
+
+.vinyl-holder::after {
+    right: 10px;
+}
+
 .form-control:focus {
     border: none !important;
     box-shadow: 0 0 0 0.25rem rgba(235, 194, 86, 0.4) !important;

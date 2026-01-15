@@ -21,7 +21,7 @@ export default function DetailPage() {
 
     return (
         <>
-            <div className="bg-lightyellow schizzi">
+            <div className="detail-wall schizzi">
                 <div className="container">
                     <div className="container pt-5 mb-3 text-start">
                         <Link to="/" className="btn btn-lg bg-blue text-yellow fw-bold">
@@ -35,7 +35,10 @@ export default function DetailPage() {
                         ) : (
                             <>
                                 <div className="col-12 col-md-6 p-5">
-                                    <img className="p-5 card-img-top" src={`${currentProduct.img_url}`} alt="Title" />
+                                    <div className="vinyl-scene">
+                                        <div className="vinyl-holder"></div>
+                                        <img className="vinyl-on-wall" src={currentProduct.img_url} alt={currentProduct.name} />
+                                    </div>
                                 </div>
                                 <div className="col-12 col-md-6 p-5">
                                     <div className=" border-0 ">
@@ -98,18 +101,18 @@ export default function DetailPage() {
                                                 </p>
                                             )}
 
-                                            <p className=" fs-2 text-blue fw-bold mt-2 mb-0">Price:
+                                            <div className=" fs-2 text-blue fw-bold mt-2 mb-0">Price:
                                                 {currentProduct.discount > 0 ? (
                                                     <>
-                                                        <span className="fs-3"> {` ${(currentProduct.full_price * (1 - currentProduct.discount / 100)).toFixed(2)}€`}</span>
-                                                        <span className="text-decoration-line-through ms-2 fs-4 text-secondary">{`${currentProduct.full_price}€`}</span>
+                                                        <p style={{ display: "inline" }} className="fs-3"> {` ${(currentProduct.full_price * (1 - currentProduct.discount / 100)).toFixed(2)}€`}</p>
+                                                        <p style={{ display: "inline" }} className="text-decoration-line-through ms-2 fs-4 text-secondary">{`${currentProduct.full_price}€`}</p>
                                                         <span className="text-red ms-2">{`-${currentProduct.discount}%`}</span>
                                                     </>
                                                 ) : (
-                                                    <span> {`${currentProduct.full_price} €`}</span>
+                                                    <p style={{ display: "inline" }}> {`${currentProduct.full_price} €`}</p>
                                                 )}
-                                            </p>
-                                            <p className="text-muted small">Disponibili: {currentProduct.amount} pz.</p>
+                                            </div>
+                                            <div className="text-muted small">Disponibili: {currentProduct.amount} pz.</div>
                                             <button className="btn btn-lg bg-yellow text-blue fw-bold w-100 mt-3" onClick={() => addToCart(currentProduct)} disabled={currentProduct.amount === 0}>
                                                 {currentProduct.amount === 0 ? 'Esaurito' : 'Aggiungi al carrello'}
                                             </button>
