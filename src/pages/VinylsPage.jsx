@@ -38,7 +38,7 @@ export default function VinylsPage() {
     }
 
     return (
-        <div className="container py-5">
+        <div className="container py-5 schizzi">
 
             <div className="d-flex justify-content-between align-items-center">
                 <h1 className="fw-bold text-blue mb-4 mt-4">VINYLS CATALOG</h1>
@@ -48,8 +48,7 @@ export default function VinylsPage() {
                         className="form-control"
                         placeholder="Cerca vinili..."
                         value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                    />
+                        onChange={(e) => setQuery(e.target.value)} />
                     <button type="submit" className="btn bg-yellow text-blue fw-bold me-5">Search</button>
                 </form>
 
