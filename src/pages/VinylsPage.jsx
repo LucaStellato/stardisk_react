@@ -39,18 +39,25 @@ export default function VinylsPage() {
 
     return (
         <div className="container py-5">
-            <form onSubmit={handleSearch} className="mb-4 d-flex gap-2">
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Cerca vinili..."
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                />
-                <button type="submit" className="btn btn-primary">Search</button>
-            </form>
 
-            <div className="row g-4">
+            <div className="d-flex justify-content-between align-items-center">
+                <h1 className="fw-bold text-blue mb-4 mt-4">VINYLS CATALOG</h1>
+                <form onSubmit={handleSearch} className="mb-4 mt-4 w-25 d-flex gap-2 me-5 pe-5">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Cerca vinili..."
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
+                    <button type="submit" className="btn bg-yellow text-blue fw-bold me-5">Search</button>
+                </form>
+
+            </div>
+
+
+
+            <div className="row g-1">
                 {vinyls.length > 0 ? (
                     vinyls.map(v => (
                         <div className="col-md-4" key={v.slug}>
@@ -59,7 +66,7 @@ export default function VinylsPage() {
                     ))
                 ) : (
                     <div className="text-center w-100">
-                        <p>Nessun vinile trovato. Controlla la console (F12) per i dettagli.</p>
+                        <p>Nessun vinile trovato.</p>
                     </div>
                 )}
             </div>
