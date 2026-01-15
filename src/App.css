@@ -31,9 +31,14 @@ a {
     color: #D05335 !important;
 }
 
+.text-blue::placeholder {
+    color: #42517A !important;
+}
+
 .text-blue {
     color: #42517A !important;
 }
+
 
 .text-yellow {
     color: #EBC256 !important;
