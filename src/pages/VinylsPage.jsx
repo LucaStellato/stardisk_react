@@ -49,7 +49,7 @@ export default function VinylsPage() {
                         placeholder="Cerca vinili..."
                         value={query}
                         onChange={(e) => setQuery(e.target.value)} />
-                    <button type="submit" className="btn bg-yellow text-blue fw-bold me-5">Search</button>
+                    <button type="submit" className="btn bg-blue text-yellow fw-bold me-5">Search</button>
                 </form>
 
             </div>

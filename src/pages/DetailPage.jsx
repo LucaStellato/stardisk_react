@@ -101,18 +101,18 @@ export default function DetailPage() {
                                                 </p>
                                             )}
 
-                                            <p className=" fs-2 text-blue fw-bold mt-2 mb-0">Price:
+                                            <div className=" fs-2 text-blue fw-bold mt-2 mb-0">Price:
                                                 {currentProduct.discount > 0 ? (
                                                     <>
-                                                        <span className="fs-3"> {` ${(currentProduct.full_price * (1 - currentProduct.discount / 100)).toFixed(2)}€`}</span>
-                                                        <span className="text-decoration-line-through ms-2 fs-4 text-secondary">{`${currentProduct.full_price}€`}</span>
+                                                        <p style={{ display: "inline" }} className="fs-3"> {` ${(currentProduct.full_price * (1 - currentProduct.discount / 100)).toFixed(2)}€`}</p>
+                                                        <p style={{ display: "inline" }} className="text-decoration-line-through ms-2 fs-4 text-secondary">{`${currentProduct.full_price}€`}</p>
                                                         <span className="text-red ms-2">{`-${currentProduct.discount}%`}</span>
                                                     </>
                                                 ) : (
-                                                    <span> {`${currentProduct.full_price} €`}</span>
+                                                    <p style={{ display: "inline" }}> {`${currentProduct.full_price} €`}</p>
                                                 )}
-                                            </p>
-                                            <p className="text-muted small">Disponibili: {currentProduct.amount} pz.</p>
+                                            </div>
+                                            <div className="text-muted small">Disponibili: {currentProduct.amount} pz.</div>
                                             <button className="btn btn-lg bg-yellow text-blue fw-bold w-100 mt-3" onClick={() => addToCart(currentProduct)} disabled={currentProduct.amount === 0}>
                                                 {currentProduct.amount === 0 ? 'Esaurito' : 'Aggiungi al carrello'}
                                             </button>

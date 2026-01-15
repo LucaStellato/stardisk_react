@@ -235,11 +235,19 @@ a {
     padding: 3rem 0;
     background-image:
         url("./schizzi.png"),
-        linear-gradient(rgba(255, 243, 226, 0.5), rgba(255, 243, 226, 0)),
+        linear-gradient(rgba(255, 243, 226, 0.5), rgba(255, 243, 226, 0.7)),
         url('https://img.pixers.pics/pho_wat(s3:700/FO/46/75/81/99/700_FO46758199_2e40585bcec078d950c1220d7a47449e.jpg,700,501,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,451,jpg)/carte-da-parati-graffiti-muro-di-mattoni-sfondo-colorato.jpg.jpg');
     background-size: contain, cover, cover;
-    background-position: center;
     background-repeat: no-repeat;
+
+    h1,
+    span {
+        text-shadow:
+            -1px -1px 0 #1e1d1d,
+            1px -1px 0 #1e1d1d,
+            -1px 1px 0 #1e1d1d,
+            1px 1px 0 #1e1d1d;
+    }
 }
 
 .vinyl-scene {
