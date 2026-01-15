@@ -293,3 +293,8 @@ a {
 .vinyl-holder::after {
     right: 10px;
 }
+
+.form-control:focus {
+    border: none !important;
+    box-shadow: 0 0 0 0.25rem rgba(235, 194, 86, 0.4) !important;
+}

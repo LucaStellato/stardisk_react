@@ -108,10 +108,10 @@ const CartPage = () => {
                                                         </span>
                                                     </>
                                                 ) : (
-                                                    <span className="fw-bold h5">€{prezzoOriginale.toFixed(2)}</span>
+                                                    <span className="fw-bold h5 text-blue me-3 fs-5">€{prezzoOriginale.toFixed(2)}</span>
                                                 )}
                                                 <button
-                                                    className="btn btn-link text-danger p-0 mt-1"
+                                                    className="btn btn-link text-danger p-0 mb-2"
                                                     onClick={() => removeFromCart(item.product_id)}
                                                     style={{ fontSize: '0.85rem', textDecoration: 'none' }}>
                                                     <i class="bi bi-trash3 fs-4 fw-bold text-red"></i>
