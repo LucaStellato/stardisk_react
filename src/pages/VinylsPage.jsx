@@ -22,11 +22,25 @@ export default function VinylsPage() {
     }, [])
 
     const handleSearch = () => {
-        fetch(`http://localhost:3000/api/products/search?q=${encodeURIComponent(query)}`)
+        fetch(`http://localhost:3000/api/products/search?query=${encodeURIComponent(query)}`)
             .then((res) => res.json())
-            .then((data) => setResults(data))
-        console.log(results)
+            .then((data) => {
+                console.log(data)
+                setResults(data)
+
+
+
+
+            }
+
+
+            )
+
+
+
+
     }
+
 
 
     return (
