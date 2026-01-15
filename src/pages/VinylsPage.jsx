@@ -43,7 +43,7 @@ export default function VinylsPage() {
                     <button type="button" onClick={handleSearch} style={{ marginTop: '10px' }} className="p-2 text-blue">Search</button>
                 </div>
 
-                {results ? (
+                {results.length > 0 ? (
                     <div className="row">
                         {results.map(result => (
                             <div className="col-12 col-md-6 col-xl-4" key={result.slug}>
