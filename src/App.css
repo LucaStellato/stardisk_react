@@ -1,5 +1,4 @@
 /* RESET */
-
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +6,6 @@
 }
 
 /* GENERICS */
-
 body {
     font-family: sans-serif;
 }
@@ -17,8 +15,7 @@ a {
     color: #42517A !important;
 }
 
-/* UTILS */
-
+/* UTILITIES */
 .container {
     width: 70%;
     max-width: 1176px;
@@ -73,10 +70,7 @@ a {
     width: 100%;
 }
 
-
-
 /* JUMBOTRON */
-
 .jumbo {
     background-image: url(./jumbo.PNG);
     background-position: center;
@@ -95,7 +89,6 @@ a {
 }
 
 /* CARD */
-
 .card {
     transition: all 0.35s ease-out;
 }
@@ -107,7 +100,6 @@ a {
 
 
 /* VINYLS */
-
 .vinyl-box-wrapper {
     text-align: center;
     margin-top: 4rem;
@@ -130,7 +122,6 @@ a {
 }
 
 /* DISK */
-
 .vinyl-disc {
     position: absolute;
     width: 70%;
@@ -154,7 +145,6 @@ a {
 }
 
 /* COVER */
-
 .vinyl-cover {
     position: absolute;
     bottom: 0;
@@ -184,7 +174,6 @@ a {
 }
 
 /*VINYL BOX HOVER */
-
 .vinyl-box:hover {
     scale: 1.03;
 }
@@ -200,13 +189,37 @@ a {
 }
 
 /* CART */
-
 .cart-section {
     width: 175px;
 }
 
 /* ACCORDION */
-
 .accordion-button:focus {
     box-shadow: none !important;
+}
+
+/* RED DOT ON TOP OF CART */
+.cart-icon-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-badge {
+    position: absolute;
+    top: 4px;
+    right: 3px;
+
+    background-color: red;
+    color: white;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 13px;
+    font-weight: bold;
 }

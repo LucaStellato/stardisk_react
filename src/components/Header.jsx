@@ -1,6 +1,13 @@
 import { Link, NavLink } from 'react-router-dom'
+import { useCart } from '../../contexts/CartContext'
 
 export default function Header() {
+    const { cart } = useCart();
+
+    const cartCount = cart.reduce(
+        (acc, item) => acc + item.quantity,
+        0
+    );
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-yellow">
@@ -28,10 +35,16 @@ export default function Header() {
 
                         </ul>
                     </div>
-                    <div className='flex-1 d-flex juustify-content-end'>
-                        <div className='cart-section text-end'>
-                            <Link to={'/cart'}>
+                    <div className='flex-1 d-flex justify-content-end'>
+                        <div className="cart-section text-end">
+                            <Link to="/cart" className="cart-icon-wrapper">
                                 <i className="bi bi-bag text-blue fs-4 p-3"></i>
+
+                                {cartCount > 0 && (
+                                    <span className="cart-badge">
+                                        {cartCount}
+                                    </span>
+                                )}
                             </Link>
                         </div>
                     </div>
