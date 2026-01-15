@@ -21,7 +21,7 @@ export default function DetailPage() {
 
     return (
         <>
-            <div className="bg-lightyellow schizzi">
+            <div className="detail-wall schizzi">
                 <div className="container">
                     <div className="container pt-5 mb-3 text-start">
                         <Link to="/" className="btn btn-lg bg-blue text-yellow fw-bold">
@@ -35,7 +35,10 @@ export default function DetailPage() {
                         ) : (
                             <>
                                 <div className="col-12 col-md-6 p-5">
-                                    <img className="p-5 card-img-top" src={`${currentProduct.img_url}`} alt="Title" />
+                                    <div className="vinyl-scene">
+                                        <div className="vinyl-holder"></div>
+                                        <img className="vinyl-on-wall" src={currentProduct.img_url} alt={currentProduct.name} />
+                                    </div>
                                 </div>
                                 <div className="col-12 col-md-6 p-5">
                                     <div className=" border-0 ">
