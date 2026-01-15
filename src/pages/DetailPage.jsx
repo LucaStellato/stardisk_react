@@ -2,12 +2,13 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { useCart } from "../../contexts/CartContext"
 
 export default function DetailPage() {
 
     const [currentProduct, setCurrentProduct] = useState(null)
-
     const { slug } = useParams()
+    const { addToCart } = useCart();
 
     useEffect(() => {
 
@@ -22,8 +23,8 @@ export default function DetailPage() {
         <>
             <div className="bg-lightyellow schizzi">
                 <div className="container">
-                    <div className="container pt-5 mb-3 text-center">
-                        <Link to="/" className="btn btn-lg bg-blue text-yellow fw-bold w-25">
+                    <div className="container pt-5 mb-3 text-start">
+                        <Link to="/" className="btn btn-lg bg-blue text-yellow fw-bold">
                             <i className="bi bi-arrow-left me-2"></i>
                             Back to home
                         </Link>
@@ -46,7 +47,6 @@ export default function DetailPage() {
                                                     {currentProduct.category === 'turntable' ? currentProduct.brand : currentProduct.artist_name}
                                                 </span>
                                             </p>
-
                                             <p className="fw-bold fs-3 text-blue mt-2">
                                                 {currentProduct.category === 'turntable' ? 'Color:' : 'Release Year:'}
                                                 <span className="text-yellow ms-2">
@@ -98,19 +98,21 @@ export default function DetailPage() {
                                                 </p>
                                             )}
 
-                                            <p className=" fs-2 text-blue fw-bold mt-2">Price:
+                                            <p className=" fs-2 text-blue fw-bold mt-2 mb-0">Price:
                                                 {currentProduct.discount > 0 ? (
                                                     <>
-                                                        <span> {` ${(currentProduct.full_price * (1 - currentProduct.discount / 100)).toFixed(2)}€`}</span>
-                                                        <span className="text-decoration-line-through ms-2 text-yellow">{`${currentProduct.full_price}€`}</span>
+                                                        <span className="fs-3"> {` ${(currentProduct.full_price * (1 - currentProduct.discount / 100)).toFixed(2)}€`}</span>
+                                                        <span className="text-decoration-line-through ms-2 fs-4 text-secondary">{`${currentProduct.full_price}€`}</span>
                                                         <span className="text-red ms-2">{`-${currentProduct.discount}%`}</span>
                                                     </>
                                                 ) : (
                                                     <span> {`${currentProduct.full_price} €`}</span>
                                                 )}
                                             </p>
-
-                                            <Link to="/" className="btn btn-lg bg-yellow fw-bold w-100 mt-3">Add to Cart</Link>
+                                            <p className="text-muted small">Disponibili: {currentProduct.amount} pz.</p>
+                                            <button className="btn btn-lg bg-yellow fw-bold w-100 mt-3" onClick={() => addToCart(currentProduct)} disabled={currentProduct.amount === 0}>
+                                                {currentProduct.amount === 0 ? 'Esaurito' : 'Aggiungi al carrello'}
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -122,4 +124,4 @@ export default function DetailPage() {
             </div >
         </>
     )
-}
+} 

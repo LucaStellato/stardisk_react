@@ -30,7 +30,7 @@ export default function Header() {
                     </div>
                     <div className='flex-1 d-flex juustify-content-end'>
                         <div className='cart-section text-end'>
-                            <Link to={'/'}>
+                            <Link to={'/cart'}>
                                 <i className="bi bi-bag text-blue fs-4 p-3"></i>
                             </Link>
                         </div>

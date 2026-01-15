@@ -35,13 +35,13 @@ export default function SaleSection() {
                                                 <p className=" fs-6 text-blue fw-bold mt-2">
                                                     {vinyl.discount > 0 ? (
                                                         <>
-                                                            <span>
+                                                            <span className="fs-5">
                                                                 {` ${(vinyl.full_price * (1 - vinyl.discount / 100)).toFixed(2)}€`}
                                                             </span>
-                                                            <span className="text-decoration-line-through ms-2 text-yellow">
+                                                            <span className="text-decoration-line-through ms-2 fs-7 small text-secondary text-yellow">
                                                                 {`${vinyl.full_price}€`}
                                                             </span>
-                                                            <span className="text-red ms-2">
+                                                            <span className="text-red fs-4 ms-2">
                                                                 {`-${vinyl.discount}%`}
                                                             </span>
                                                         </>
