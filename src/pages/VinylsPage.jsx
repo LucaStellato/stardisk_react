@@ -6,9 +6,7 @@ export default function VinylsPage() {
 
     const [vinyls, setVinyls] = useState([])
     const [query, setQuery] = useState("")
-    const [results, setResults] = useState([]
-
-    )
+    const [results, setResults] = useState([])
     useEffect(() => {
         axios.get('http://localhost:3000/api/products')
             .then(response => {
@@ -28,16 +26,9 @@ export default function VinylsPage() {
                 console.log(data)
                 setResults(data)
 
-
-
-
             }
 
-
             )
-
-
-
 
     }
 
@@ -51,20 +42,25 @@ export default function VinylsPage() {
                     <input type="text" placeholder="type to search..." value={query} onChange={(e) => setQuery(e.target.value)} style={{ width: '30%', padding: '8px' }} />
                     <button type="button" onClick={handleSearch} style={{ marginTop: '10px' }} className="p-2 text-blue">Search</button>
                 </div>
-                <div className="row">
-                    {vinyls.map(vinyl => (
-                        <div className="col-12 col-md-6 col-xl-4" key={vinyl.slug}>
-                            <CatalogBox vinyl={vinyl} />
-                        </div>
-                    ))}
-                </div>
-                <div className="row">
-                    {results.map(result => (
-                        <div className="col-12 col-md-6 col-xl-4" key={result.slug}>
-                            <CatalogBox vinyl={result} />
-                        </div>
-                    ))}
-                </div>
+
+                {results ? (
+                    <div className="row">
+                        {results.map(result => (
+                            <div className="col-12 col-md-6 col-xl-4" key={result.slug}>
+                                <CatalogBox vinyl={result} />
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="row">
+                        {vinyls.map(vinyl => (
+                            <div className="col-12 col-md-6 col-xl-4" key={vinyl.slug}>
+                                <CatalogBox vinyl={vinyl} />
+                            </div>
+                        ))}
+                    </div>
+                )
+                }
             </div>
         </div>
     )
