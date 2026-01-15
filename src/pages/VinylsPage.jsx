@@ -41,9 +41,9 @@ export default function VinylsPage() {
                 <h1 className="fw-bold text-blue">VINYL CATALOG</h1>
                 <div>
                     <form onSubmit={handleSearch}>
-                        <input type="text" className="text-blue mx-2" placeholder="type to search..." value={query} onChange={(e) => setQuery(e.target.value)} style={{ width: '30%', padding: '8px', border: '0' }} />
+                        <input type="text" className="text-blue mx-2 rounded-pill" placeholder="type to search..." value={query} onChange={(e) => setQuery(e.target.value)} style={{ width: '30%', padding: '8px', border: '0' }} />
 
-                        <button type="submit" style={{ marginTop: '10px', border: '0px' }} className="p-2 bg-yellow text-blue">Search</button>
+                        <button type="submit" style={{ marginTop: '10px', border: '0px' }} className="p-2 bg-yellow text-blue rounded-pill">Search</button>
                     </form>
                 </div>
 
