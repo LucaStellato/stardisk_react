@@ -7,6 +7,7 @@ import DetailPage from "./pages/DetailPage"
 import { CartProvider } from "../contexts/CartContext"
 import CartPage from "./pages/CartPage"
 import CheckoutPage from "./pages/CheckoutPage"
+import SuccessPage from "./pages/SuccessPage"
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
               <Route path='/:slug' element={<DetailPage />} />
               <Route path='/cart' element={<CartPage />} />
               <Route path='/checkout' element={<CheckoutPage />} />
+              <Route path="/success" element={<SuccessPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

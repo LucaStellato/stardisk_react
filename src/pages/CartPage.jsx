@@ -27,7 +27,7 @@ const CartPage = () => {
     }
 
     return (
-        <div className="container mt-5 mb-5">
+        <div className="container mt-5 mb-5" style={{ minHeight: 'calc(100vh - 300px)' }}>
             <h2 className="mb-4 fw-bold text-uppercase text-blue pb-4">Il tuo Carrello</h2>
 
             <div className="row">
