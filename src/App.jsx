@@ -6,6 +6,7 @@ import VinylsPage from "./pages/VinylsPage"
 import DetailPage from "./pages/DetailPage"
 import { CartProvider } from "../contexts/CartContext"
 import CartPage from "./pages/CartPage"
+import CheckoutPage from "./pages/CheckoutPage"
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
               <Route path="/vinyls" element={<VinylsPage />} />
               <Route path='/:slug' element={<DetailPage />} />
               <Route path='/cart' element={<CartPage />} />
+              <Route path='/checkout' element={<CheckoutPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

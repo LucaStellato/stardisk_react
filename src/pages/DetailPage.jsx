@@ -110,7 +110,7 @@ export default function DetailPage() {
                                                 )}
                                             </p>
                                             <p className="text-muted small">Disponibili: {currentProduct.amount} pz.</p>
-                                            <button className="btn btn-lg bg-yellow fw-bold w-100 mt-3" onClick={() => addToCart(currentProduct)} disabled={currentProduct.amount === 0}>
+                                            <button className="btn btn-lg bg-yellow text-blue fw-bold w-100 mt-3" onClick={() => addToCart(currentProduct)} disabled={currentProduct.amount === 0}>
                                                 {currentProduct.amount === 0 ? 'Esaurito' : 'Aggiungi al carrello'}
                                             </button>
                                         </div>

@@ -1,95 +1,178 @@
-import { useCart } from '../../contexts/CartContext';
+import { useCart } from '../../contexts/CartContext'; // Controlla che il percorso sia corretto
 import { useNavigate } from 'react-router-dom';
 
 const CartPage = () => {
-    // Estraiamo le funzioni dal Context
-    const { cart, addToCart, removeFromCart, clearCart } = useCart();
+    const { cart, addToCart, decreaseQuantity, removeFromCart } = useCart();
     const navigate = useNavigate();
 
-    // Calcoliamo il totale generale
-    const totaleGenerale = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    // Calcolo del totale generale basato sul prezzo scontato (priceFinal)
+    const totaleGenerale = cart.reduce((acc, item) => {
+        const prezzoDaUsare = item.priceFinal || parseFloat(item.full_price);
+        return acc + (prezzoDaUsare * item.quantity);
+    }, 0);
+
+    // Schermata se il carrello è vuoto
+    if (cart.length === 0) {
+        return (
+            <div className="container mt-5 text-center">
+                <div className="alert alert-light p-5 shadow-sm border">
+                    <h3 className="mb-3">Il tuo carrello è vuoto 💿</h3>
+                    <p className="text-muted">Non hai ancora aggiunto alcun vinile alla tua collezione.</p>
+                    <button className="btn btn-primary btn-lg mt-3" onClick={() => navigate('/')}>
+                        Torna allo Shop
+                    </button>
+                </div>
+            </div>
+        );
+    }
 
     return (
-        <div className="container mt-5">
-            <h2 className="mb-4">Il tuo Carrello Vinili</h2>
+        <div className="container mt-5 mb-5">
+            <h2 className="mb-4 fw-bold text-uppercase text-blue pb-4">Il tuo Carrello</h2>
 
-            {cart.length === 0 ? (
-                <div className="alert alert-info">Il carrello è vuoto.</div>
-            ) : (
-                <div className="card shadow border-0">
-                    <div className="card-body">
-                        <table className="table align-middle">
-                            <thead>
-                                <tr>
-                                    <th>Vinile</th>
-                                    <th>Prezzo</th>
-                                    <th className="text-center">Quantità</th>
-                                    <th>Subtotale</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {cart.map(item => (
-                                    <tr key={item.id}>
-                                        <td>
-                                            <div className="fw-bold">{item.title}</div>
-                                            <small className="text-muted">Disponibilità: {item.amount} pz.</small>
-                                        </td>
-                                        <td>€{((item.full_price || 0) * (item.quantity || 0)).toFixed(2)}</td>
-                                        <td className="text-center">
-                                            <div className="btn-group border rounded shadow-sm">
-                                                {/* Tasto meno: Se arrivi a 0, lo rimuoviamo */}
+            <div className="row">
+                {/* --- COLONNA SINISTRA: ELENCO PRODOTTI --- */}
+                <div className="col-lg-7">
+                    {cart.map((item) => {
+                        const haSconto = item.discount > 0;
+                        const prezzoOriginale = parseFloat(item.full_price);
+                        const prezzoScontato = item.priceFinal;
+
+                        return (
+                            <div key={item.product_id} className="mb-3 border-0">
+                                <div className="card-body">
+                                    <div className="row align-items-center pe-4">
+
+                                        {/* 1. Immagine */}
+                                        <div className="col-3 col-md-2">
+                                            <img
+                                                src={item.img_url || 'https://via.placeholder.com/100'}
+                                                alt={item.name}
+                                                className="img-fluid rounded shadow-sm"
+                                                style={{ objectFit: 'cover', height: '90px', width: '90px' }}
+                                            />
+                                        </div>
+
+                                        {/* 2. Dettagli */}
+                                        <div className="col-9 col-md-4">
+                                            <h6 className="mb-0 fw-bold text-truncate text-blue">{item.name}</h6>
+                                            <small className="text-yellow fw-bold d-block">{item.artist_name || 'Artista'}</small>
+                                            {haSconto && (
+                                                <span className="badge bg-danger mt-1">Sconto {item.discount}%</span>
+                                            )}
+                                        </div>
+
+                                        {/* 3. Controlli Quantità */}
+                                        <div className="col-6 col-md-3 d-flex flex-column align-items-center justify-content-center">
+                                            {/* Contenitore compatto */}
+                                            <div className="d-flex align-items-center border rounded-pill bg-white px-1 shadow-sm" style={{ width: 'fit-content' }}>
                                                 <button
-                                                    className="btn btn-sm btn-light px-3"
-                                                    onClick={() => removeFromCart(item.id)}
+                                                    className="btn btn-sm btn-link text-blue text-decoration-none px-2 py-0"
+                                                    onClick={() => decreaseQuantity(item.product_id)}
+                                                    style={{ fontSize: '1.1rem', fontWeight: 'bold' }}
                                                 >
-                                                    -
+                                                    −
                                                 </button>
 
-                                                <span className="px-3 py-1 bg-white fw-bold">
+                                                <span className="mx-2 fw-bold text-blue" style={{ fontSize: '0.9rem', minWidth: '15px text-center' }}>
                                                     {item.quantity}
                                                 </span>
 
-                                                {/* Tasto più: Riutilizziamo addToCart (che controlla già lo stock) */}
                                                 <button
-                                                    className="btn btn-sm btn-light px-3"
+                                                    className="btn btn-sm btn-link text-blue text-decoration-none px-2 py-0"
                                                     onClick={() => addToCart(item)}
+                                                    style={{ fontSize: '1.1rem', fontWeight: 'bold' }}
                                                 >
                                                     +
                                                 </button>
                                             </div>
-                                        </td>
-                                        <td>€{(item.full_price * item.quantity).toFixed(2)}</td>
-                                        <td className="text-end">
-                                            <button
-                                                className="btn btn-link text-danger p-0"
-                                                onClick={() => removeFromCart(item.id)}
-                                            >
-                                                Elimina
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
 
-                        <div className="d-flex justify-content-between align-items-center mt-4">
-                            <button className="btn btn-outline-secondary" onClick={() => navigate('/')}>
-                                Continua Shopping
-                            </button>
-                            <div className="text-end">
-                                <h4 className="mb-3">Totale: <span className="text-success">€{totaleGenerale.toFixed(2)}</span></h4>
-                                <button
-                                    className="btn btn-success btn-lg px-5"
-                                    onClick={() => navigate('/success')}
-                                >
-                                    Paga Ora
-                                </button>
+                                            {/* Testo disponibilità più discreto */}
+                                            <div className="mt-1">
+                                                <small className="text-blue fw-bold" style={{ fontSize: '0.65rem', letterSpacing: '0.5px' }}>
+                                                    {item.amount} DISPONIBILI
+                                                </small>
+                                            </div>
+                                        </div>
+
+                                        {/* 4. Prezzi e Rimozione */}
+                                        <div className="col-6 col-md-3 text-end ">
+                                            <div className="mb-1 d-flex justify-content-end align-items-center">
+                                                {haSconto ? (
+                                                    <>
+                                                        <span className="text-secondary text-decoration-line-through me-3 small">
+                                                            €{prezzoOriginale.toFixed(2)}
+                                                        </span>
+                                                        <span className="fw-bold text-blue me-3 fs-5">
+                                                            €{prezzoScontato.toFixed(2)}
+                                                        </span>
+                                                    </>
+                                                ) : (
+                                                    <span className="fw-bold h5">€{prezzoOriginale.toFixed(2)}</span>
+                                                )}
+                                                <button
+                                                    className="btn btn-link text-danger p-0 mt-1"
+                                                    onClick={() => removeFromCart(item.product_id)}
+                                                    style={{ fontSize: '0.85rem', textDecoration: 'none' }}>
+                                                    <i class="bi bi-trash3 fs-4 fw-bold text-red"></i>
+                                                </button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
+                        );
+                    })}
+                </div>
+
+                {/* --- COLONNA DESTRA: RIEPILOGO --- */}
+                <div className="col-lg-5 mt-4 mt-lg-0">
+                    <div className="border-0 px-5 sticky-top" style={{ top: '20px' }}>
+                        <h4 className="fw-bold mb-4 text-yellow">Riepilogo Ordine</h4>
+
+                        <div className="d-flex text-blue justify-content-between mb-2">
+                            <span>Articoli totali:</span>
+                            <span>{cart.reduce((acc, item) => acc + item.quantity, 0)}</span>
+                        </div>
+
+                        {/* --- NUOVA SEZIONE: LISTA DELLA SPESA --- */}
+                        <div className="py-3 mb-3 border-top border-bottom" style={{ maxHeight: '200px', overflowY: 'auto' }}>
+                            <ul className="list-unstyled mb-0">
+                                {cart.map((item) => (
+                                    <li key={item.product_id} className="d-flex justify-content-between align-items-center mb-2" style={{ fontSize: '0.9rem' }}>
+                                        <div className="text-blue text-truncate me-3" style={{ maxWidth: '70%' }}>
+                                            <span className="fw-bold">{item.quantity}x</span> {item.name}
+                                        </div>
+                                        <span className="text-blue fw-semibold">
+                                            €{((item.priceFinal || parseFloat(item.full_price)) * item.quantity).toFixed(2)}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        {/* -------------------------------------- */}
+
+                        <div className="d-flex justify-content-between mb-4">
+                            <span className="fw-bold h5 text-blue">TOTALE:</span>
+                            <span className="fw-bold h4 text-blue">€{totaleGenerale.toFixed(2)}</span>
+                        </div>
+
+                        <button className="btn bg-yellow text-blue w-100 fw-bold mb-3 shadow-sm" onClick={() => navigate('/checkout')}>
+                            Procedi all'ordine
+                        </button>
+
+                        <button className="btn bg-blue text-yellow fw-bold w-100 shadow-sm" onClick={() => navigate('/')}>
+                            Continua lo Shopping
+                        </button>
+
+                        <div className="text-center mt-3">
+                            <small className="text-secondary">Spedizione gratuita su ordini sopra i €50</small>
                         </div>
                     </div>
                 </div>
-            )}
+            </div>
         </div>
     );
 };
