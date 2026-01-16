@@ -19,7 +19,7 @@ export default function SaleSection() {
 
     return (
         <>
-            <div className="bg-lightyellow">
+            <div className="">
                 <div className="container">
                     <h1 className="pt-5 fw-bold text-blue">SALE</h1>
                     <div className="row row-cols-12 row-cols-md-3 row-cols-lg-4 py-5 g-5">
@@ -28,9 +28,9 @@ export default function SaleSection() {
                                 <div className="col" key={vinyl.product_id}>
 
                                     <Link to={`/${vinyl.slug}`}>
-                                        <div className="card border-0">
-                                            <img src={vinyl.img_url} className="card-img-top bg-lightyellow" alt="..." />
-                                            <div className="card-body bg-lightyellow text-blue fw-bold">
+                                        <div className="card border-0 bg-transparent">
+                                            <img src={vinyl.img_url} className="card-img-top" alt="..." />
+                                            <div className="card-body text-blue fw-bold bg-transparent">
                                                 <h5 className="card-title fw-bold">{vinyl.name}</h5>
                                                 <p className=" fs-6 text-blue fw-bold mt-2">
                                                     {vinyl.discount > 0 ? (

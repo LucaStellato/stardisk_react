@@ -6,24 +6,34 @@ import { useCart } from "../../contexts/CartContext"
 
 export default function DetailPage() {
 
-    const [currentProduct, setCurrentProduct] = useState(null)
-    const { slug } = useParams()
+    const [currentProduct, setCurrentProduct] = useState(null);
+    const [relatedProducts, setRelatedProducts] = useState([]); // Stato per i correlati
+    const { slug } = useParams();
     const { addToCart } = useCart();
 
     useEffect(() => {
+        setCurrentProduct(null);
+        setRelatedProducts([]);
 
         axios.get(`http://localhost:3000/api/products/${slug}`)
             .then(res => {
-                console.log(res.data)
-                setCurrentProduct(res.data[0])
+                setCurrentProduct(res.data[0]);
             })
-    }, [slug])
+            .catch(err => console.error("Errore caricamento prodotto:", err));
+
+        axios.get(`http://localhost:3000/api/products/${slug}/related`)
+            .then(res => {
+                setRelatedProducts(res.data);
+            })
+            .catch(err => console.error("Errore caricamento correlati:", err));
+
+    }, [slug]);
 
     return (
         <>
             <div className="detail-wall schizzi">
                 <div className="container">
-                    <div className="container pt-5 mb-3 text-start">
+                    <div className="container pt-3 mb-3 text-start">
                         <Link to="/" className="btn btn-lg bg-blue text-yellow fw-bold">
                             <i className="bi bi-arrow-left me-2"></i>
                             Back to home
@@ -35,10 +45,16 @@ export default function DetailPage() {
                         ) : (
                             <>
                                 <div className="col-12 col-md-6 p-5">
-                                    <div className="vinyl-scene">
-                                        <div className="vinyl-holder"></div>
-                                        <img className="vinyl-on-wall" src={currentProduct.img_url} alt={currentProduct.name} />
-                                    </div>
+                                    {currentProduct?.category === "vinyl" ? (
+                                        <div className="vinyl-scene">
+                                            <div className="vinyl-holder"></div>
+                                            <img className="vinyl-on-wall" src={currentProduct.img_url} alt={currentProduct.name} />
+                                        </div>
+                                    ) : (
+                                        <img className="card-img-top" src={currentProduct.img_url} alt="" />
+                                    )
+
+                                    }
                                 </div>
                                 <div className="col-12 col-md-6 p-5">
                                     <div className=" border-0 ">
@@ -78,9 +94,9 @@ export default function DetailPage() {
                                                             aria-labelledby="headingOne"
                                                             data-bs-parent="#descriptionAccordion"
                                                         >
-                                                            <div className="accordion-body text-yellow ps-0 fw-bold">
+                                                            <span className="accordion-body text-yellow ps-0 fw-bold">
                                                                 {currentProduct.description}
-                                                            </div>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -122,8 +138,56 @@ export default function DetailPage() {
                             </>
                         )}
                     </div>
+                    {currentProduct?.category === 'vinyl' &&
+                        <div className="row ps-5 pt-3">
+                            <div className="col-7">
+                                <h1 className="fw-bold text-red pb-3">TrackList</h1>
+                                <p className="text-blue fw-bold fs-4">Work in Progress...</p>
+                            </div>
+                            <div className="col-5">
+                                <h1 className="fw-bold text-red pb-3">Album Description</h1>
+                                <p className="text-blue fw-bold fs-4">Work in Progress...</p>
 
-                </div>
+                            </div>
+                        </div>
+                    }
+                    {relatedProducts.length > 0 && (
+                        <div className="row d-flex justify-content-center align-items-center g-5 mt-3">
+                            <div className="col-12">
+                                <h1 className="fw-bold text-red pb-3 text-center">Related Vinyls</h1>
+                            </div>
+                            {relatedProducts.map(prod => (
+                                <div key={prod.slug} className="col col-md-3 mb-4">
+                                    <Link to={`/${prod.slug}`} className="text-decoration-none">
+                                        <div className="card border-0 bg-transparent h-100">
+                                            <img src={prod.img_url} className="card-img-top" alt={prod.name} />
+                                            <div className="card-body text-blue fw-bold bg-transparent px-0">
+                                                <h5 className="card-title fw-bold fs-6">{prod.name}</h5>
+                                                <p className="fs-6 text-blue fw-bold mt-2">
+                                                    {prod.discount > 0 ? (
+                                                        <>
+                                                            <p className="fs-5 d-inline">
+                                                                {(prod.full_price * (1 - prod.discount / 100)).toFixed(2)}€
+                                                            </p>
+                                                            <p className="d-inline fs-6 text-decoration-line-through ms-2 small text-secondary">
+                                                                {prod.full_price}€
+                                                            </p>
+                                                            <span className="text-red ms-2 fs-4">
+                                                                -{prod.discount}%
+                                                            </span>
+                                                        </>
+                                                    ) : (
+                                                        <p className="fs-5">{prod.full_price} €</p>
+                                                    )}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div >
             </div >
         </>
     )

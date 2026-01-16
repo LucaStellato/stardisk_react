@@ -231,12 +231,12 @@ a {
 
 /* WALL */
 .detail-wall {
-    min-height: 100vh;
+    min-height: 75vh;
     padding: 3rem 0;
     background-image:
         url("./schizzi.png"),
         linear-gradient(rgba(255, 243, 226, 0.5), rgba(255, 243, 226, 0.7)),
-        url('https://img.pixers.pics/pho_wat(s3:700/FO/46/75/81/99/700_FO46758199_2e40585bcec078d950c1220d7a47449e.jpg,700,501,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,451,jpg)/carte-da-parati-graffiti-muro-di-mattoni-sfondo-colorato.jpg.jpg');
+        url('./detail-wall.jpg');
     background-size: contain, cover, cover;
     background-repeat: no-repeat;
 
@@ -303,7 +303,25 @@ a {
     right: 10px;
 }
 
+.form-select:focus {
+    border: none !important;
+    box-shadow: none !important;
+}
+
 .form-control:focus {
     border: none !important;
     box-shadow: 0 0 0 0.25rem rgba(235, 194, 86, 0.4) !important;
+
+}
+
+.bg-graffiti {
+    min-height: 80vh;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+        url('https://media.istockphoto.com/id/1682399954/it/vettoriale/modello-di-sfondo-di-illustrazione-vettoriale-astratto-urbano-stile-urbano-hiphop.jpg?s=612x612&w=0&k=20&c=cjt_vGqUcNMOiX0NlLvq-vQBpbxTs3EKcSDyinZYCv4=');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
