@@ -33,7 +33,7 @@ export default function DetailPage() {
         <>
             <div className="detail-wall schizzi">
                 <div className="container">
-                    <div className="container pt-5 mb-3 text-start">
+                    <div className="container pt-3 mb-3 text-start">
                         <Link to="/" className="btn btn-lg bg-blue text-yellow fw-bold">
                             <i className="bi bi-arrow-left me-2"></i>
                             Back to home
@@ -166,18 +166,18 @@ export default function DetailPage() {
                                                 <p className="fs-6 text-blue fw-bold mt-2">
                                                     {prod.discount > 0 ? (
                                                         <>
-                                                            <span className="fs-5">
+                                                            <p className="fs-5 d-inline">
                                                                 {(prod.full_price * (1 - prod.discount / 100)).toFixed(2)}€
-                                                            </span>
-                                                            <span className="text-decoration-line-through ms-2 small text-secondary">
+                                                            </p>
+                                                            <p className="d-inline fs-6 text-decoration-line-through ms-2 small text-secondary">
                                                                 {prod.full_price}€
-                                                            </span>
-                                                            <span className="text-red ms-2">
+                                                            </p>
+                                                            <span className="text-red ms-2 fs-4">
                                                                 -{prod.discount}%
                                                             </span>
                                                         </>
                                                     ) : (
-                                                        <span>{prod.full_price} €</span>
+                                                        <p className="fs-5">{prod.full_price} €</p>
                                                     )}
                                                 </p>
                                             </div>

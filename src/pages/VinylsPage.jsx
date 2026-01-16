@@ -60,7 +60,7 @@ export default function VinylsPage() {
 
                     <div className="d-flex gap-3 align-items-center mb-4 mt-4">
                         <select
-                            className="form-select shadow w-auto"
+                            className="form-select w-auto text-blue bg-yellow rounded-2"
                             value={sort}
                             onChange={handleSortChange}
                         >
@@ -78,7 +78,7 @@ export default function VinylsPage() {
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                             />
-                            <button type="submit" className="btn bg-blue text-yellow fw-bold">Search</button>
+                            <button type="submit" className="btn bg-blue text-yellow fw-bold me-5">Search</button>
                         </form>
                     </div>
                 </div>
