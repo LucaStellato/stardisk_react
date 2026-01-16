@@ -21,12 +21,13 @@ export default function CatalogBox({ vinyl }) {
                         />
 
                         <div className="vinyl-cover">
-                            <p className="vinyl-title fs-5 fw-bold text-light mb-0">
+                            <p className="vinyl-title fs-5 fw-bold text-light mb-0 mt-2">
                                 {vinyl.artist_name}
                             </p>
                             <p className="vinyl-title fs-3 fw-bold text-light mb-0">
                                 {vinyl.name.toUpperCase()}
                             </p>
+                            <p className="text-center text-light fs-3 pt-2 fw-bold">{vinyl.final_price}€</p>
                         </div>
                     </Link>
                 </div>
