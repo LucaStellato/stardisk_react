@@ -10,23 +10,24 @@ export default function VinylsPage() {
 
     const params = new URLSearchParams(location.search)
     const currentQuery = params.get("query") || ""
+    const currentSort = params.get("sort") || "name_asc"
+
     const [query, setQuery] = useState(currentQuery)
+    const [sort, setSort] = useState(currentSort)
 
     useEffect(() => {
         setQuery(currentQuery)
+        setSort(currentSort)
 
-        const apiUrl = currentQuery
-            ? `http://localhost:3000/api/products/search?query=${currentQuery}`
-            : `http://localhost:3000/api/products`
+        let apiUrl = currentQuery
+            ? `http://localhost:3000/api/products/search?query=${currentQuery}&sort=${currentSort}`
+            : `http://localhost:3000/api/products/search?sort=${currentSort}`
 
         axios.get(apiUrl)
             .then(res => {
-                console.log("Dati ricevuti:", res.data)
-
                 const data = res.data.filter(item =>
                     item.category?.toString().toLowerCase().trim() === "vinyl"
                 )
-
                 setVinyls(data)
             })
             .catch(err => console.error("Errore API:", err))
@@ -34,41 +35,68 @@ export default function VinylsPage() {
 
     const handleSearch = (e) => {
         e.preventDefault()
-        navigate(query.trim() ? `/vinyls?query=${query}` : `/vinyls`)
+        updateUrl(query, sort)
+    }
+
+    const handleSortChange = (e) => {
+        const newSort = e.target.value
+        setSort(newSort)
+        updateUrl(query, newSort)
+    }
+
+    const updateUrl = (newQuery, newSort) => {
+        const searchParams = new URLSearchParams()
+        if (newQuery.trim()) searchParams.set("query", newQuery.trim())
+        if (newSort) searchParams.set("sort", newSort)
+
+        navigate(`/vinyls?${searchParams.toString()}`)
     }
 
     return (
-        <div className="container py-5 schizzi">
+        <section className="bg-graffiti">
+            <div className="container py-5 schizzi">
+                <div className="d-flex justify-content-between align-items-center flex-wrap">
+                    <h1 className="fw-bold text-blue mb-4 mt-4">VINYLS CATALOG</h1>
 
-            <div className="d-flex justify-content-between align-items-center">
-                <h1 className="fw-bold text-blue mb-4 mt-4">VINYLS CATALOG</h1>
-                <form onSubmit={handleSearch} className="mb-4 mt-4 w-25 d-flex gap-2 me-5 pe-5">
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Cerca vinili..."
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)} />
-                    <button type="submit" className="btn bg-blue text-yellow fw-bold me-5">Search</button>
-                </form>
+                    <div className="d-flex gap-3 align-items-center mb-4 mt-4">
+                        <select
+                            className="form-select shadow w-auto"
+                            value={sort}
+                            onChange={handleSortChange}
+                        >
+                            <option value="name_asc">Nome (A-Z)</option>
+                            <option value="name_desc">Nome (Z-A)</option>
+                            <option value="price_asc">Prezzo Crescente</option>
+                            <option value="price_desc">Prezzo Decrescente</option>
+                        </select>
 
-            </div>
-
-
-
-            <div className="row g-1">
-                {vinyls.length > 0 ? (
-                    vinyls.map(v => (
-                        <div className="col-md-4" key={v.slug}>
-                            <CatalogBox vinyl={v} />
-                        </div>
-                    ))
-                ) : (
-                    <div className="text-center w-100">
-                        <p>Nessun vinile trovato.</p>
+                        <form onSubmit={handleSearch} className="d-flex gap-2 pe-5 me-5">
+                            <input
+                                type="text"
+                                className="form-control shadow"
+                                placeholder="Cerca vinili..."
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                            />
+                            <button type="submit" className="btn bg-blue text-yellow fw-bold">Search</button>
+                        </form>
                     </div>
-                )}
+                </div>
+
+                <div className="row g-1">
+                    {vinyls.length > 0 ? (
+                        vinyls.map(v => (
+                            <div className="col-md-4" key={v.slug}>
+                                <CatalogBox vinyl={v} />
+                            </div>
+                        ))
+                    ) : (
+                        <div className="text-center w-100 py-5">
+                            <div className="fs-4 text-blue">Nessun vinile trovato.</div>
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
+        </section>
     )
 }

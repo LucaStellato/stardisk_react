@@ -231,7 +231,7 @@ a {
 
 /* WALL */
 .detail-wall {
-    min-height: 100vh;
+    min-height: 75vh;
     padding: 3rem 0;
     background-image:
         url("./schizzi.png"),
@@ -303,7 +303,20 @@ a {
     right: 10px;
 }
 
-.form-control:focus {
+.form-control:focus,
+.form-select:focus {
     border: none !important;
     box-shadow: 0 0 0 0.25rem rgba(235, 194, 86, 0.4) !important;
+}
+
+.bg-graffiti {
+    min-height: 80vh;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+        url('https://media.istockphoto.com/id/1682399954/it/vettoriale/modello-di-sfondo-di-illustrazione-vettoriale-astratto-urbano-stile-urbano-hiphop.jpg?s=612x612&w=0&k=20&c=cjt_vGqUcNMOiX0NlLvq-vQBpbxTs3EKcSDyinZYCv4=');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }

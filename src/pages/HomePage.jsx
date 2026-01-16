@@ -7,10 +7,12 @@ export default function HomePage() {
 
     return (
         <>
-            <Jumbotron />
-            <SaleSection />
-            <BannerShowCatalog />
-            <TurntablesSection />
+            <section className="bg-graffiti">
+                <Jumbotron />
+                <SaleSection />
+                <BannerShowCatalog />
+                <TurntablesSection />
+            </section>
         </>
     )
 }

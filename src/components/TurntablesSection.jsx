@@ -17,7 +17,7 @@ export default function TurntablesSection() {
 
     return (
         <>
-            <div className="bg-lightyellow">
+            <div className="">
                 <div className="container">
                     <h1 className=" pt-5 fw-bold text-blue">TURNTABLES</h1>
                     <div className="row row-cols-12 row-cols-md-3 row-cols-lg-4 py-5 g-5">
@@ -25,9 +25,9 @@ export default function TurntablesSection() {
                             turntables.map((turntable) => (
                                 <div className="col" key={turntable.product_id}>
                                     <Link to={`/${turntable.slug}`}>
-                                        <div className="card border-0">
-                                            <img src={turntable.img_url} className="card-img-top bg-lightyellow turntable" alt="..." />
-                                            <div className="card-body bg-lightyellow text-blue fw-bold">
+                                        <div className="card border-0 bg-transparent">
+                                            <img src={turntable.img_url} className="card-img-top turntable" alt="..." />
+                                            <div className="card-body text-blue fw-bold">
                                                 <h5 className="card-title fw-bold">{turntable.name}</h5>
                                                 <p className="card-text">{turntable.full_price}</p>
                                             </div>
