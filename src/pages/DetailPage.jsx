@@ -128,9 +128,9 @@ export default function DetailPage() {
                                                     <p style={{ display: "inline" }}> {`${currentProduct.full_price} €`}</p>
                                                 )}
                                             </div>
-                                            <div className="text-muted small">Disponibili: {currentProduct.amount} pz.</div>
+                                            <div className="text-muted small">Available: {currentProduct.amount} pz.</div>
                                             <button className="btn btn-lg bg-yellow text-blue fw-bold w-100 mt-3" onClick={() => addToCart(currentProduct)} disabled={currentProduct.amount === 0}>
-                                                {currentProduct.amount === 0 ? 'Esaurito' : 'Aggiungi al carrello'}
+                                                {currentProduct.amount === 0 ? 'Expired' : 'Add to cart'}
                                             </button>
                                         </div>
                                     </div>
@@ -141,7 +141,7 @@ export default function DetailPage() {
                     {currentProduct?.category === 'vinyl' &&
                         <div className="row ps-5 pt-3">
                             <div className="col-7">
-                                <h1 className="fw-bold text-red pb-3">TrackList</h1>
+                                <h1 className="fw-bold text-red pb-3">Tracklist</h1>
                                 <p className="text-blue fw-bold fs-4">Work in Progress...</p>
                             </div>
                             <div className="col-5">

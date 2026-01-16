@@ -60,7 +60,7 @@ const CartPage = () => {
                                             {/* 2. Dettagli */}
                                             <div className="col-9 col-md-4">
                                                 <h6 className="mb-0 fw-bold text-truncate text-blue">{item.name}</h6>
-                                                <small className="text-yellow fw-bold d-block">{item.artist_name || 'Artista'}</small>
+                                                <small className="text-yellow fw-bold d-block">{item.artist_name || 'Turntable'}</small>
                                                 {haSconto && (
                                                     <span className="badge bg-danger mt-1">Discount {item.discount}%</span>
                                                 )}
