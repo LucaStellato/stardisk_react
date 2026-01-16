@@ -37,6 +37,7 @@ export default function Checkoutpage() {
             free_shipment: isSpedizioneGratuita,
             products: cart.map(item => ({
                 id: item.product_id,
+                name: item.name,
                 quantity: item.quantity
             }))
         };
