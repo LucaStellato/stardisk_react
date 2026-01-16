@@ -8,6 +8,7 @@ import { CartProvider } from "../contexts/CartContext"
 import CartPage from "./pages/CartPage"
 import CheckoutPage from "./pages/CheckoutPage"
 import SuccessPage from "./pages/SuccessPage"
+import ScrollToTop from "./components/ScrollToTop"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     <>
       <CartProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route element={<DefaultLayout />}>
               <Route path="/" element={<HomePage />} />

@@ -14,11 +14,11 @@ const CartPage = () => {
     // Schermata se il carrello è vuoto
     if (cart.length === 0) {
         return (
-            <div className="container mt-5 text-center">
-                <div className="alert alert-light p-5 shadow-sm border">
-                    <h3 className="mb-3">Il tuo carrello è vuoto 💿</h3>
+            <div className="container mt-5 text-center" style={{ minHeight: 'calc(100vh - 300px)' }}>
+                <div className="alert alert-light p-5 border h-100 text-blue">
+                    <h3 className="mb-3">Il tuo carrello è vuoto.</h3>
                     <p className="text-muted">Non hai ancora aggiunto alcun vinile alla tua collezione.</p>
-                    <button className="btn btn-primary btn-lg mt-3" onClick={() => navigate('/')}>
+                    <button className="btn bg-blue text-yellow fw-bold btn-lg mt-3" onClick={() => navigate('/')}>
                         Torna allo Shop
                     </button>
                 </div>
