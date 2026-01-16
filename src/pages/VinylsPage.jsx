@@ -60,21 +60,21 @@ export default function VinylsPage() {
 
                     <div className="d-flex gap-3 align-items-center mb-4 mt-4">
                         <select
-                            className="form-select w-auto text-blue bg-yellow rounded-2"
+                            className="form-select fw-bold w-auto text-blue bg-yellow rounded-2"
                             value={sort}
                             onChange={handleSortChange}
                         >
-                            <option value="name_asc">Nome (A-Z)</option>
-                            <option value="name_desc">Nome (Z-A)</option>
-                            <option value="price_asc">Prezzo Crescente</option>
-                            <option value="price_desc">Prezzo Decrescente</option>
+                            <option value="name_asc">Name (A-Z)</option>
+                            <option value="name_desc">Name (Z-A)</option>
+                            <option value="price_asc">Price ↑</option>
+                            <option value="price_desc">Price  ↓</option>
                         </select>
 
                         <form onSubmit={handleSearch} className="d-flex gap-2 pe-5 me-5">
                             <input
                                 type="text"
                                 className="form-control shadow"
-                                placeholder="Cerca vinili..."
+                                placeholder="Search vinyls..."
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                             />
@@ -92,7 +92,7 @@ export default function VinylsPage() {
                         ))
                     ) : (
                         <div className="text-center w-100 py-5">
-                            <div className="fs-4 text-blue">Nessun vinile trovato.</div>
+                            <div className="fs-4 text-blue">No vinyl found.</div>
                         </div>
                     )}
                 </div>

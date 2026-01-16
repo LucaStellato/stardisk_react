@@ -14,22 +14,25 @@ const CartPage = () => {
     // Schermata se il carrello è vuoto
     if (cart.length === 0) {
         return (
-            <div className="container mt-5 text-center" style={{ minHeight: 'calc(100vh - 300px)' }}>
-                <div className="alert alert-light p-5 border h-100 text-blue">
-                    <h3 className="mb-3">Il tuo carrello è vuoto.</h3>
-                    <p className="text-muted">Non hai ancora aggiunto alcun vinile alla tua collezione.</p>
-                    <button className="btn bg-blue text-yellow fw-bold btn-lg mt-3" onClick={() => navigate('/')}>
-                        Torna allo Shop
-                    </button>
+            <section className='bg-graffiti'>
+                <div className="container pt-5 text-center d-flex justify-content-center align-items-center" style={{ minHeight: 'calc(100vh - 300px)' }}>
+                    <div className="alert alert-light p-5 border h-100 text-blue">
+                        <h3 className="mb-3">Your cart is empty.</h3>
+                        <p className="text-muted">You haven't added any vinyl to your collection yet.</p>
+                        <button className="btn bg-blue text-yellow fw-bold btn-lg mt-3" onClick={() => navigate('/')}>
+                            Back to shop
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </section>
+
         );
     }
 
     return (
         <section className='bg-graffiti'>
             <div className="container pt-5 pb-5" style={{ minHeight: 'calc(100vh - 300px)' }}>
-                <h2 className="mb-4 fw-bold text-uppercase text-blue pb-4">Il tuo Carrello</h2>
+                <h2 className="mb-4 fw-bold text-uppercase text-blue pb-4">Your cart</h2>
 
                 <div className="row">
                     {/* --- COLONNA SINISTRA: ELENCO PRODOTTI --- */}
@@ -59,7 +62,7 @@ const CartPage = () => {
                                                 <h6 className="mb-0 fw-bold text-truncate text-blue">{item.name}</h6>
                                                 <small className="text-yellow fw-bold d-block">{item.artist_name || 'Artista'}</small>
                                                 {haSconto && (
-                                                    <span className="badge bg-danger mt-1">Sconto {item.discount}%</span>
+                                                    <span className="badge bg-danger mt-1">Discount {item.discount}%</span>
                                                 )}
                                             </div>
 
@@ -91,7 +94,7 @@ const CartPage = () => {
                                                 {/* Testo disponibilità più discreto */}
                                                 <div className="mt-1">
                                                     <small className="text-blue fw-bold" style={{ fontSize: '0.65rem', letterSpacing: '0.5px' }}>
-                                                        {item.amount} DISPONIBILI
+                                                        {item.amount} Available.
                                                     </small>
                                                 </div>
                                             </div>
@@ -131,10 +134,10 @@ const CartPage = () => {
                     {/* --- COLONNA DESTRA: RIEPILOGO --- */}
                     <div className="col-lg-5 mt-4 mt-lg-0">
                         <div className="border-0 px-5 sticky-top" style={{ top: '20px' }}>
-                            <h4 className="fw-bold mb-4 text-yellow">Riepilogo Ordine</h4>
+                            <h4 className="fw-bold mb-4 text-yellow">Order summary</h4>
 
                             <div className="d-flex text-blue justify-content-between mb-2">
-                                <span>Articoli totali:</span>
+                                <span>Total products:</span>
                                 <span>{cart.reduce((acc, item) => acc + item.quantity, 0)}</span>
                             </div>
 
@@ -156,20 +159,20 @@ const CartPage = () => {
                             {/* -------------------------------------- */}
 
                             <div className="d-flex justify-content-between mb-4">
-                                <span className="fw-bold h5 text-blue">TOTALE:</span>
+                                <span className="fw-bold h5 text-blue">TOTAL:</span>
                                 <span className="fw-bold h4 text-blue">€{totaleGenerale.toFixed(2)}</span>
                             </div>
 
                             <button className="btn bg-yellow text-blue w-100 fw-bold mb-3 shadow-sm" onClick={() => navigate('/checkout')}>
-                                Procedi all'ordine
+                                Proceed with the order
                             </button>
 
                             <button className="btn bg-blue text-yellow fw-bold w-100 shadow-sm" onClick={() => navigate('/')}>
-                                Continua lo Shopping
+                                Keep buying
                             </button>
 
                             <div className="text-center mt-3">
-                                <small className="text-secondary">Spedizione gratuita su ordini sopra i €50</small>
+                                <small className="text-secondary">Free shipping for orders over €50</small>
                             </div>
                         </div>
                     </div>
