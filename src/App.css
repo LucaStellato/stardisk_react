@@ -26,7 +26,6 @@ a {
     color: #D05335 !important;
 }
 
-
 .text-red {
     color: #D05335 !important;
 }
@@ -38,7 +37,6 @@ a {
 .text-blue {
     color: #42517A !important;
 }
-
 
 .text-yellow {
     color: #EBC256 !important;
@@ -102,13 +100,10 @@ a {
     scale: 1.04;
 }
 
-
-
 /* VINYLS */
 .vinyl-box-wrapper {
     text-align: center;
     margin-top: 4rem;
-
 }
 
 .vinyl-box {
@@ -142,7 +137,6 @@ a {
     border-radius: 50%;
     transition: transform 0.5s ease, margin-left 0.4s ease;
     margin-left: 0;
-
 }
 
 .vinyl-disc-top {
@@ -185,7 +179,6 @@ a {
 
 .vinyl-box:hover .vinyl-disc {
     transform: translate(-50%, -85%);
-
 }
 
 .vinyl-box:hover .vinyl-disc-bottom {
@@ -193,40 +186,19 @@ a {
     transition-delay: 0.2s;
 }
 
-/* CART */
-.cart-section {
-    width: 175px;
-}
-
-/* ACCORDION */
+/* ACCORDION & FORMS */
 .accordion-button:focus {
     box-shadow: none !important;
 }
 
-/* RED DOT ON TOP OF CART */
-.cart-icon-wrapper {
-    position: relative;
-    display: inline-block;
+.form-select:focus {
+    border: none !important;
+    box-shadow: none !important;
 }
 
-.cart-badge {
-    position: absolute;
-    top: 4px;
-    right: 3px;
-
-    background-color: red;
-    color: white;
-
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 13px;
-    font-weight: bold;
+.form-control:focus {
+    border: none !important;
+    box-shadow: 0 0 0 0.25rem rgba(235, 194, 86, 0.4) !important;
 }
 
 /* WALL */
@@ -269,13 +241,10 @@ a {
     bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
-
     width: 60%;
     height: 18px;
-
     background: linear-gradient(to bottom, #555, #2b2b2b);
     border-radius: 0 0 10px 10px;
-
     z-index: 3;
     box-shadow:
         0 4px 6px rgba(0, 0, 0, 0.4),
@@ -303,23 +272,11 @@ a {
     right: 10px;
 }
 
-.form-select:focus {
-    border: none !important;
-    box-shadow: none !important;
-}
-
-.form-control:focus {
-    border: none !important;
-    box-shadow: 0 0 0 0.25rem rgba(235, 194, 86, 0.4) !important;
-
-}
-
 .bg-graffiti {
     min-height: 80vh;
     background-image:
         linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
         url('https://media.istockphoto.com/id/1682399954/it/vettoriale/modello-di-sfondo-di-illustrazione-vettoriale-astratto-urbano-stile-urbano-hiphop.jpg?s=612x612&w=0&k=20&c=cjt_vGqUcNMOiX0NlLvq-vQBpbxTs3EKcSDyinZYCv4=');
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -327,58 +284,17 @@ a {
 }
 
 .bg-graffiti-popup {
-    /* Mantieni l'immagine e il gradiente */
     background-image:
         linear-gradient(rgba(255, 255, 255, 0.89), rgba(255, 255, 255, 0.89)),
         url('https://media.istockphoto.com/id/1682399954/it/vettoriale/modello-di-sfondo-di-illustrazione-vettoriale-astratto-urbano-stile-urbano-hiphop.jpg?s=612x612&w=0&k=20&c=cjt_vGqUcNMOiX0NlLvq-vQBpbxTs3EKcSDyinZYCv4=');
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    /* RIMUOVI background-attachment: fixed */
     background-attachment: scroll;
-
-    /* Assicurati che il bordo sia arrotondato come la card */
     border-radius: 20px;
 }
 
-/* POPUP */
-
-.popup-overlay {
-    position: fixed;
-    /* Fondamentale per restare sopra a tutto */
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    /* Nero al 70% di opacità */
-    display: flex;
-    justify-content: center;
-    /* Centra orizzontalmente */
-    align-items: center;
-    /* Centra verticalmente */
-    z-index: 9999;
-    /* Un numero altissimo per stare sopra la Navbar */
-    backdrop-filter: blur(5px);
-    /* Opzionale: sfoca leggermente il sito dietro */
-    overflow: hidden;
-}
-
-/* La card bianca al centro */
-.popup-content {
-    padding: 2rem;
-    border-radius: 20px;
-    max-width: 450px;
-    width: 90%;
-    /* Per farlo vedere bene su mobile */
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    animation: scaleIn 0.3s ease-out;
-    /* Effetto apparizione */
-}
-
+/* POPUP ANIMATION */
 @keyframes scaleIn {
     from {
         transform: scale(0.8);
@@ -389,16 +305,4 @@ a {
         transform: scale(1);
         opacity: 1;
     }
-}
-
-/* Bottone di chiusura in alto a destra */
-.btn-close-custom {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #0045A1;
 }

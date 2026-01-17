@@ -4,13 +4,11 @@ import CartWidget from './CartWidget';
 
 export default function Header() {
     return (
-        <nav className="navbar navbar-expand-lg bg-yellow">
-            <div className="container-fluid d-flex align-items-center">
-
+        <nav className="navbar navbar-expand-lg bg-yellow p-2">
+            <div className="container-fluid d-flex align-items-center flex-nowrap">
                 <NavbarLogo />
                 <NavbarLinks />
                 <CartWidget />
-
             </div>
         </nav>
     );

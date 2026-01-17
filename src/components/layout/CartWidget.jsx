@@ -5,17 +5,18 @@ export default function CartWidget() {
     const { cartCount } = useCart();
 
     return (
-        <div className='flex-1 d-flex justify-content-end'>
-            <div className="cart-section text-end pe-3">
-                <Link to="/cart" className="cart-icon-wrapper">
-                    <i className="bi bi-bag text-blue fs-4 p-3"></i>
-                    {cartCount > 0 && (
-                        <span className="cart-badge">
-                            {cartCount}
+        <div className="d-flex justify-content-end align-items-center">
+            <Link to="/cart" className="position-relative d-inline-block text-decoration-none">
+                <i className="bi bi-bag text-blue fs-3"></i>
+                {cartCount > 0 && (
+                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light" style={{ fontSize: '0.65rem' }}>
+                        {cartCount}
+                        <span className="visually-hidden">
+                            items in cart
                         </span>
-                    )}
-                </Link>
-            </div>
+                    </span>
+                )}
+            </Link>
         </div>
-    );
+    )
 }
