@@ -1,23 +1,28 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import "./App.css"
+
 import DefaultLayout from "./layouts/DefaultLayout"
 import HomePage from "./pages/HomePage"
 import VinylsPage from "./pages/VinylsPage"
 import DetailPage from "./pages/DetailPage"
-import { CartProvider } from "../contexts/CartContext"
 import CartPage from "./pages/CartPage"
 import CheckoutPage from "./pages/CheckoutPage"
 import SuccessPage from "./pages/SuccessPage"
-import ScrollToTop from "./components/ScrollToTop"
+import NotFoundPage from "./pages/NotFoundPage"
+
+import ScrollToTop from "./components/layout/ScrollToTop"
+import WelcomePopup from "./components/homePage/WelcomePopup"
+
+import { CartProvider } from "./contexts/CartContext"
+import { ProductProvider } from "./contexts/ProductContext"
 
 function App() {
-
-
   return (
-    <>
+    <ProductProvider>
       <CartProvider>
         <BrowserRouter>
           <ScrollToTop />
+          <WelcomePopup />
           <Routes>
             <Route element={<DefaultLayout />}>
               <Route path="/" element={<HomePage />} />
@@ -26,13 +31,12 @@ function App() {
               <Route path='/checkout' element={<CheckoutPage />} />
               <Route path="/success" element={<SuccessPage />} />
               <Route path='/:slug' element={<DetailPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
       </CartProvider>
-
-
-    </>
+    </ProductProvider>
   )
 }
 
