@@ -16,7 +16,7 @@ export default function HomeCard({ item, isTurntable = false }) {
                                 <span className="text-decoration-line-through ms-2 small text-yellow opacity-75">
                                     {item.full_price}€
                                 </span>
-                                <span className="text-red fs-5 ms-auto">-{item.discount}%</span>
+                                <span className="text-red fs-5 ms-2">-{item.discount}%</span>
                             </>
                         ) : (
                             <span className="fs-5">{item.full_price}€</span>

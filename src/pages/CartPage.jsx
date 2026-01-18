@@ -20,7 +20,7 @@ export default function CartPage() {
     if (cart.length === 0) {
         return (
             <section className='bg-graffiti'>
-                <div className="container pt-5 text-center d-flex justify-content-center align-items-center" style={{ minHeight: 'calc(100vh - 300px)' }}>
+                <div className="container pt-5 text-center d-flex justify-content-center align-items-center schizzi" style={{ minHeight: 'calc(100vh - 300px)' }}>
                     <div className="alert alert-light p-5 border h-100 text-blue shadow">
                         <h3 className="mb-3 fw-bold">Your cart is empty.</h3>
                         <p className="text-muted">You haven't added any vinyl to your collection yet.</p>
@@ -35,7 +35,7 @@ export default function CartPage() {
 
     return (
         <section className='bg-graffiti'>
-            <div className="container pt-5 pb-5" style={{ minHeight: 'calc(100vh - 300px)' }}>
+            <div className="container pt-5 pb-5 schizzi" style={{ minHeight: 'calc(100vh - 300px)' }}>
                 <h2 className="mb-4 fw-bold text-uppercase text-blue pb-4">Your cart</h2>
 
                 <div className="row">

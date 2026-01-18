@@ -1,37 +1,41 @@
-/* RESET */
+/* #region GENERICS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* GENERICS */
 body {
     font-family: sans-serif;
+    background-color: #FFF3E2;
+    color: #42517A;
 }
 
 a {
     text-decoration: none !important;
-    color: #42517A !important;
+    color: inherit !important;
 }
 
-/* UTILITIES */
+div::-webkit-scrollbar {
+    width: 6px;
+}
+
+div::-webkit-scrollbar-thumb {
+    background: #42517A;
+    border-radius: 10px;
+}
+
+/* #endregion */
+
+/* #region UTILS (COLORS & NAVBAR) */
 .container {
-    width: 70%;
+    width: 90%;
     max-width: 1176px;
     margin: 0 auto;
 }
 
-.active {
-    color: #D05335 !important;
-}
-
 .text-red {
     color: #D05335 !important;
-}
-
-.text-blue::placeholder {
-    color: #42517A !important;
 }
 
 .text-blue {
@@ -40,10 +44,6 @@ a {
 
 .text-yellow {
     color: #EBC256 !important;
-}
-
-.text-bg {
-    color: #FFF3E2 !important;
 }
 
 .bg-blue {
@@ -59,11 +59,7 @@ a {
 }
 
 .bg-lightyellow {
-    background-color: #f7f5f2;
-}
-
-.turntable {
-    height: 280px !important;
+    background-color: #f7f5f2 !important;
 }
 
 .schizzi {
@@ -73,13 +69,57 @@ a {
     width: 100%;
 }
 
-/* JUMBOTRON */
+.navbar .container-fluid {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-widget-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 5px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: 2px;
+    right: -2px;
+    font-size: 0.65rem;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: cartPop 0.3s ease-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    transition: all 0.35s ease-out;
+    border: none !important;
+}
+
+.card:hover {
+    scale: 1.015;
+}
+
+/* #endregion */
+
+/* #region JUMBOTRON */
 .jumbo {
     background-image: url(/jumbo.PNG);
     background-position: center;
     background-size: cover;
     width: 100%;
     height: 450px;
+    display: flex;
+    align-items: center;
 }
 
 .slogan {
@@ -91,16 +131,9 @@ a {
     rotate: -5deg;
 }
 
-/* CARD */
-.card {
-    transition: all 0.35s ease-out;
-}
+/* #endregion */
 
-.card:hover {
-    scale: 1.04;
-}
-
-/* VINYLS */
+/* #region CATALOG VINYL BOX */
 .vinyl-box-wrapper {
     text-align: center;
     margin-top: 4rem;
@@ -115,13 +148,14 @@ a {
     background-position: left;
     transition: all 0.5s ease;
     box-shadow: 6px 12px rgba(50, 25, 0, 0.4);
-
-    &:hover {
-        box-shadow: 10px 17px rgba(50, 25, 0, 0.4);
-    }
+    margin: 0 auto;
 }
 
-/* DISK */
+.vinyl-box:hover {
+    scale: 1.03;
+    box-shadow: 10px 17px rgba(50, 25, 0, 0.4);
+}
+
 .vinyl-disc {
     position: absolute;
     width: 70%;
@@ -136,14 +170,12 @@ a {
     z-index: 1;
     border-radius: 50%;
     transition: transform 0.5s ease, margin-left 0.4s ease;
-    margin-left: 0;
 }
 
 .vinyl-disc-top {
     z-index: 3;
 }
 
-/* COVER */
 .vinyl-cover {
     position: absolute;
     bottom: 0;
@@ -156,25 +188,15 @@ a {
     justify-content: center;
     flex-direction: column;
     font-weight: bold;
-    box-shadow: 0 2px 8px #272838;
-    font-size: clamp(0.7rem, 2vw, 1rem);
     z-index: 4;
     background-image: url(../bg-box.png);
     background-position: left;
-
-    p {
-        color: white;
-        text-shadow:
-            -1px -1px 0 #1e1d1d,
-            1px -1px 0 #1e1d1d,
-            -1px 1px 0 #1e1d1d,
-            1px 1px 0 #1e1d1d;
-    }
+    box-shadow: inset 0 6px 6px -6px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/*VINYL BOX HOVER */
-.vinyl-box:hover {
-    scale: 1.03;
+.vinyl-cover p {
+    color: white;
+    text-shadow: -1px -1px 0 #1e1d1d, 1px -1px 0 #1e1d1d, -1px 1px 0 #1e1d1d, 1px 1px 0 #1e1d1d;
 }
 
 .vinyl-box:hover .vinyl-disc {
@@ -186,22 +208,9 @@ a {
     transition-delay: 0.2s;
 }
 
-/* ACCORDION & FORMS */
-.accordion-button:focus {
-    box-shadow: none !important;
-}
+/* #endregion */
 
-.form-select:focus {
-    border: none !important;
-    box-shadow: none !important;
-}
-
-.form-control:focus {
-    border: none !important;
-    box-shadow: 0 0 0 0.25rem rgba(235, 194, 86, 0.4) !important;
-}
-
-/* WALL */
+/* #region DETAIL PAGE */
 .detail-wall {
     min-height: 75vh;
     padding: 3rem 0;
@@ -211,93 +220,114 @@ a {
         url('./detail-wall.jpg');
     background-size: contain, cover, cover;
     background-repeat: no-repeat;
-
-    h1,
-    span {
-        text-shadow:
-            -1px -1px 0 #1e1d1d,
-            1px -1px 0 #1e1d1d,
-            -1px 1px 0 #1e1d1d,
-            1px 1px 0 #1e1d1d;
-    }
 }
 
 .vinyl-scene {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 60px;
 }
 
 .vinyl-on-wall {
     display: block;
     position: relative;
-    z-index: 1;
-    max-width: 100%;
+    z-index: 2;
+    max-width: 90%;
     height: auto;
-    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow:
+        -15px 10px 30px rgba(0, 0, 0, 0.2),
+        15px 10px 30px rgba(0, 0, 0, 0.2),
+        0px 40px 60px -20px rgba(0, 0, 0, 0.3);
+
+    transform: perspective(800px) rotateX(8deg);
+    transform-origin: bottom;
+    filter: brightness(0.95);
+
+    transition: transform 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.9s ease,
+        filter 0.9s ease;
+    cursor: pointer;
+}
+
+.vinyl-on-wall:hover {
+    transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+    filter: brightness(1.05);
 }
 
 .vinyl-holder {
     position: absolute;
-    bottom: -8px;
+    bottom: 48px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60%;
-    height: 18px;
-    background: linear-gradient(to bottom, #555, #2b2b2b);
-    border-radius: 0 0 10px 10px;
+    width: 65%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 2px;
     z-index: 3;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow:
-        0 4px 6px rgba(0, 0, 0, 0.4),
-        inset 0 -2px 3px rgba(0, 0, 0, 0.6);
-}
-
-/* SCREWS */
-.vinyl-holder::before,
-.vinyl-holder::after {
-    content: "";
-    position: absolute;
-    top: 5px;
-    width: 6px;
-    height: 6px;
-    background: #bfbfbf;
-    border-radius: 50%;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 .vinyl-holder::before {
-    left: 10px;
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    transform: perspective(100px) rotateX(60deg);
+    transform-origin: bottom;
+    z-index: -1;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-.vinyl-holder::after {
-    right: 10px;
-}
+/* #endregion */
 
+/* #region BACKGROUNDS & POPUPS */
 .bg-graffiti {
-    min-height: 80vh;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
-        url('https://media.istockphoto.com/id/1682399954/it/vettoriale/modello-di-sfondo-di-illustrazione-vettoriale-astratto-urbano-stile-urbano-hiphop.jpg?s=612x612&w=0&k=20&c=cjt_vGqUcNMOiX0NlLvq-vQBpbxTs3EKcSDyinZYCv4=');
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://media.istockphoto.com/id/1682399954/it/vettoriale/modello-di-sfondo-di-illustrazione-vettoriale-astratto-urbano-stile-urbano-hiphop.jpg?s=612x612&w=0&k=20&c=cjt_vGqUcNMOiX0NlLvq-vQBpbxTs3EKcSDyinZYCv4=');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 .bg-graffiti-popup {
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.89), rgba(255, 255, 255, 0.89)),
-        url('https://media.istockphoto.com/id/1682399954/it/vettoriale/modello-di-sfondo-di-illustrazione-vettoriale-astratto-urbano-stile-urbano-hiphop.jpg?s=612x612&w=0&k=20&c=cjt_vGqUcNMOiX0NlLvq-vQBpbxTs3EKcSDyinZYCv4=');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.89), rgba(255, 255, 255, 0.89)), url('https://media.istockphoto.com/id/1682399954/it/vettoriale/modello-di-sfondo-di-illustrazione-vettoriale-astratto-urbano-stile-urbano-hiphop.jpg?s=612x612&w=0&k=20&c=cjt_vGqUcNMOiX0NlLvq-vQBpbxTs3EKcSDyinZYCv4=');
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
     border-radius: 20px;
 }
 
-/* POPUP ANIMATION */
+/* #endregion */
+
+/* #region KEYFRAMES */
+@keyframes cartPop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 @keyframes scaleIn {
     from {
-        transform: scale(0.8);
+        transform: scale(0.9);
         opacity: 0;
     }
 
@@ -306,3 +336,30 @@ a {
         opacity: 1;
     }
 }
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* #endregion */
+
+/* #region MEDIA QUERIES */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        display: flex !important;
+        justify-content: center;
+    }
+}
+
+/* #endregion */

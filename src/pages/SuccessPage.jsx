@@ -1,34 +1,38 @@
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../contexts/CartContext';
 
 export default function SuccessPage() {
-    const navigate = useNavigate();
+    const { clearCart } = useCart();
+
+    useEffect(() => {
+        clearCart();
+    }, []);
 
     return (
-        <section className='bg-graffiti'>
-            <div className="container d-flex justify-content-center align-items-center"
-                style={{ minHeight: 'calc(100vh - 160px)' }}>
-                <div className="text-center p-5 shadow-lg rounded bg-white" style={{ maxWidth: '500px' }}>
-                    <div className="mb-4">
-                        <i className="bi bi-check-circle-fill text-success" style={{ fontSize: '5rem' }}></i>
+        <section className='bg-graffiti min-vh-100 d-flex align-items-center'>
+            <div className="container py-5">
+                <div className="row justify-content-center">
+                    <div className="col-12 col-md-8 col-lg-5">
+                        <div className="text-center p-5 shadow-lg rounded-4 bg-white border-0"
+                            style={{ animation: 'scaleIn 0.5s ease-out' }}>
+
+                            <div className="mb-4">
+                                <i className="bi bi-disc text-red"
+                                    style={{ fontSize: '6rem', display: 'inline-block', animation: 'spin 4s linear infinite' }}>
+                                </i>
+                            </div>
+
+                            <h1 className="fw-bold text-blue text-uppercase mb-3">Order received!</h1>
+                            <p className="fs-5 text-blue mb-4">Thank you for choosing <strong>StarDisk</strong>.</p>
+
+                            <Link to="/vinyls" className="btn bg-blue text-yellow fw-bold w-100 py-3 shadow-sm border-0">
+                                BACK TO SHOP
+                            </Link>
+                        </div>
                     </div>
-                    <h1 className="fw-bold text-blue text-uppercase">Order received!</h1>
-                    <p className="text-muted">
-                        Thank you for your purchase on <strong>StarDisk</strong>.
-                        You'll shortly receive a confirmation email with your shipping details.
-                    </p>
-                    <hr className="my-4" />
-                    <p className="small text-secondary mb-4">
-                        Your order is being prepared and will soon shine in your collection.
-                    </p>
-                    <button
-                        className="btn bg-yellow text-blue fw-bold w-100 py-2 shadow-sm border-0"
-                        onClick={() => navigate('/')}
-                    >
-                        BACK TO SHOP
-                    </button>
                 </div>
             </div>
-
         </section>
     );
 }

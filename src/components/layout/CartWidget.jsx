@@ -1,22 +1,19 @@
-import { Link } from 'react-router-dom';
 import { useCart } from '../../contexts/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function CartWidget() {
-    const { cartCount } = useCart();
+    const { cart } = useCart();
+    const navigate = useNavigate();
+    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
     return (
-        <div className="d-flex justify-content-end align-items-center">
-            <Link to="/cart" className="position-relative d-inline-block text-decoration-none">
-                <i className="bi bi-bag text-blue fs-3"></i>
-                {cartCount > 0 && (
-                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light" style={{ fontSize: '0.65rem' }}>
-                        {cartCount}
-                        <span className="visually-hidden">
-                            items in cart
-                        </span>
-                    </span>
-                )}
-            </Link>
+        <div className="cart-widget-wrapper" onClick={() => navigate('/cart')} style={{ cursor: 'pointer', position: 'relative' }}>
+            <i className="bi bi-bag text-blue fs-4"></i>
+            {totalItems > 0 && (
+                <span key={totalItems} className="cart-badge bg-red text-white">
+                    {totalItems}
+                </span>
+            )}
         </div>
     )
 }

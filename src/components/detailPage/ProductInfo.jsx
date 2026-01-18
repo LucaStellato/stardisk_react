@@ -1,12 +1,13 @@
 import { useCart } from "../../contexts/CartContext";
 
 export default function ProductInfo({ product }) {
-    const { addToCart } = useCart();
-    const isTurntable = product.category === 'turntable';
+
+    const { addToCart } = useCart()
+    const isTurntable = product.category === 'turntable'
 
     return (
         <div className="col-12 col-md-6 p-5">
-            <div className="ps-5 pt-5">
+            <div className="ps-md-5 pt-md-5">
                 <h1 className="fw-bold text-red pb-4 mt-5">{product.name}</h1>
 
                 <p className="fw-bold fs-3 text-blue mt-2">
@@ -64,5 +65,5 @@ export default function ProductInfo({ product }) {
                 </button>
             </div>
         </div>
-    );
+    )
 }
