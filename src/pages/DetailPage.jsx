@@ -28,12 +28,12 @@ export default function DetailPage() {
         <div className="detail-wall schizzi pb-5">
             <div className="container">
                 <div className="pt-4 mb-4 text-start">
-                    <Link to="/vinyls" className="btn bg-blue text-yellow fw-bold shadow-sm px-4">
+                    <Link to="/vinyls" className="btn btn-lg bg-blue text-yellow fw-bold shadow-sm px-4">
                         <i className="bi bi-arrow-left me-2"></i> Back to home
                     </Link>
                 </div>
 
-                <div className="row g-5">
+                <div className="row g-5 d-flex align-items-center">
                     <ProductVisual product={currentProduct} />
                     <ProductInfo product={currentProduct} />
                 </div>

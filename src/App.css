@@ -216,8 +216,8 @@ div::-webkit-scrollbar-thumb {
     padding: 3rem 0;
     background-image:
         url("./schizzi.png"),
-        linear-gradient(rgba(255, 243, 226, 0.5), rgba(255, 243, 226, 0.7)),
-        url('./detail-wall.jpg');
+        linear-gradient(rgba(255, 243, 226, 0.05), rgba(255, 243, 226, 0.05)),
+        url('/detail-wall.jpg');
     background-size: contain, cover, cover;
     background-repeat: no-repeat;
 }
@@ -242,7 +242,7 @@ div::-webkit-scrollbar-thumb {
         15px 10px 30px rgba(0, 0, 0, 0.2),
         0px 40px 60px -20px rgba(0, 0, 0, 0.3);
 
-    transform: perspective(800px) rotateX(8deg);
+    transform: perspective(750px) rotateX(8deg);
     transform-origin: bottom;
     filter: brightness(0.95);
 
@@ -253,7 +253,7 @@ div::-webkit-scrollbar-thumb {
 }
 
 .vinyl-on-wall:hover {
-    transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+    transform: perspective(1000px) rotateX(0deg) scale(1.02) translateY(-15px);
     filter: brightness(1.05);
 }
 
@@ -363,3 +363,214 @@ div::-webkit-scrollbar-thumb {
 }
 
 /* #endregion */
+
+.product-card-glass {
+    background: rgba(207, 207, 207, 0.01) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(66, 81, 122, 0.2) !important;
+    border-radius: 5px !important;
+    box-shadow: 0 30px 55px -18px rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden;
+    background-image: none !important;
+}
+
+.glass-header {
+    background: rgba(255, 255, 255, 0.4) !important;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(66, 81, 122, 0.1) !important;
+}
+
+/* Rende l'effetto vetro più leggero per le card piccole */
+.product-card-glass.p-2 {
+    border-radius: 15px !important;
+    padding: 0px !important;
+    text-align: center;
+}
+
+/* Un piccolo effetto al passaggio del mouse per renderle interattive */
+.hover-up {
+    transition: transform 0.3s ease;
+}
+
+.hover-up:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.15) !important;
+    /* Diventa un po' più chiara */
+}
+
+/* --- MODERN WHITE FRAME / DARK CANVAS --- */
+.modern-white-frame {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 2px;
+    /* Transizione fluida per il movimento */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.shadow-frame-dark {
+    /* Ombra di base */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Solo rialzamento in Hover */
+.modern-white-frame:hover {
+    transform: translateY(-1px) scale(1.01);
+    /* Si sposta solo verso l'alto */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    /* L'ombra aumenta per dare profondità */
+}
+
+.inner-dark-canvas {
+    background: #121212;
+    /* Interno nero */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+}
+
+/* Dettagli Testi */
+.detail-label {
+    display: block;
+    color: #666;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.detail-text {
+    color: #999;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.text-gold {
+    color: #d4af37 !important;
+    /* Un tocco dorato per l'artista */
+}
+
+.accent-line {
+    width: 40px;
+    height: 3px;
+    background: #d4af37;
+}
+
+.tracking-widest {
+    letter-spacing: 4px;
+}
+
+/* Badge Stock */
+.badge-stock {
+    font-size: 0.7rem;
+    color: #ffffff;
+    border: 1px solid #333;
+    padding: 4px 10px;
+    letter-spacing: 1px;
+}
+
+/* Bottone Speciale */
+.btn-add-collection {
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 15px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.btn-add-collection:hover {
+    background: #d4af37;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-add-collection:disabled {
+    background: #333;
+    color: #666;
+}
+
+/* Correzione per HomeCard all'interno del quadro nero */
+.inner-dark-canvas .card,
+.inner-dark-canvas .card-body {
+    background: transparent !important;
+    color: white !important;
+}
+
+.inner-dark-canvas .card-title {
+    color: #ffffff !important;
+    font-size: 0.9rem;
+    /* Un po' più piccolo per la griglia */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.inner-dark-canvas .text-muted,
+.inner-dark-canvas .card-text {
+    color: #d4af37 !important;
+    /* Prezzo o Artista in oro */
+    font-weight: bold;
+}
+
+/* Riduzione della cornice per le card correlate (essendo più piccole) */
+@media (max-width: 768px) {
+    .row-cols-2 .modern-white-frame {
+        padding: 8px;
+        /* Cornice più sottile su mobile */
+    }
+}
+
+/* --- STILE SPECIFICO PER CORRELATI "SPLIT" --- */
+
+.related-item-wrapper {
+    transition: transform 0.3s ease;
+}
+
+/* Effetto sulla copertina */
+.related-img-hover {
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    filter: brightness(0.9);
+}
+
+/* Quando passi sopra a tutto il blocco... */
+.related-item-wrapper:hover .related-img-hover {
+    transform: scale(1.02) translateY(-5px);
+    /* La copertina si ingrandisce leggermente */
+    filter: brightness(1.07);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.related-item-wrapper:hover .modern-white-frame {
+
+    /* La targhetta sale leggermente */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Override per la targhetta piccola dei correlati */
+.related-item-wrapper .modern-white-frame {
+    padding: 6px;
+    /* Più sottile per i correlati */
+    border-radius: 0;
+}
+
+.related-item-wrapper .inner-dark-canvas {
+    padding: 10px 5px !important;
+}
+
+.related-item-wrapper h6 {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Evita che il testo rompa la card se troppo lungo */
+}
