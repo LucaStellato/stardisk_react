@@ -19,7 +19,7 @@ export default function ProductExtras({ product }) {
                             {tracksArray.length > 0 ? (
                                 <ul className="list-unstyled mb-0">
                                     {tracksArray.map((track, index) => (
-                                        <li key={index} className="detail-text mb-2 d-flex align-items-start">
+                                        <li key={index} className="detail-text mb-2 d-flex align-items-start fw-bold">
                                             <span className="text-gold fw-bold me-2">
                                                 {(index + 1).toString().padStart(2, '0')}.
                                             </span>

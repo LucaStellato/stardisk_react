@@ -28,6 +28,7 @@ export const CartProvider = ({ children }) => {
     const addToCart = (product) => {
         const giaPresente = cart.find(item => item.product_id === product.product_id);
 
+
         if (giaPresente) {
             if (giaPresente.quantity >= product.amount) return alert("Scorte esaurite!");
             setCart(cart.map(item =>
@@ -60,7 +61,6 @@ export const CartProvider = ({ children }) => {
 
     const clearCart = () => setCart([]);
 
-    // Funzione placeOrder integrata nel context con logica .then()
     const placeOrder = (formData, callbackSuccess, callbackError) => {
         const payloadDati = {
             ...formData,

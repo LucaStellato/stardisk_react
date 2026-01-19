@@ -8,7 +8,7 @@ export default function NavbarLinks() {
             </button>
 
             <div className="collapse navbar-collapse fs-5 flex-grow-0" id="navbarNav">
-                <ul className="navbar-nav text-blue fw-bold luckiest-guy-regular ">
+                <ul className="navbar-nav text-dark fw-bold luckiest-guy-regular ">
                     <li className="nav-item me-lg-4">
                         <NavLink className="nav-link" to="/">
                             Home

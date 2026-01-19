@@ -8,7 +8,7 @@ export default function CartWidget() {
 
     return (
         <div className="cart-widget-wrapper" onClick={() => navigate('/cart')} style={{ cursor: 'pointer', position: 'relative' }}>
-            <i className="bi bi-bag text-blue fs-4"></i>
+            <i className="bi bi-bag text-dark fs-4"></i>
             {totalItems > 0 && (
                 <span key={totalItems} className="cart-badge bg-red text-white">
                     {totalItems}

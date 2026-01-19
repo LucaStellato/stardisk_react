@@ -47,6 +47,7 @@ div::-webkit-scrollbar-thumb {
     font-style: normal;
 }
 
+
 .text-red {
     color: #D05335 !important;
 }
@@ -248,8 +249,8 @@ div::-webkit-scrollbar-thumb {
     padding: 3rem 0;
     background-image:
         url("./schizzi.png"),
-        linear-gradient(rgba(255, 243, 226, 0.05), rgba(255, 243, 226, 0.05)),
-        url('/detail-wall.jpg');
+        linear-gradient(rgba(255, 243, 226, 0.05), rgba(255, 243, 226, 0.11)),
+        url('/metro-art-3.jpg');
     background-size: contain, cover, cover;
     background-repeat: no-repeat;
 }

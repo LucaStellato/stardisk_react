@@ -1,19 +1,25 @@
+import { useState } from 'react';
 import { useCart } from '../../contexts/CartContext';
+import Alert from '../layout/Alert';
 
 export default function ProductInfo({ product }) {
     const { addToCart } = useCart();
+    const [alert, setAlert] = useState(null);
     const isTurntable = product.category === 'turntable';
+
+    const handleAddToCart = () => {
+        addToCart(product);
+        setAlert({ msg: `${product.name} aggiunto alla collezione!`, type: 'success' });
+
+        setTimeout(() => setAlert(null), 3000);
+    };
 
     return (
         <div className="col-12 col-md-6 p-md-5 d-flex align-items-center pb-3 mb-5">
-            {/* CORNICE BIANCA */}
             <div className='p-5 m-5 w-100'>
                 <div className="modern-white-frame shadow-frame-dark w-100">
-
-                    {/* INTERNO NERO */}
                     <div className="inner-dark-canvas p-4 p-md-5">
 
-                        {/* NOME PRODOTTO */}
                         <div className="mb-4 text-center">
                             <h1 className="fw-bold text-white m-0 h2 text-uppercase tracking-widest">
                                 {product.name}
@@ -21,7 +27,6 @@ export default function ProductInfo({ product }) {
                             <div className="accent-line mx-auto mt-2"></div>
                         </div>
 
-                        {/* INFO PRINCIPALI */}
                         <div className="product-details-grid mt-5">
                             <div className="mb-4">
                                 <span className="detail-label">{isTurntable ? 'BRAND' : 'ARTIST'}</span>
@@ -47,7 +52,6 @@ export default function ProductInfo({ product }) {
                             )}
                         </div>
 
-                        {/* PREZZO ED ETICHETTA */}
                         <div className="price-section mt-1 pt-2">
                             <div className="d-flex justify-content-between align-items-center">
                                 <div>
@@ -69,10 +73,9 @@ export default function ProductInfo({ product }) {
                             </div>
                         </div>
 
-                        {/* BOTTONE ACTION */}
                         <button
                             className="btn-add-collection w-100 mt-2"
-                            onClick={() => addToCart(product)}
+                            onClick={handleAddToCart}
                             disabled={product.amount === 0}
                         >
                             {product.amount === 0 ? 'NOT AVAILABLE' : 'ADD TO COLLECTION'}
@@ -81,6 +84,7 @@ export default function ProductInfo({ product }) {
                 </div>
             </div>
 
+            {alert && <Alert message={alert.msg} type={alert.type} />}
         </div>
     );
 }
