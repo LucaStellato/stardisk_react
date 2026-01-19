@@ -4,7 +4,7 @@ export default function HomeCard({ item, isTurntable = false }) {
     const priceScontato = (item.full_price * (1 - (item.discount || 0) / 100)).toFixed(2);
 
     return (
-        <Link to={`/${item.slug}`} className="text-decoration-none">
+        <Link to={`/products/${item.slug}`} className="text-decoration-none">
             <div className="card border-0 bg-transparent h-100">
                 <img src={item.img_url} className={`card-img-top ${isTurntable ? 'turntable object-fit-contain' : 'object-fit-cover'}`} alt={item.name} />
                 <div className="card-body text-blue fw-bold bg-transparent px-0">

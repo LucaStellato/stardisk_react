@@ -7,7 +7,7 @@ export default function CatalogBox({ vinyl }) {
     return (
         <div className="vinyl-box-wrapper">
             <div className="vinyl-box">
-                <Link to={`/${vinyl.slug}`}>
+                <Link to={`/products/${vinyl.slug}`}>
                     <img src={vinyl.img_url} alt={vinyl.name} className="vinyl-disc vinyl-disc-top" />
 
                     <img src="/plain-vinyl.webp" alt="vinyl disc" className="vinyl-disc vinyl-disc-bottom" />

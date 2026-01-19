@@ -30,7 +30,7 @@ function App() {
               <Route path='/cart' element={<CartPage />} />
               <Route path='/checkout' element={<CheckoutPage />} />
               <Route path="/success" element={<SuccessPage />} />
-              <Route path='/:slug' element={<DetailPage />} />
+              <Route path='/products/:slug' element={<DetailPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
