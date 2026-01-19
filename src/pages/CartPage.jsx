@@ -39,7 +39,7 @@ export default function CartPage() {
                 <h2 className="mb-4 fw-bold text-uppercase text-blue pb-4">Your cart</h2>
 
                 <div className="row">
-                    {/* Colonna Prodotti */}
+
                     <div className="col-lg-7">
                         {cart.map((item) => (
                             <CartItem
@@ -52,7 +52,6 @@ export default function CartPage() {
                         ))}
                     </div>
 
-                    {/* Colonna Riepilogo */}
                     <CartSummary
                         cart={cart}
                         totaleProdotti={totaleProdotti}

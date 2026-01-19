@@ -7,23 +7,31 @@ export default function WelcomePopup() {
     const [status, setStatus] = useState('');
 
     useEffect(() => {
-        const timer = setTimeout(() => setIsVisible(true), 3000);
-        return () => clearTimeout(timer);
+        const hasSeenPopup = localStorage.getItem('hasSeenPopup');
+
+        if (!hasSeenPopup) {
+            const timer = setTimeout(() => setIsVisible(true), 3000);
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     const closePopup = () => {
         setIsVisible(false);
+        localStorage.setItem('hasSeenPopup', 'true');
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        try {
-            await axios.post('http://localhost:3000/api/subscribe', { email });
-            setStatus('Subscribed! Check your email. 🎶');
-            setTimeout(closePopup, 2000);
-        } catch (err) {
-            setStatus('Something went wrong. Try again.');
-        }
+
+        axios.post('http://localhost:3000/api/subscribe', { email })
+            .then(() => {
+                setStatus('Subscribed! Check your email.');
+                localStorage.setItem('hasSeenPopup', 'true');
+                setTimeout(closePopup, 2000);
+            })
+            .catch((err) => {
+                setStatus('Something went wrong. Try again.');
+            });
     };
 
     if (!isVisible) return null;
@@ -55,5 +63,5 @@ export default function WelcomePopup() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

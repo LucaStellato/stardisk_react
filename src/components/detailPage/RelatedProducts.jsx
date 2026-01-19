@@ -18,7 +18,7 @@ export default function RelatedProducts({ products }) {
                     <div key={prod.product_id} className="col p-3">
                         {/* LINK CHE INCARTA TUTTA LA CARD */}
                         <Link
-                            to={`/${prod.slug}`}
+                            to={`/products/${prod.slug}`}
                             className="related-item-wrapper h-100 d-flex flex-column text-decoration-none"
                         >
 

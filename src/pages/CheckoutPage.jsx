@@ -43,7 +43,7 @@ export default function CheckoutPage() {
             <div className="container pt-5 pb-5" style={{ minHeight: 'calc(100vh - 300px)' }}>
                 <h2 className="mb-4 fw-bold text-uppercase text-blue pb-4">Checkout</h2>
                 <div className="row">
-                    {/* Colonna Sinistra: Form Dati */}
+
                     <div className="col-lg-7">
                         <div className="p-4 bg-white rounded shadow-sm">
                             <CheckoutForm
@@ -55,7 +55,6 @@ export default function CheckoutPage() {
                         </div>
                     </div>
 
-                    {/* Colonna Destra: Riepilogo Ordine */}
                     <div className="col-lg-5 mt-4 mt-lg-0">
                         <div className="p-4 bg-lightyellow rounded shadow-sm">
                             <CheckoutSummary

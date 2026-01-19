@@ -5,11 +5,10 @@ const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
-    const [currentProduct, setCurrentProduct] = useState(null); // Nuovo
-    const [relatedProducts, setRelatedProducts] = useState([]); // Nuovo
+    const [currentProduct, setCurrentProduct] = useState(null);
+    const [relatedProducts, setRelatedProducts] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    // --- LE TUE FUNZIONI ESISTENTI ---
     const fetchAllProducts = () => {
         setLoading(true);
         axios.get('http://localhost:3000/api/products')
@@ -44,17 +43,14 @@ export const ProductProvider = ({ children }) => {
     const getTurntables = () => products.filter(p => p.category?.toLowerCase() === "turntable");
     const getDiscountedVinyls = () => products.filter(p => p.discount > 0 && p.category?.toLowerCase() === "vinyl");
 
-    // --- NUOVA FUNZIONE PER DETTAGLIO (Senza Async/Await) ---
     const fetchProductBySlug = (slug) => {
         setLoading(true);
-        // Reset stati precedenti per evitare di vedere il vecchio prodotto mentre carica
         setCurrentProduct(null);
         setRelatedProducts([]);
 
         axios.get(`http://localhost:3000/api/products/${slug}`)
             .then(res => {
                 setCurrentProduct(res.data[0]);
-                // Chiamata concatenata per i correlati
                 return axios.get(`http://localhost:3000/api/products/${slug}/related`);
             })
             .then(relatedRes => {
@@ -70,12 +66,12 @@ export const ProductProvider = ({ children }) => {
     return (
         <ProductContext.Provider value={{
             products,
-            currentProduct,     // Aggiunto
-            relatedProducts,    // Aggiunto
+            currentProduct,
+            relatedProducts,
             loading,
             fetchAllProducts,
             searchProducts,
-            fetchProductBySlug, // Aggiunto
+            fetchProductBySlug,
             getVinyls,
             getTurntables,
             getDiscountedVinyls
