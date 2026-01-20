@@ -10,7 +10,7 @@ export default function TurntablesSection() {
             <h1 className="pt-5 fw-bold text-blue text-center">TURNTABLES</h1>
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 py-5 g-4 d-flex justify-content-center align-items-center">
                 {turntables.map(t => (
-                    <div className="col" key={t.product_id}>
+                    <div className="col" key={t.slug}>
                         <HomeCard item={t} isTurntable={true} />
                     </div>
                 ))}
