@@ -5,7 +5,7 @@ const NotFoundPage = () => {
 
     return (
         <section className="bg-graffiti d-flex align-items-center" style={{ minHeight: '100vh' }}>
-            <div className="container schizzi py-5">
+            <div className="container py-5">
                 <div className="row justify-content-center">
                     <div className="col-md-8 col-lg-6">
                         <div className="card shadow border-0 rounded-4 bg-white p-5 text-center">
