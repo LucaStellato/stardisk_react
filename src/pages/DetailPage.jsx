@@ -25,10 +25,10 @@ export default function DetailPage() {
     }
 
     return (
-        <div className="detail-wall schizzi pb-5">
+        <div className="detail-wall pb-5">
             <div className="container">
-                <div className="pt-4 mb-4 text-start">
-                    <Link to="/vinyls" className="btn btn-lg bg-blue text-yellow fw-bold shadow-sm px-4">
+                <div className="pt-3 mb-2 text-start">
+                    <Link to="/" className="btn btn-dark bg-black-custom rounded-2 text-white fw-bold shadow-sm px-4 py-2 ms-3">
                         <i className="bi bi-arrow-left me-2"></i> Back to home
                     </Link>
                 </div>
@@ -39,6 +39,11 @@ export default function DetailPage() {
                 </div>
                 <ProductExtras product={currentProduct} />
                 <RelatedProducts products={relatedProducts} />
+                <div className="pt-3 m-4 text-center">
+                    <Link to="/vinyls" className="btn btn-lg bg-black-custom text-white fw-bold shadow-sm px-4 py-2 ms-3 w-50 rounded-2">
+                        <i className="bi bi-arrow-left me-2"></i> Go to vinyls
+                    </Link>
+                </div>
             </div>
         </div>
     );

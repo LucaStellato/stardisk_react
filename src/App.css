@@ -35,41 +35,32 @@ div::-webkit-scrollbar-thumb {
     margin: 0 auto;
 }
 
-.luckiest-guy-regular {
-    font-family: "Luckiest Guy", cursive;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.mouse-memoirs-regular {
-    font-family: "Mouse Memoirs", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-
 .text-red {
     color: #D05335 !important;
 }
 
 .text-blue {
-    color: #42517A !important;
+    color: #0E0D09 !important;
 }
 
 .text-yellow {
-    color: #EBC256 !important;
+    color: #d4af37 !important;
 }
 
 .text-gold {
     color: #d4af37 !important;
 }
 
+.bg-black-custom {
+    background-color: #0E0D09 !important;
+}
+
 .bg-blue {
-    background-color: #42517A !important;
+    background-color: #0E0D09 !important;
 }
 
 .bg-yellow {
-    background-color: #EBC256 !important;
+    background-color: #d4af37 !important;
 }
 
 .bg-red {
@@ -82,7 +73,7 @@ div::-webkit-scrollbar-thumb {
 
 .bg-graffiti {
     min-height: 100vh;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('https://media.istockphoto.com/id/1682399954/it/vettoriale/modello-di-sfondo-di-illustrazione-vettoriale-astratto-urbano-stile-urbano-hiphop.jpg?s=612x612&w=0&k=20&c=cjt_vGqUcNMOiX0NlLvq-vQBpbxTs3EKcSDyinZYCv4=');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("./metro-art-2.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -132,6 +123,36 @@ div::-webkit-scrollbar-thumb {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.wish-badge {
+    position: absolute;
+    top: 2px;
+    right: -2px;
+    font-size: 0.65rem;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: cartPop 0.3s ease-out;
+    /* Usiamo la stessa animazione del carrello */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #D05335;
+    /* Rosso */
+    color: white;
+}
+
+.btn-wishlist {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-wishlist:hover {
+    color: #D05335 !important;
+    transform: scale(1.1);
+}
+
 .card {
     transition: all 0.35s ease-out;
     border: none !important;
@@ -145,7 +166,7 @@ div::-webkit-scrollbar-thumb {
 
 /* #region JUMBOTRON */
 .jumbo {
-    background-image: url(/jumbo.PNG);
+    background-image: url(/jumbo.webp);
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -530,3 +551,20 @@ div::-webkit-scrollbar-thumb {
 }
 
 /* #endregion */
+
+.alert-minimal {
+    animation: slideInRight 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

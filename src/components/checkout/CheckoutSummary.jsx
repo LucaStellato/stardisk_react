@@ -1,6 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 
-export default function CheckoutSummary({ cart, totaleProdotti, costoSpedizione, totaleFinale, isSpedizioneGratuita, termsAccepted, handleSubmit }) {
+export default function CheckoutSummary({
+    cart,
+    totaleProdotti,
+    costoSpedizione,
+    totaleFinale,
+    isSpedizioneGratuita,
+    termsAccepted,
+    handleSubmit,
+    loading // Riceviamo lo stato di caricamento
+}) {
     const navigate = useNavigate();
 
     return (
@@ -45,12 +54,28 @@ export default function CheckoutSummary({ cart, totaleProdotti, costoSpedizione,
                 <span className="fw-bold text-blue mb-0 ">€{totaleFinale.toFixed(2)}</span>
             </div>
 
-            <button className="btn bg-yellow text-blue w-100 fw-bold py-3 shadow-sm border-0 text-uppercase" onClick={handleSubmit} disabled={!termsAccepted}
+            {/* Pulsante con gestione Loading */}
+            <button
+                className="btn bg-yellow text-blue w-100 fw-bold py-3 shadow-sm border-0 text-uppercase d-flex align-items-center justify-content-center"
+                onClick={handleSubmit}
+                disabled={!termsAccepted || loading} // Disabilitato se termini non accettati o se sta caricando
+                style={{ cursor: (loading || !termsAccepted) ? 'not-allowed' : 'pointer', minHeight: '58px' }}
             >
-                Confirm and Pay
+                {loading ? (
+                    <>
+                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                        Processing...
+                    </>
+                ) : (
+                    'Confirm and Pay'
+                )}
             </button>
 
-            <button className="btn btn-link text-muted w-100 mt-3 small text-decoration-none" onClick={() => navigate('/cart')}>
+            <button
+                className="btn btn-link text-muted w-100 mt-3 small text-decoration-none"
+                onClick={() => navigate('/cart')}
+                disabled={loading} // Impediamo di tornare indietro mentre l'ordine è in corso
+            >
                 ← Back to cart
             </button>
         </div>

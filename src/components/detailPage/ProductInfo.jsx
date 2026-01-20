@@ -1,18 +1,12 @@
-import { useState } from 'react';
 import { useCart } from '../../contexts/CartContext';
-import Alert from '../layout/Alert';
+import { useWishlist } from '../../contexts/WishlistContext';
 
 export default function ProductInfo({ product }) {
     const { addToCart } = useCart();
-    const [alert, setAlert] = useState(null);
     const isTurntable = product.category === 'turntable';
 
-    const handleAddToCart = () => {
-        addToCart(product);
-        setAlert({ msg: `${product.name} aggiunto alla collezione!`, type: 'success' });
-
-        setTimeout(() => setAlert(null), 3000);
-    };
+    const { toggleWishlist, wishlist } = useWishlist();
+    const isFavorite = wishlist.some(item => String(item.product_id) === String(product.product_id))
 
     return (
         <div className="col-12 col-md-6 p-md-5 d-flex align-items-center pb-3 mb-5">
@@ -74,17 +68,22 @@ export default function ProductInfo({ product }) {
                         </div>
 
                         <button
-                            className="btn-add-collection w-100 mt-2"
-                            onClick={handleAddToCart}
+                            className="btn-add-collection mt-3 d-flex align-items-center justify-content-center w-100 gap-2"
+                            onClick={() => toggleWishlist(product)}>
+                            <i className={`bi ${isFavorite ? 'bi-heart-fill text-red' : 'bi-heart'}`}></i>
+                            {isFavorite ? 'IN WISHLIST' : 'ADD TO WISHLIST'}
+                        </button>
+
+                        <button
+                            className="btn-add-collection w-100 mt-2 shadow-sm"
+                            onClick={() => addToCart(product)}
                             disabled={product.amount === 0}
                         >
-                            {product.amount === 0 ? 'NOT AVAILABLE' : 'ADD TO COLLECTION'}
+                            {product.amount === 0 ? 'NOT AVAILABLE' : 'ADD TO CART'}
                         </button>
                     </div>
                 </div>
             </div>
-
-            {alert && <Alert message={alert.msg} type={alert.type} />}
         </div>
     );
 }

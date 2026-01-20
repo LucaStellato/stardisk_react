@@ -23,7 +23,7 @@ export default function WelcomePopup() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:3000/api/subscribe', { email })
+        axios.post('http://localhost:3000/api/mail', { "mail": email })
             .then(() => {
                 setStatus('Subscribed! Check your email.');
                 localStorage.setItem('hasSeenPopup', 'true');

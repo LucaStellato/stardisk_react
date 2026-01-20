@@ -14,6 +14,7 @@ export default function CheckoutPage() {
     });
     const [termsAccepted, setTermsAccepted] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (cart.length === 0 && !isSuccess) {
@@ -25,14 +26,18 @@ export default function CheckoutPage() {
 
     const handleSubmit = (e) => {
         if (e) e.preventDefault();
+        setLoading(true);
 
         placeOrder(
             formData,
             () => {
+                setLoading(false);
                 setIsSuccess(true);
                 navigate('/success');
             },
-            () => alert("Errore durante l'invio dell'ordine.")
+            () => {
+                setLoading(false);
+            }
         );
     };
 
@@ -43,7 +48,6 @@ export default function CheckoutPage() {
             <div className="container pt-5 pb-5" style={{ minHeight: 'calc(100vh - 300px)' }}>
                 <h2 className="mb-4 fw-bold text-uppercase text-blue pb-4">Checkout</h2>
                 <div className="row">
-
                     <div className="col-lg-7">
                         <div className="p-4 bg-white rounded shadow-sm">
                             <CheckoutForm
@@ -51,6 +55,7 @@ export default function CheckoutPage() {
                                 handleChange={handleChange}
                                 termsAccepted={termsAccepted}
                                 setTermsAccepted={setTermsAccepted}
+                                loading={loading}
                             />
                         </div>
                     </div>
@@ -65,6 +70,7 @@ export default function CheckoutPage() {
                                 isSpedizioneGratuita={isSpedizioneGratuita}
                                 termsAccepted={termsAccepted}
                                 handleSubmit={handleSubmit}
+                                loading={loading}
                             />
                         </div>
                     </div>

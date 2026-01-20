@@ -6,10 +6,23 @@ export default function HomeCard({ item, isTurntable = false }) {
     return (
         <Link to={`/products/${item.slug}`} className="text-decoration-none">
             <div className="card border-0 bg-transparent h-100">
-                <img src={item.img_url} className={`card-img-top ${isTurntable ? 'turntable object-fit-contain' : 'object-fit-cover'}`} alt={item.name} />
-                <div className="card-body text-blue fw-bold bg-transparent px-0">
+                <img
+                    src={item.img_url}
+                    className="card-img-top"
+                    alt={item.name}
+                    style={{
+                        height: isTurntable ? '180px' : '100%',
+                        maxHeight: isTurntable ? '180px' : 'none',
+                        objectFit: isTurntable ? 'contain' : 'cover'
+                    }}
+                />
+
+                {/* Aggiunta la classe condizionale text-center */}
+                <div className={`card-body text-blue fw-bold bg-transparent px-0 ${isTurntable ? 'text-center' : ''}`}>
                     <h5 className="card-title fw-bold mb-1">{item.name}</h5>
-                    <div className="d-flex align-items-center flex-wrap">
+
+                    {/* Aggiunta la classe condizionale justify-content-center */}
+                    <div className={`d-flex align-items-center flex-wrap ${isTurntable ? 'justify-content-center' : ''}`}>
                         {item.discount > 0 ? (
                             <>
                                 <span className="fs-5">{priceScontato}€</span>
