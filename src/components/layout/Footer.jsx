@@ -10,9 +10,8 @@ export default function Footer() {
                         <h3 className="mb-1 fw-bold text-yellow">Menu</h3>
                         <ul className='list-unstyled pt-2 text-light fw-bold'>
                             <li className="mb-2"><Link to='/'>Home</Link></li>
-                            <li className="mb-2"><Link to='/vinyls'>Catalog</Link></li>
-                            <li className="mb-2">About us</li>
-                            <li>Contacts</li>
+                            <li className="mb-2"><Link to='/vinyls'>Vinyls</Link></li>
+                            <li className="mb-2"><Link to='/aboutus'>About Us</Link></li>
                         </ul>
                     </div>
                     <div className='col-6 col-md-3 mb-4 mb-md-0 d-flex flex-column'>

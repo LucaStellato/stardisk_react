@@ -10,6 +10,7 @@ import CheckoutPage from "./pages/CheckoutPage"
 import SuccessPage from "./pages/SuccessPage"
 import NotFoundPage from "./pages/NotFoundPage"
 import WishlistPage from "./pages/WishlistPage"
+import AboutusPage from "./pages/AboutusPage"
 
 import ScrollToTop from "./components/layout/ScrollToTop"
 import WelcomePopup from "./components/homePage/WelcomePopup"
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/success" element={<SuccessPage />} />
                 <Route path='/products/:slug' element={<DetailPage />} />
                 <Route path='/wishlist' element={<WishlistPage />} />
+                <Route path='/aboutus' element={<AboutusPage />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Routes>

@@ -3,24 +3,37 @@ import { NavLink } from 'react-router-dom';
 export default function NavbarLinks() {
     return (
         <>
-            <button className="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button
+                className="navbar-toggler custom-toggler text-yellow border-0 shadow-none p-0 "
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
                 <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div className="collapse navbar-collapse fs-5 flex-grow-0" id="navbarNav">
-                <ul className="navbar-nav text-white fw-bold">
-                    <li className="nav-item me-lg-4">
+            {/* <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav fw-bold text-uppercase text-white py-3 py-lg-0">
+                    <li className="nav-item me-lg-5">
                         <NavLink className="nav-link" to="/">
                             Home
                         </NavLink>
                     </li>
-                    <li className="nav-item me-lg-4">
+                    <li className="nav-item me-lg-5">
                         <NavLink className="nav-link" to="/vinyls">
-                            Catalog
+                            Vinyls
+                        </NavLink>
+                    </li>
+                    <li className="nav-item me-lg-5">
+                        <NavLink className="nav-link" to="/aboutus">
+                            About Us
                         </NavLink>
                     </li>
                 </ul>
-            </div>
+            </div> */}
         </>
-    )
+    );
 }

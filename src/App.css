@@ -74,7 +74,7 @@ div::-webkit-scrollbar-thumb {
 
 .bg-graffiti {
     min-height: 100vh;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), url("./metro-art-2.jpg");
+    background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("./metro-art-2.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -108,12 +108,20 @@ div::-webkit-scrollbar-thumb {
     justify-content: space-between;
 }
 
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 .cart-widget-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     padding: 5px;
+
+    &:hover {
+        scale: 1.1;
+    }
 }
 
 .cart-badge {
@@ -150,6 +158,16 @@ div::-webkit-scrollbar-thumb {
     background-color: #D05335;
     /* Rosso */
     color: white;
+}
+
+.nav-link.active {
+    color: #d7b74c !important;
+    transform: scale(1.10);
+}
+
+.nav-link:hover {
+    color: #d4af37 !important;
+    opacity: 0.8;
 }
 
 .btn-wishlist {
@@ -559,7 +577,19 @@ div::-webkit-scrollbar-thumb {
         display: flex !important;
         justify-content: center;
     }
+
+    .flex-1 {
+        flex: 1 1 0;
+        display: flex;
+        align-items: center;
+        min-height: 100%;
+    }
 }
+
+.navbar {
+    position: relative;
+}
+
 
 @media (max-width: 768px) {
     .row-cols-2 .modern-white-frame {
