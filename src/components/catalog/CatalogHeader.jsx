@@ -1,7 +1,17 @@
 export default function CatalogHeader({ query, setQuery, sort, onSearch, onSortChange }) {
     return (
         <div className="d-flex justify-content-between align-items-center flex-wrap mb-4 mt-4 pb-5 gap-3">
-            <h1 className="fw-bold text-blue mb-0 ms-5 ps-3">VINYLS CATALOG</h1>
+            <div className="modern-white-frame shadow-frame-dark ms-5 h-100">
+                <div className="inner-dark-canvas h-100">
+                    <div className="p-3 border-bottom border-secondary border-opacity-25">
+                        <h2 className="fw-bold text-white m-0 text-uppercase tracking-widest">
+                            VINYLS CATALOG
+                        </h2>
+                        <div className="accent-line mx-auto mt-2" style={{ width: '30px' }}></div>
+                    </div>
+                </div>
+            </div>
+
 
             <div className="d-flex gap-3 align-items-center flex-wrap flex-grow-1 flex-md-grow-0 justify-content-end">
                 <select className="form-select fw-bold w-auto text-blue bg-yellow rounded-2 border-0 shadow-sm" style={{ cursor: 'pointer' }} value={sort} onChange={onSortChange}>

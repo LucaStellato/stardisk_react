@@ -26,7 +26,7 @@ export default function DetailPage() {
 
     return (
         <div className="detail-wall pb-5">
-            <div className="container">
+            <div className="container-fluid container-lg">
                 <div className="pt-3 mb-2 text-start">
                     <Link to="/" className="btn btn-dark bg-black-custom rounded-2 text-white fw-bold shadow-sm px-4 py-2 ms-3">
                         <i className="bi bi-arrow-left me-2"></i> Back to home

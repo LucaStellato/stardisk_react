@@ -9,7 +9,7 @@ export default function ProductInfo({ product }) {
     const isFavorite = wishlist.some(item => String(item.product_id) === String(product.product_id))
 
     return (
-        <div className="col-12 col-md-6 p-md-5 d-flex align-items-center pb-3 mb-5">
+        <div className="col-12 col-lg-6 p-md-5 d-flex align-items-center pb-3 mb-5">
             <div className='p-5 m-5 w-100'>
                 <div className="modern-white-frame shadow-frame-dark w-100">
                     <div className="inner-dark-canvas p-4 p-md-5">
