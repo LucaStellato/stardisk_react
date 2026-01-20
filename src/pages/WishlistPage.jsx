@@ -24,7 +24,7 @@ export default function WishlistPage() {
                         {wishlist.length === 0 ? (
                             <div className="text-center py-5">
                                 <p className="text-secondary mb-5 pb-4 fs-5">Your wishlist is now empty.</p>
-                                <Link to="/vinyls" className="btn-add-collection text-yellow fs-5 text-uppercase px-5 py-2 mt-5">
+                                <Link to="/vinyls" className="btn-add-collection fw-semibold text-black fs-5 text-uppercase px-5 py-2 mt-5">
                                     Go to vinyls catalog
                                 </Link>
                             </div>
@@ -65,14 +65,14 @@ export default function WishlistPage() {
                                                 <div className="d-flex align-items-center gap-3">
                                                     <button
                                                         className="btn-add-collection fs-6 text-uppercase py-2 px-4 border-0"
-                                                        style={{ fontSize: '0.75rem', backgroundColor: '#fff', color: '#000', whiteSpace: 'nowrap' }}
+                                                        style={{ fontSize: '0.75rem' }}
                                                         onClick={() => addToCart(product)}
                                                     >
                                                         <i className="bi bi-bag me-2"></i> ADD TO CART
                                                     </button>
                                                     <button
                                                         className="btn-add-collection py-2 px-3"
-                                                        style={{ fontSize: '0.75rem', border: '1px solid #D05335', color: '#D05335' }}
+                                                        style={{ fontSize: '1rem' }}
                                                         onClick={() => toggleWishlist(product)}
                                                     >
                                                         <i className="bi bi-trash"></i>
@@ -90,9 +90,9 @@ export default function WishlistPage() {
                     </div>
                 </div>
 
-                <div className="mt-4 text-center">
-                    <Link to="/catalog" className="text-white text-decoration-none small tracking-widest opacity-50 hover-opacity-100">
-                        <i className="bi bi-arrow-left me-2"></i> BACK TO CATALOG
+                <div className="mt-4 text-center mt-5 pt-2">
+                    <Link to="/vinyls" className=" text-white text-decoration-none fs-1 tracking-widest fw-semibold">
+                        <i className="bi bi-arrow-left me-2"></i> BACK TO VINYLS
                     </Link>
                 </div>
 
