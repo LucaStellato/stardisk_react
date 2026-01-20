@@ -7,7 +7,16 @@ export default function SaleSection() {
 
     return (
         <section className="container">
-            <h1 className="pt-5 fw-bold text-blue">SALE</h1>
+            <div className="modern-white-frame shadow-frame-dark h-100 mt-5 w-25">
+                <div className="inner-dark-canvas h-100">
+                    <div className="p-3 border-bottom border-secondary border-opacity-25">
+                        <h1 className="fw-bold text-white m-0 tracking-widest">
+                            SALE
+                        </h1>
+                        <div className="accent-line mt-2" style={{ width: '30px' }}></div>
+                    </div>
+                </div>
+            </div>
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 py-5 g-5">
                 {vinyls.map(v => (
                     <div className="col" key={v.product_id}>
