@@ -14,25 +14,22 @@ export default function HomeCard({ item, isTurntable = false }) {
                         height: isTurntable ? '180px' : '100%',
                         maxHeight: isTurntable ? '180px' : 'none',
                         objectFit: isTurntable ? 'contain' : 'cover'
-                    }}
-                />
+                    }} />
 
-                {/* Aggiunta la classe condizionale text-center */}
-                <div className={`card-body text-blue fw-bold bg-transparent px-0 ${isTurntable ? 'text-center' : ''}`}>
+                <div className="card-body text-blue text-center fw-bold bg-transparent px-0">
                     <h5 className="card-title fw-bold mb-1">{item.name}</h5>
 
-                    {/* Aggiunta la classe condizionale justify-content-center */}
-                    <div className={`d-flex align-items-center flex-wrap ${isTurntable ? 'justify-content-center' : ''}`}>
+                    <div className="d-flex align-items-center justify-content-center flex-wrap">
                         {item.discount > 0 ? (
                             <>
-                                <span className="fs-5">{priceScontato}€</span>
-                                <span className="text-decoration-line-through ms-2 small text-yellow opacity-75">
+                                <p className="fs-5">{priceScontato}€</p>
+                                <p className="text-decoration-line-through ms-2 small text-yellow opacity-75">
                                     {item.full_price}€
-                                </span>
-                                <span className="text-red fs-5 ms-2">-{item.discount}%</span>
+                                </p>
+                                <p className="text-red fs-5 ms-2">-{item.discount}%</p>
                             </>
                         ) : (
-                            <span className="fs-5">{item.full_price}€</span>
+                            <p className="fs-5">{item.full_price}€</p>
                         )}
                     </div>
                 </div>
