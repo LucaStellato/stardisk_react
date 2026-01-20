@@ -41,7 +41,7 @@ export default function VinylsPage() {
     };
 
     return (
-        <section className="bg-graffiti min-vh-100">
+        <section className="bg-graffiti-2 min-vh-100">
             <div className="container py-5">
                 <CatalogHeader query={query} setQuery={setQuery} sort={sort} onSearch={handleSearch} onSortChange={handleSortChange} />
                 <CatalogMain />
