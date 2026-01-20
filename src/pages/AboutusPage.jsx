@@ -41,7 +41,7 @@ export default function AboutusPage() {
                                 <div className="mt-5 pt-4 border-top border-secondary border-opacity-25">
                                     <h4 className="text-white text-uppercase tracking-widest h6 mb-4">Join the Club</h4>
                                     <div className="d-flex justify-content-center gap-3 flex-wrap">
-                                        <Link to="/catalog" className="btn-add-collection px-4 py-2">
+                                        <Link to="/vinyls" className="btn-add-collection px-4 py-2">
                                             EXPLORE CATALOG
                                         </Link>
                                     </div>
