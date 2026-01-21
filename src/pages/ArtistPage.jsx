@@ -43,7 +43,7 @@ export default function ArtistPage() {
                             <div className="col-md-8">
                                 <h1 className="fw-bold text-uppercase tracking-widest">{currentArtist.name}</h1>
                                 <div className="accent-line mb-3" style={{ width: '60px', height: '3px', backgroundColor: 'gold' }}></div>
-                                <p className="fs-5 text-secondary">Bio:{currentArtist.bio}</p>
+                                <p className="fs-5 text-secondary">{currentArtist.description}</p>
                                 <p className="small text-muted">Label: {currentArtist.record_label}</p>
                             </div>
                         </div>
