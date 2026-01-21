@@ -8,7 +8,6 @@ export default function WelcomePopup() {
 
     useEffect(() => {
         const hasSeenPopup = localStorage.getItem('hasSeenPopup');
-
         if (!hasSeenPopup) {
             const timer = setTimeout(() => setIsVisible(true), 3000);
             return () => clearTimeout(timer);
@@ -26,8 +25,8 @@ export default function WelcomePopup() {
         axios.post('http://localhost:3000/api/mail', { "mail": email })
             .then(() => {
                 setStatus('Subscribed! Check your email.');
+                setEmail('');
                 localStorage.setItem('hasSeenPopup', 'true');
-                setTimeout(closePopup, 2000);
             })
             .catch((err) => {
                 setStatus('Something went wrong. Try again.');
@@ -40,7 +39,27 @@ export default function WelcomePopup() {
         <div className="vh-100 vw-100 position-fixed top-0 start-0 d-flex justify-content-center align-items-center bg-dark bg-opacity-75" style={{ zIndex: 9999, backdropFilter: 'blur(5px)' }}>
             <div className="bg-graffiti-popup p-4 p-md-5 shadow-lg position-relative border-0" style={{ maxWidth: '450px', width: '90%', animation: 'scaleIn 0.3s ease-out' }}>
 
-                <button type="button" className="btn-close position-absolute top-0 end-0 m-3 shadow-none" onClick={closePopup} aria-label="Close"></button>
+                <button
+                    type="button"
+                    onClick={closePopup}
+                    className="border-0 bg-transparent position-absolute top-0 end-0 m-3 d-flex align-items-center justify-content-center"
+                    style={{ cursor: 'pointer', outline: 'none' }}
+                >
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="black"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                {/* --------------------------------- */}
 
                 <div className="text-center">
                     <h3 className="fw-bold text-blue text-uppercase mb-3">Vinyl Club</h3>
@@ -56,7 +75,7 @@ export default function WelcomePopup() {
                     </form>
 
                     {status &&
-                        <div className="mt-3 small fw-bold text-blue">
+                        <div className="mt-3 fs-5 fw-bold text-blue">
                             {status}
                         </div>
                     }

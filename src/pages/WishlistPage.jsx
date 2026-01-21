@@ -24,7 +24,7 @@ export default function WishlistPage() {
                             <div className="text-center py-5">
                                 <p className="text-secondary mb-5 pb-4 fs-5">Your wishlist is now empty.</p>
                                 <Link to="/vinyls" className="btn-add-collection fw-semibold text-black fs-5 text-uppercase px-5 py-2 mt-5">
-                                    Go to vinyls catalog
+                                    Go to vinyls
                                 </Link>
                             </div>
                         ) : (
@@ -87,7 +87,7 @@ export default function WishlistPage() {
                 </div>
 
                 <div className="mt-4 text-center mt-5 pt-2">
-                    <Link to="/vinyls" className=" text-white text-decoration-none fs-1 tracking-widest fw-semibold">
+                    <Link to="/vinyls" className=" text-white text-decoration-none fs-1 tracking-widest">
                         <i className="bi bi-arrow-left me-2"></i> BACK TO VINYLS
                     </Link>
                 </div>

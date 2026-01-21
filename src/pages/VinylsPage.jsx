@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useProducts } from "../contexts/ProductContext";
 import CatalogHeader from "../components/catalog/CatalogHeader";
 import CatalogMain from "../components/catalog/CatalogMain";
@@ -53,6 +53,7 @@ export default function VinylsPage() {
     return (
         <section className="bg-graffiti-2 min-vh-100">
             <div className="container py-5">
+
                 <CatalogHeader
                     query={query}
                     setQuery={setQuery}
@@ -63,6 +64,11 @@ export default function VinylsPage() {
                     onGenreChange={handleGenreChange}
                 />
                 <CatalogMain />
+                <div className="mb-5 text-center mb-5 pt-2">
+                    <Link to="/" className=" text-yellow text-decoration-none fs-3 tracking-widest fw-semibold">
+                        <i className="bi bi-arrow-left me-2"></i> BACK TO HOME
+                    </Link>
+                </div>
             </div>
         </section>
     );

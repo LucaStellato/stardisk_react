@@ -7,7 +7,7 @@ export default function CheckoutForm({ formData, handleChange, termsAccepted, se
 
             <div className="row">
                 <div className="col-md-6 mb-3">
-                    <label className="form-label small fw-bold text-blue">NAME</label>
+                    <label className="form-label small fw-bold text-blue">NAME*</label>
                     <input
                         type="text"
                         name="name"
@@ -20,7 +20,7 @@ export default function CheckoutForm({ formData, handleChange, termsAccepted, se
                     />
                 </div>
                 <div className="col-md-6 mb-3">
-                    <label className="form-label small fw-bold text-blue">SURNAME</label>
+                    <label className="form-label small fw-bold text-blue">SURNAME*</label>
                     <input
                         type="text"
                         name="surname"
@@ -35,7 +35,7 @@ export default function CheckoutForm({ formData, handleChange, termsAccepted, se
             </div>
 
             <div className="mb-3">
-                <label className="form-label small fw-bold text-blue">EMAIL</label>
+                <label className="form-label small fw-bold text-blue">EMAIL*</label>
                 <input
                     type="email"
                     name="mail"
@@ -49,7 +49,7 @@ export default function CheckoutForm({ formData, handleChange, termsAccepted, se
             </div>
 
             <div className="mb-5">
-                <label className="form-label small fw-bold text-blue">ADDRESS</label>
+                <label className="form-label small fw-bold text-blue">ADDRESS*</label>
                 <input
                     type="text"
                     name="address"
@@ -66,7 +66,7 @@ export default function CheckoutForm({ formData, handleChange, termsAccepted, se
             <h5 className="fw-bold text-blue text-uppercase mb-4">Payment Details</h5>
 
             <div className="mb-3">
-                <label className="form-label small fw-bold text-blue">CARD NUMBER</label>
+                <label className="form-label small fw-bold text-blue">CARD NUMBER*</label>
                 <input
                     type="text"
                     name="cardNumber"
@@ -82,7 +82,7 @@ export default function CheckoutForm({ formData, handleChange, termsAccepted, se
 
             <div className="row">
                 <div className="col-7 mb-3">
-                    <label className="form-label small fw-bold text-blue">EXPIRY DATE</label>
+                    <label className="form-label small fw-bold text-blue">EXPIRY DATE*</label>
                     <input
                         type="text"
                         name="expDate"
@@ -96,7 +96,7 @@ export default function CheckoutForm({ formData, handleChange, termsAccepted, se
                     />
                 </div>
                 <div className="col-5 mb-3">
-                    <label className="form-label small fw-bold text-blue">CVV</label>
+                    <label className="form-label small fw-bold text-blue">CVV*</label>
                     <input
                         type="text"
                         name="cvv"

@@ -3,10 +3,13 @@ export default function ProductExtras({ product }) {
 
     const tracksArray = product.tracklist ? product.tracklist.split(',') : [];
 
+    // 1. Aggiunto align-items-start alla row per evitare lo stretch delle colonne
     return (
-        <div className="row ps-lg-3 pt-1 mt-2 g-5 pb-5 p-3 p-md-1">
-            <div className="col-12 col-md-4 ">
-                <div className="modern-white-frame shadow-frame-dark h-100">
+        <div className="row ps-lg-3 pt-1 mt-2 g-4 pb-5 p-3 p-md-1 align-items-start">
+
+            <div className="col-12 col-md-4">
+                {/* 2. RIMOSSO h-100 da qui */}
+                <div className="modern-white-frame shadow-frame-dark">
                     <div className="inner-dark-canvas">
                         <div className="p-3 border-bottom border-secondary border-opacity-25 text-center">
                             <h2 className="fw-bold text-white m-0 h4 text-uppercase tracking-widest">
@@ -39,7 +42,8 @@ export default function ProductExtras({ product }) {
             </div>
 
             <div className="col-12 col-md-8">
-                <div className="modern-white-frame shadow-frame-dark ">
+                {/* 3. RIMOSSO h-100 (non c'era, ma assicurati che il div rimanga pulito) */}
+                <div className="modern-white-frame shadow-frame-dark mt-5 mt-md-0">
                     <div className="inner-dark-canvas">
                         <div className="p-3 border-bottom border-secondary border-opacity-25">
                             <h2 className="fw-bold text-white m-0 h4 text-uppercase text-center tracking-widest ps-3">

@@ -1,21 +1,22 @@
 export default function CatalogHeader({ query, setQuery, sort, genre, onSearch, onSortChange, onGenreChange }) {
     return (
         <div className="modern-white-frame shadow-frame-dark ms-lg-2 h-100 mb-5">
-            <div className="inner-dark-canvas h-100 p-2">
-                <div className="d-flex justify-content-between align-items-center flex-wrap gap-3">
-                    <div className="p-3 border-secondary border-opacity-25">
-                        <h2 className="fw-bold text-white m-0 text-uppercase tracking-widest p-3">
-                            VINYLS CATALOG
+            <div className="inner-dark-canvas h-100 p-3">
+                <div className="d-flex flex-column flex-lg-row justify-content-lg-between align-items-center w-100 gap-3">
+
+                    <div className="text-center text-lg-start">
+                        <h2 className="fw-bold text-white m-0 text-uppercase tracking-widest display-6">
+                            VINYLS
                         </h2>
-                        <div className="accent-line mx-auto mt-2" style={{ width: '30px' }}></div>
+                        <div className="accent-line mx-auto mx-lg-0 mt-2 bg-yellow" style={{ width: '40px', height: '2px' }}></div>
                     </div>
 
-                    <div className="d-flex gap-3 align-items-center flex-wrap justify-content-center justify-content-md-end px-4 py-2">
+                    <div className="d-flex flex-column flex-md-row gap-2 align-items-center w-100 w-lg-auto justify-content-end">
 
-                        <div className="position-relative">
+                        <div className="d-flex gap-2 w-100 w-md-auto justify-content-center justify-content-md-end">
                             <select
-                                className="form-select fw-bold w-auto text-blue bg-white rounded-2 border-0 shadow-sm py-2 rounded-0"
-                                style={{ cursor: 'pointer', fontSize: '0.85rem' }}
+                                className="form-select fw-bold text-blue bg-white shadow-sm py-2 rounded-0 border-0"
+                                style={{ width: 'auto', minWidth: '130px', fontSize: '0.85rem', cursor: 'pointer' }}
                                 value={genre}
                                 onChange={onGenreChange}
                             >
@@ -25,12 +26,10 @@ export default function CatalogHeader({ query, setQuery, sort, genre, onSearch, 
                                 <option value="R&B">R&B</option>
                                 <option value="hip-hop">Hip Hop</option>
                             </select>
-                        </div>
 
-                        <div className="position-relative">
                             <select
-                                className="form-select fw-bold w-auto text-blue bg-white rounded-2 border-0 shadow-sm py-2 rounded-0"
-                                style={{ cursor: 'pointer', fontSize: '0.85rem' }}
+                                className="form-select fw-bold text-blue bg-white shadow-sm py-2 rounded-0 border-0"
+                                style={{ width: 'auto', minWidth: '130px', fontSize: '0.85rem', cursor: 'pointer' }}
                                 value={sort}
                                 onChange={onSortChange}
                             >
@@ -41,20 +40,24 @@ export default function CatalogHeader({ query, setQuery, sort, genre, onSearch, 
                             </select>
                         </div>
 
-                        <form onSubmit={onSearch} className="d-flex gap-2">
+                        <form onSubmit={onSearch} className="d-flex w-100 w-md-auto shadow-sm">
                             <input
                                 type="text"
-                                className="form-control rounded-0 shadow-sm border-0 py-2"
-                                style={{ fontSize: '0.85rem', minWidth: '200px' }}
-                                placeholder="Search vinyls..."
+                                className="form-control rounded-0 border-0 py-2 ps-3 w-100"
+                                placeholder="Search..."
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
+                                style={{ width: '180px', fontSize: '0.85rem' }}
                             />
-                            <button type="submit" className="btn bg-blue text-yellow fw-bold text-uppercase px-3" style={{ fontSize: '0.85rem' }}>
-                                <i className="bi bi-search text-yellow me-1"></i>
+                            <button
+                                type="submit"
+                                className="btn bg-blue text-yellow fw-bold text-uppercase px-3 rounded-0 border-0 d-flex align-items-center"
+                            >
+                                <i className="bi bi-search"></i>
                             </button>
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>

@@ -22,12 +22,13 @@ export default function CatalogMain() {
     }
 
     return (
-        <div className="row g-4 g-md-5">
+        <div className="row g-4 g-md-5 mb-1">
             {vinyls.map(v => (
-                <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-center" key={v.slug}>
+                <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-center my-5" key={v.slug}>
                     <CatalogBox vinyl={v} />
                 </div>
             ))}
         </div>
+
     );
 }

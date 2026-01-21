@@ -28,9 +28,9 @@ export default function DetailPage() {
     return (
         <div className="detail-wall pb-3 pb-md-5">
             <div className="container-fluid container-lg">
-                <div className="pt-3 mb-2 text-start">
-                    <Link to="/" className="btn btn-dark bg-black-custom rounded-2 text-white fw-bold shadow-sm px-4 py-2 ms-3">
-                        <i className="bi bi-arrow-left me-2"></i> Back to home
+                <div className="ps-4 ps-lg-0 mb-5 pt-2">
+                    <Link to="/" className=" text-white text-decoration-none fs-5 tracking-widest">
+                        <i className="bi bi-arrow-left me-2"></i> BACK TO HOME
                     </Link>
                 </div>
 
@@ -41,12 +41,10 @@ export default function DetailPage() {
 
                 <ProductExtras product={currentProduct} />
                 <RelatedProducts products={relatedProducts} />
-                <div className="row">
-                    <div className="col-12 d-flex justify-content-center align-items-center py-4">
-                        <Link to="/vinyls" className="btn btn-lg bg-black-custom text-white fw-bold shadow-sm px-5 py-2 rounded-2">
-                            <i className="bi bi-arrow-left me-2"></i> Go to vinyls
-                        </Link>
-                    </div>
+                <div className=" mb-5 pt-2 text-center">
+                    <Link to="/" className=" text-white  text-decoration-none fs-3 tracking-widest">
+                        <i className="bi bi-arrow-left me-2"></i> GO TO VINYLS
+                    </Link>
                 </div>
 
             </div>

@@ -46,7 +46,7 @@ export default function CartPage() {
                                             to="/vinyls"
                                             className="btn-add-collection fw-semibold text-black fs-5 text-uppercase px-5 py-2 w-100 w-md-auto"
                                         >
-                                            Go to vinyls catalog
+                                            Go to vinyls
                                         </Link>
                                     </div>
 
@@ -57,7 +57,7 @@ export default function CartPage() {
                     </div>
 
                     <div className="mt-4 text-center mt-5 pt-2">
-                        <Link to="/vinyls" className="text-white text-decoration-none fs-1 tracking-widest fw-semibold">
+                        <Link to="/vinyls" className="text-white text-decoration-none fs-1 tracking-widest">
                             <i className="bi bi-arrow-left me-2"></i> BACK TO VINYLS
                         </Link>
                     </div>

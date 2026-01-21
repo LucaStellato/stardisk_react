@@ -6,8 +6,8 @@ export default function TurntablesSection() {
     const turntables = getTurntables();
 
     return (
-        <section className="container">
-            <div className="modern-white-frame shadow-frame-dark h-100 mt-5 mx-auto w-100 text-center">
+        <section className="container py-5">
+            <div className="modern-white-frame shadow-frame-dark h-100 my-5 mx-auto w-100 text-center">
                 <div className="inner-dark-canvas h-100">
                     <div className="p-3 border-bottom border-secondary border-opacity-25">
                         <h1 className="fw-bold text-white m-0 tracking-widest">
