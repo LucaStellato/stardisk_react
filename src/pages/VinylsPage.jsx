@@ -12,38 +12,56 @@ export default function VinylsPage() {
     const params = new URLSearchParams(location.search);
     const currentQuery = params.get("query") || "";
     const currentSort = params.get("sort") || "name_asc";
+    const currentGenre = params.get("genre") || "";
 
     const [query, setQuery] = useState(currentQuery);
     const [sort, setSort] = useState(currentSort);
+    const [genre, setGenre] = useState(currentGenre);
 
     useEffect(() => {
         setQuery(currentQuery);
         setSort(currentSort);
-        searchProducts(currentQuery, currentSort);
+        setGenre(currentGenre);
+        searchProducts(currentQuery, currentSort, currentGenre);
     }, [location.search]);
 
     const handleSearch = (e) => {
         e.preventDefault();
-        updateUrl(query, sort);
+        updateUrl(query, sort, genre);
     };
 
     const handleSortChange = (e) => {
         const newSort = e.target.value;
         setSort(newSort);
-        updateUrl(query, newSort);
+        updateUrl(query, newSort, genre);
     };
 
-    const updateUrl = (newQuery, newSort) => {
+    const handleGenreChange = (e) => {
+        const newGenre = e.target.value;
+        setGenre(newGenre);
+        updateUrl(query, sort, newGenre);
+    };
+
+    const updateUrl = (newQuery, newSort, newGenre) => {
         const searchParams = new URLSearchParams();
         if (newQuery.trim()) searchParams.set("query", newQuery.trim());
         if (newSort) searchParams.set("sort", newSort);
+        if (newGenre) searchParams.set("genre", newGenre);
         navigate(`/vinyls?${searchParams.toString()}`);
     };
 
     return (
         <section className="bg-graffiti-2 min-vh-100">
             <div className="container py-5">
-                <CatalogHeader query={query} setQuery={setQuery} sort={sort} onSearch={handleSearch} onSortChange={handleSortChange} />
+                <CatalogHeader
+                    query={query}
+                    setQuery={setQuery}
+                    sort={sort}
+                    genre={genre}
+                    onSearch={handleSearch}
+                    onSortChange={handleSortChange}
+                    onGenreChange={handleGenreChange}
+                />
                 <CatalogMain />
             </div>
         </section>

@@ -23,11 +23,14 @@ export const ProductProvider = ({ children }) => {
             });
     };
 
-    const searchProducts = (query = "", sort = "name_asc") => {
+    const searchProducts = (query = "", sort = "name_asc", genre = "") => {
         setLoading(true);
-        const url = query
-            ? `http://localhost:3000/api/products/search?query=${query}&sort=${sort}`
-            : `http://localhost:3000/api/products/search?sort=${sort}`;
+
+        const params = new URLSearchParams();
+        if (query.trim()) params.append("query", query.trim());
+        if (sort) params.append("sort", sort);
+        if (genre) params.append("genre", genre);
+        const url = `http://localhost:3000/api/products/search?${params.toString()}`;
 
         axios.get(url)
             .then(res => {
@@ -35,7 +38,7 @@ export const ProductProvider = ({ children }) => {
                 setLoading(false);
             })
             .catch(err => {
-                console.error(err);
+                console.error("Errore nella ricerca:", err);
                 setLoading(false);
             });
     };

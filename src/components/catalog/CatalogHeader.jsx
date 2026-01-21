@@ -1,6 +1,6 @@
-export default function CatalogHeader({ query, setQuery, sort, onSearch, onSortChange }) {
+export default function CatalogHeader({ query, setQuery, sort, genre, onSearch, onSortChange, onGenreChange }) {
     return (
-        <div className="modern-white-frame shadow-frame-dark ms-lg-5 h-100">
+        <div className="modern-white-frame shadow-frame-dark ms-lg-5 h-100 mb-5">
             <div className="inner-dark-canvas h-100 p-2">
                 <div className="d-flex justify-content-between align-items-center flex-wrap gap-3">
                     <div className="p-3 border-secondary border-opacity-25">
@@ -9,7 +9,23 @@ export default function CatalogHeader({ query, setQuery, sort, onSearch, onSortC
                         </h2>
                         <div className="accent-line mx-auto mt-2" style={{ width: '30px' }}></div>
                     </div>
+
                     <div className="d-flex gap-3 align-items-center flex-wrap justify-content-center justify-content-md-end px-4 py-2">
+
+                        <div className="position-relative">
+                            <select
+                                className="form-select fw-bold w-auto text-blue bg-white rounded-2 border-0 shadow-sm py-2 rounded-0"
+                                style={{ cursor: 'pointer', fontSize: '0.85rem' }}
+                                value={genre}
+                                onChange={onGenreChange}
+                            >
+                                <option value="">All Genres</option>
+                                <option value="soul">Soul</option>
+                                <option value="jazz">Jazz</option>
+                                <option value="R&B">R&B</option>
+                                <option value="hip-hop">Hip Hop</option>
+                            </select>
+                        </div>
 
                         <div className="position-relative">
                             <select
@@ -38,11 +54,9 @@ export default function CatalogHeader({ query, setQuery, sort, onSearch, onSortC
                                 <i className="bi bi-search text-yellow me-1"></i>
                             </button>
                         </form>
-
                     </div>
-
                 </div>
             </div>
         </div>
-    )
+    );
 }

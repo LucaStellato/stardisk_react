@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useProducts } from '../contexts/ProductContext';
 
@@ -32,7 +32,7 @@ export default function ArtistPage() {
                         <div className="row align-items-center">
                             <div className="col-md-4">
                                 <img
-                                    src={currentArtist.image_url}
+                                    src={currentArtist.img_url}
                                     alt={currentArtist.name}
                                     className="img-fluid rounded shadow"
                                 />

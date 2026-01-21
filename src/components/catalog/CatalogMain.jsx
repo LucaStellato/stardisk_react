@@ -2,8 +2,8 @@ import { useProducts } from "../../contexts/ProductContext";
 import CatalogBox from "./CatalogBox";
 
 export default function CatalogMain() {
-    const { loading, getVinyls } = useProducts()
-    const vinyls = getVinyls()
+    const { loading, products } = useProducts();
+    const vinyls = products.filter(p => p.artist_name !== null);
 
     if (loading) {
         return (
@@ -11,15 +11,14 @@ export default function CatalogMain() {
                 <div className="spinner-border text-blue mb-3" role="status"></div>
                 <h3>Loading Collection...</h3>
             </div>
-        )
+        );
     }
-
     if (vinyls.length === 0) {
         return (
             <div className="text-center py-5 text-blue" style={{ minHeight: '50vh' }}>
                 <h3>No vinyls found in this category.</h3>
             </div>
-        )
+        );
     }
 
     return (
@@ -30,5 +29,5 @@ export default function CatalogMain() {
                 </div>
             ))}
         </div>
-    )
+    );
 }
