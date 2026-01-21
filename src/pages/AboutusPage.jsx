@@ -52,9 +52,8 @@ export default function AboutusPage() {
                     </div>
                 </div>
 
-                {/* PAGE FOOTER */}
                 <div className="mt-5 pt-5 text-center">
-                    <p className="text-white fs-4 tracking-widest">
+                    <p className="text-light fs-4">
                         STARDISK — I VECCHI MARCHESI STELLATI — ALL RIGHTS RESERVED
                     </p>
                 </div>

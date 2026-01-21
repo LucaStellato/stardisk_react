@@ -37,8 +37,10 @@ export default function DetailPage() {
                     <ProductVisual product={currentProduct} />
                     <ProductInfo product={currentProduct} />
                 </div>
+
                 <ProductExtras product={currentProduct} />
                 <RelatedProducts products={relatedProducts} />
+
                 <div className="pt-3 m-4 text-center">
                     <Link to="/vinyls" className="btn btn-lg bg-black-custom text-white fw-bold shadow-sm px-4 py-2 ms-3 w-50 rounded-2">
                         <i className="bi bi-arrow-left me-2"></i> Go to vinyls

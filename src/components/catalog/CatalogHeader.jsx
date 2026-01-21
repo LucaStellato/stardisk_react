@@ -3,7 +3,7 @@ export default function CatalogHeader({ query, setQuery, sort, onSearch, onSortC
         <div className="modern-white-frame shadow-frame-dark ms-5 h-100">
             <div className="inner-dark-canvas h-100 p-2">
                 <div className="d-flex justify-content-between align-items-center flex-wrap gap-3">
-                    <div className="p-3 border-bottom border-secondary border-opacity-25">
+                    <div className="p-3 border-secondary border-opacity-25">
                         <h2 className="fw-bold text-white m-0 text-uppercase tracking-widest p-3">
                             VINYLS CATALOG
                         </h2>

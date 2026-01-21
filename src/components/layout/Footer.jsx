@@ -26,9 +26,6 @@ export default function Footer() {
                     <div className='col-12 col-md-6 d-flex justify-content-center justify-content-md-end align-items-center'>
                         <div className="text-center" style={{ maxWidth: '300px' }}>
                             <img className="img-fluid" src="/logo-stardisk-white.png" alt="StarDisk Logo" />
-                            <h5 className='pt-3 fw-bold text-yellow'>
-                                Shoot for the stars, aim for the Moon
-                            </h5>
                         </div>
                     </div>
                 </div>
