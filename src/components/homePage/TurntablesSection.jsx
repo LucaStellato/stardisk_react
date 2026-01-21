@@ -7,7 +7,7 @@ export default function TurntablesSection() {
 
     return (
         <section className="container">
-            <div className="modern-white-frame shadow-frame-dark h-100 mt-5 mx-auto w-50 text-center">
+            <div className="modern-white-frame shadow-frame-dark h-100 mt-5 mx-auto w-100 text-center">
                 <div className="inner-dark-canvas h-100">
                     <div className="p-3 border-bottom border-secondary border-opacity-25">
                         <h1 className="fw-bold text-white m-0 tracking-widest">
@@ -17,7 +17,7 @@ export default function TurntablesSection() {
                     </div>
                 </div>
             </div>
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 py-5 g-4 d-flex justify-content-center align-items-center">
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 px-5 px-md-0 py-5 g-4 d-flex justify-content-center align-items-center">
                 {turntables.map(t => (
                     <div className="col" key={t.slug}>
                         <HomeCard item={t} isTurntable={true} />

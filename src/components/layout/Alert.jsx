@@ -23,12 +23,11 @@ export default function Alert({ message, type }) {
 
     return (
         <>
-            <div className={`position-fixed d-flex align-items-center alert-minimal ${current.bg}`}
+            <div className={`position-fixed mx-md-1 px-3 py-1 d-flex align-items-center alert-minimal ${current.bg}`}
                 style={{
                     zIndex: 10001,
                     bottom: '30px',
                     right: '30px',
-                    padding: '12px 20px',
                     borderRadius: '12px',
                     minWidth: '250px',
                     border: '1px solid rgba(255,255,255,0.2)'

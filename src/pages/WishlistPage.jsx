@@ -8,14 +8,14 @@ export default function WishlistPage() {
 
     return (
         <div className="detail-wall py-5 min-vh-100">
-            <div className="container py-5">
+            <div className="container-lg py-5">
 
                 <div className="modern-white-frame shadow-frame-dark w-100" style={{ maxWidth: '800px', margin: '0 auto' }}>
                     <div className="inner-dark-canvas p-4 p-md-5">
 
                         <div className="text-center mb-5">
                             <h1 className="fw-bold text-white text-uppercase tracking-widest m-0 h2">
-                                Private Collection
+                                Wishlist
                             </h1>
                             <div className="accent-line mx-auto mt-2"></div>
                         </div>
@@ -30,11 +30,10 @@ export default function WishlistPage() {
                         ) : (
                             <div className="d-flex flex-column gap-5">
                                 {wishlist.map((product) => (
-                                    <div key={product.product_id} className="row align-items-center border-bottom border-secondary pb-4">
+                                    <div key={product.product_id} className="row align-items-center border-bottom border-secondary">
 
-                                        {/* COLONNA SINISTRA: IMMAGINE E MENSOLA */}
-                                        <div className="col-12 col-md-4 mb-3 mb-md-0">
-                                            <div className="vinyl-scene justify-content-start">
+                                        <div className="col-12 col-md-4 mb-3 mb-md-0 pb-5">
+                                            <div className=" justify-content-start text-center">
                                                 <Link to={`/product/${product.slug}`}>
                                                     <img
                                                         src={product.img_url || 'https://via.placeholder.com/400'}
@@ -48,9 +47,8 @@ export default function WishlistPage() {
                                         </div>
 
                                         <div className="col-12 col-md-8">
-                                            <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4">
+                                            <div className="d-flex flex-column flex-md-row align-items-center justify-content-between pb-5 gap-4">
 
-                                                {/* GRUPPO TESTI (Allineati a sinistra su desktop) */}
                                                 <div className="text-center text-md-start">
                                                     <h5 className="text-white text-uppercase mb-1 tracking-widest m-0">
                                                         {product.name}
@@ -60,17 +58,16 @@ export default function WishlistPage() {
                                                     </p>
                                                 </div>
 
-                                                {/* GRUPPO BOTTONI (Allineati a destra su desktop) */}
-                                                <div className="d-flex align-items-center gap-3">
+                                                <div className="d-flex align-items-center  gap-3">
                                                     <button
-                                                        className="btn-add-collection fs-6 text-uppercase py-2 px-4 border-0"
-                                                        style={{ fontSize: '0.75rem' }}
+                                                        className="btn-add-collection py-2 px-4 rounded-3 text-success"
+                                                        style={{ fontSize: '1rem' }}
                                                         onClick={() => addToCart(product)}
                                                     >
-                                                        <i className="bi bi-bag me-2"></i> ADD TO CART
+                                                        <i className="bi bi-bag"></i>
                                                     </button>
                                                     <button
-                                                        className="btn-add-collection py-2 px-3"
+                                                        className="btn-add-collection py-2 px-4 rounded-3 text-danger"
                                                         style={{ fontSize: '1rem' }}
                                                         onClick={() => toggleWishlist(product)}
                                                     >

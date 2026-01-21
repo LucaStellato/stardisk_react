@@ -44,7 +44,7 @@ export default function CheckoutPage() {
     if (cart.length === 0 && !isSuccess) return null;
 
     return (
-        <section className='bg-graffiti'>
+        <section className='detail-wall'>
             <div className="container pt-5 pb-5" style={{ minHeight: 'calc(100vh - 300px)' }}>
                 <h2 className="mb-4 fw-bold text-uppercase text-blue pb-4">Checkout</h2>
                 <div className="row">

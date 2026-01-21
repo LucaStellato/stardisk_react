@@ -21,7 +21,7 @@ export default function Icons() {
                     </span>
                 )}
             </div>
-            <div className="cart-widget-wrapper" onClick={() => navigate('/cart')} style={{ cursor: 'pointer', position: 'relative' }}>
+            <div className="cart-widget-wrapper me-3" onClick={() => navigate('/cart')} style={{ cursor: 'pointer', position: 'relative' }}>
                 <i className="bi bi-bag text-white fs-4"></i>
                 {totalItems > 0 && (
                     <span key={totalItems} className="cart-badge bg-red text-white">

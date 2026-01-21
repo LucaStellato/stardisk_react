@@ -7,9 +7,9 @@ export default function SaleSection() {
 
     return (
         <section className="container py-4">
-            <div className="modern-white-frame shadow-frame-dark h-100 my-5 mx-auto w-25 text-center">
+            <div className="modern-white-frame shadow-frame-dark h-100 my-5 mx-auto w-100 w-lg-25 text-center">
                 <div className="inner-dark-canvas h-100">
-                    <div className="p-3 border-bottom border-secondary border-opacity-25">
+                    <div className="p-3 border-bottom border-secondary border-opacity-25 ">
                         <h1 className="fw-bold text-white m-0 tracking-widest">
                             SALE
                         </h1>
@@ -17,7 +17,7 @@ export default function SaleSection() {
                     </div>
                 </div>
             </div>
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 py-5 g-5">
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 px-5 px-md-0 py-md-5 g-5">
                 {vinyls.map(v => (
                     <div className="col" key={v.product_id}>
                         <HomeCard item={v} />

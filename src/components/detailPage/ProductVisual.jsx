@@ -5,7 +5,7 @@ export default function ProductVisual({ product }) {
 
     return (
         <div className="col-12 col-lg-6 d-flex justify-content-center align-items-center p-md-5">
-            <div className="w-100 text-center p-5">
+            <div className="w-100 text-center p-2 p-sm-5 ">
                 {isVinyl ? (
                     <div className="vinyl-scene d-inline-block">
                         <img

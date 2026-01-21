@@ -25,7 +25,7 @@ export default function DetailPage() {
     }
 
     return (
-        <div className="detail-wall pb-5">
+        <div className="detail-wall pb-3 pb-md-5">
             <div className="container-fluid container-lg">
                 <div className="pt-3 mb-2 text-start">
                     <Link to="/" className="btn btn-dark bg-black-custom rounded-2 text-white fw-bold shadow-sm px-4 py-2 ms-3">
@@ -33,19 +33,21 @@ export default function DetailPage() {
                     </Link>
                 </div>
 
-                <div className="row g-5 d-flex align-items-center">
+                <div className="row g-2 g-md-5 d-flex align-items-center">
                     <ProductVisual product={currentProduct} />
                     <ProductInfo product={currentProduct} />
                 </div>
 
                 <ProductExtras product={currentProduct} />
                 <RelatedProducts products={relatedProducts} />
-
-                <div className="pt-3 m-4 text-center">
-                    <Link to="/vinyls" className="btn btn-lg bg-black-custom text-white fw-bold shadow-sm px-4 py-2 ms-3 w-50 rounded-2">
-                        <i className="bi bi-arrow-left me-2"></i> Go to vinyls
-                    </Link>
+                <div className="row">
+                    <div className="col-12 d-flex justify-content-center align-items-center py-4">
+                        <Link to="/vinyls" className="btn btn-lg bg-black-custom text-white fw-bold shadow-sm px-5 py-2 rounded-2">
+                            <i className="bi bi-arrow-left me-2"></i> Go to vinyls
+                        </Link>
+                    </div>
                 </div>
+
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ const NotFoundPage = () => {
     const navigate = useNavigate();
 
     return (
-        <section className="bg-graffiti d-flex align-items-center" style={{ minHeight: '100vh' }}>
+        <section className="detail-wall d-flex align-items-center" style={{ minHeight: '100vh' }}>
             <div className="container py-5">
                 <div className="row justify-content-center">
                     <div className="col-md-8 col-lg-6">

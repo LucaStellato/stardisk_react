@@ -4,8 +4,8 @@ export default function ProductExtras({ product }) {
     const tracksArray = product.tracklist ? product.tracklist.split(',') : [];
 
     return (
-        <div className="row ps-0 ps-md-2 pt-1 mt-2 g-5 pb-5">
-            <div className="col-12 col-md-4">
+        <div className="row ps-lg-3 pt-1 mt-2 g-5 pb-5 p-3 p-md-1">
+            <div className="col-12 col-md-4 ">
                 <div className="modern-white-frame shadow-frame-dark h-100">
                     <div className="inner-dark-canvas h-100">
                         <div className="p-3 border-bottom border-secondary border-opacity-25 text-center">

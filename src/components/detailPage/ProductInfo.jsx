@@ -10,7 +10,7 @@ export default function ProductInfo({ product }) {
 
     return (
         <div className="col-12 col-lg-6 p-md-5 d-flex align-items-center pb-3 mb-5">
-            <div className='p-1 m-1 w-100'>
+            <div className='p-3 p-md-1 m-1 w-100 '>
                 <div className="modern-white-frame shadow-frame-dark w-100">
                     <div className="inner-dark-canvas p-4 p-md-5">
 
