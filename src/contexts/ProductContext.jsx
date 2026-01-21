@@ -7,6 +7,7 @@ export const ProductProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [currentProduct, setCurrentProduct] = useState(null);
     const [relatedProducts, setRelatedProducts] = useState([]);
+    const [currentArtist, setCurrentArtist] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const fetchAllProducts = () => {
@@ -63,15 +64,31 @@ export const ProductProvider = ({ children }) => {
             });
     };
 
+    const fetchArtistById = (artist_id) => {
+        setLoading(true);
+        setCurrentArtist(null);
+        axios.get(`http://localhost:3000/api/artist/${artist_id}`)
+            .then(res => {
+                setCurrentArtist(res.data[0] || res.data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Errore fetch artista:", err);
+                setLoading(false);
+            });
+    };
+
     return (
         <ProductContext.Provider value={{
             products,
             currentProduct,
             relatedProducts,
+            currentArtist,
             loading,
             fetchAllProducts,
             searchProducts,
             fetchProductBySlug,
+            fetchArtistById,
             getVinyls,
             getTurntables,
             getDiscountedVinyls

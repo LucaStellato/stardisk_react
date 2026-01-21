@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useCart } from '../../contexts/CartContext';
 import { useWishlist } from '../../contexts/WishlistContext';
 
@@ -24,7 +25,19 @@ export default function ProductInfo({ product }) {
                         <div className="product-details-grid mt-5">
                             <div className="mb-4">
                                 <span className="detail-label">{isTurntable ? 'BRAND' : 'ARTIST'}</span>
-                                <p className="detail-value text-gold">{isTurntable ? product.brand : product.artist_name}</p>
+
+                                <div className="detail-value text-gold">
+                                    {isTurntable ? (
+                                        <span>{product.brand}</span>
+                                    ) : (
+                                        <Link
+                                            to={`/artist/${product?.artist_id}`}
+                                            className="text-gold text-decoration-none hover-underline"
+                                        >
+                                            {product.artist_name}
+                                        </Link>
+                                    )}
+                                </div>
                             </div>
 
                             <div className="d-flex justify-content-between mb-4">

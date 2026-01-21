@@ -23,7 +23,8 @@ export default function DetailPage() {
             </div>
         );
     }
-
+    console.log("ID ARTISTA:", currentProduct?.artist_id);
+    console.log("OGGETTO PRODOTTO COMPLETO:", currentProduct);
     return (
         <div className="detail-wall pb-3 pb-md-5">
             <div className="container-fluid container-lg">

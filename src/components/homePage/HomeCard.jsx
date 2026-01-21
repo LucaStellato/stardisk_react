@@ -14,14 +14,14 @@ export default function HomeCard({ item, isTurntable = false }) {
                         alt={item.name}
                         style={{
                             height: isTurntable ? '180px' : '100%',
-                            maxHeight: isTurntable ? '180px' : 'none',
+                            maxHeight: isTurntable ? '2000px' : 'none',
                             objectFit: isTurntable ? 'contain' : 'cover'
                         }}
                     />
                 </div>
 
-                <div className="card-body text-center fw-bold bg-transparent px-0 mt-2">
-                    <div className="vinyl-label">
+                <div className="card-body text-center fw-bold bg-transparent px-0 pt-0">
+                    <div className="vinyl-label w-100 border-0">
                         <h4 className="card-title fw-bold text-dark" style={{ fontSize: '1rem' }}>
                             {item.name}
                         </h4>

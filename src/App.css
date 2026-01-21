@@ -153,10 +153,8 @@ div::-webkit-scrollbar-thumb {
     align-items: center;
     justify-content: center;
     animation: cartPop 0.3s ease-out;
-    /* Usiamo la stessa animazione del carrello */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     background-color: #D05335;
-    /* Rosso */
     color: white;
 }
 
@@ -367,10 +365,11 @@ div::-webkit-scrollbar-thumb {
 }
 
 .vinyl-label {
-    background: rgba(0, 0, 0, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(192, 191, 191, 0.01);
+    border-top: 1px solid rgba(255, 255, 255, 0.62);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
+    border-radius: 0 0 10px 10px;
+    /* overflow: hidden; */
     min-height: 75px;
     display: flex;
     flex-direction: column;
@@ -382,7 +381,7 @@ div::-webkit-scrollbar-thumb {
 }
 
 .card:hover .vinyl-label {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.7);
 }
 
 .vinyl-label h4,
