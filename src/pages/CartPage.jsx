@@ -2,6 +2,7 @@ import { useCart } from '../contexts/CartContext';
 import { useNavigate } from 'react-router-dom';
 import CartItem from '../components/cart/CartItem';
 import CartSummary from '../components/cart/CartSummary';
+import { Link } from 'react-router-dom';
 
 export default function CartPage() {
     const {
@@ -19,24 +20,53 @@ export default function CartPage() {
 
     if (cart.length === 0) {
         return (
-            <section className='bg-graffiti'>
-                <div className="container pt-5 text-center d-flex justify-content-center align-items-center" style={{ minHeight: 'calc(100vh - 300px)' }}>
-                    <div className="alert alert-light p-5 border h-100 text-blue shadow">
-                        <h3 className="mb-3 fw-bold">Your cart is empty.</h3>
-                        <p className="text-muted">You haven't added any vinyl to your collection yet.</p>
-                        <button className="btn bg-blue text-yellow fw-bold btn-lg mt-3" onClick={() => navigate('/')}>
-                            Back to shop
-                        </button>
+            <div className="detail-wall py-5 min-vh-100">
+                <div className="container py-5">
+
+                    <div className="modern-white-frame shadow-frame-dark w-100" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                        <div className="inner-dark-canvas p-4 p-md-5">
+
+                            <div className="text-center mb-5">
+                                <h1 className="fw-bold text-white text-uppercase tracking-widest m-0 h2">
+                                    Your Cart
+                                </h1>
+                                <div className="accent-line mx-auto mt-2"></div>
+                            </div>
+
+                            <div className="text-center py-5">
+                                <p className="text-secondary mb-5 pb-4 fs-5">Your cart is empty.</p>
+                                <Link to="/vinyls" className="btn-add-collection fw-semibold text-black fs-5 text-uppercase px-5 py-2 mt-5">
+                                    Go to vinyls catalog
+                                </Link>
+                            </div>
+
+                        </div>
                     </div>
+
+                    <div className="mt-4 text-center mt-5 pt-2">
+                        <Link to="/vinyls" className="text-white text-decoration-none fs-1 tracking-widest fw-semibold">
+                            <i className="bi bi-arrow-left me-2"></i> BACK TO VINYLS
+                        </Link>
+                    </div>
+
                 </div>
-            </section>
+            </div>
         );
     }
 
     return (
-        <section className='bg-graffiti'>
-            <div className="container pt-5 pb-5" style={{ minHeight: 'calc(100vh - 300px)' }}>
-                <h2 className="mb-4 fw-bold text-uppercase text-blue pb-4">Your cart</h2>
+        <section className='detail-wall'>
+            <div className="container pt-3 pb-3" style={{ minHeight: 'calc(100vh - 300px)' }}>
+                <div className="modern-white-frame shadow-frame-dark h-100 my-5 w-25 text-center">
+                    <div className="inner-dark-canvas h-100">
+                        <div className="p-1 border-bottom border-secondary border-opacity-25">
+                            <h1 className="fw-bold text-white m-0 tracking-widest">
+                                YOUR CART
+                            </h1>
+                            <div className="accent-line mx-auto mt-2" style={{ width: '30px' }}></div>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="row">
 

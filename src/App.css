@@ -366,6 +366,32 @@ div::-webkit-scrollbar-thumb {
     border-top: 1px solid rgba(255, 255, 255, 0.6);
 }
 
+.vinyl-label {
+    background: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    min-height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background 0.3s ease;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.card:hover .vinyl-label {
+    background: #ffffff;
+}
+
+.vinyl-label h4,
+.vinyl-label p {
+    margin: 0;
+    word-wrap: break-word;
+    text-align: center;
+}
+
 .modern-white-frame {
     background: #ffffff;
     padding: 15px;
@@ -422,6 +448,10 @@ div::-webkit-scrollbar-thumb {
     color: #999;
     font-size: 0.9rem;
     line-height: 1.6;
+}
+
+.detail-section+.detail-section {
+    margin-top: 0.5rem;
 }
 
 .accent-line {
