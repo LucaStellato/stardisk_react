@@ -21,7 +21,7 @@ export default function ArtistPage() {
     }
 
     if (!currentArtist) {
-        return <div className="text-center py-5 text-white">Artista non trovato.</div>;
+        return <div className="text-center py-5 text-white">Artist not found.</div>;
     }
 
     return (
@@ -32,10 +32,13 @@ export default function ArtistPage() {
                         <div className="row align-items-center">
                             <div className="col-md-4">
                                 <img
-                                    src={currentArtist.img_url}
+                                    src={currentArtist.artist_img}
                                     alt={currentArtist.name}
-                                    className="img-fluid rounded shadow"
-                                />
+                                    style={{
+                                        width: '100%',
+                                        height: '350px',
+                                        objectFit: 'cover'
+                                    }} />
                             </div>
                             <div className="col-md-8">
                                 <h1 className="fw-bold text-uppercase tracking-widest">{currentArtist.name}</h1>
@@ -70,7 +73,7 @@ export default function ArtistPage() {
                                 </div>
                             ))
                         ) : (
-                            <p className="text-secondary">Nessun vinile trovato per questo artista.</p>
+                            <p className="text-secondary">No vinyl found for this artist.</p>
                         )}
                     </div>
                 </div>
