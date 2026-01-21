@@ -46,7 +46,16 @@ export default function CheckoutPage() {
     return (
         <section className='detail-wall'>
             <div className="container pt-5 pb-5" style={{ minHeight: 'calc(100vh - 300px)' }}>
-                <h2 className="mb-4 fw-bold text-uppercase text-blue pb-4">Checkout</h2>
+                <div className="modern-white-frame shadow-frame-dark w-100 h-100 my-5 w-25 text-center">
+                    <div className="inner-dark-canvas h-100 w-100 p-2">
+                        <div className="p-1 border-bottom border-secondary border-opacity-25">
+                            <h1 className="fw-bold text-white m-0 tracking-widest">
+                                CHECKOUT
+                            </h1>
+                            <div className="accent-line mx-auto mt-2" style={{ width: '30px' }}></div>
+                        </div>
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col-lg-7">
                         <div className="p-4 bg-white rounded shadow-sm">

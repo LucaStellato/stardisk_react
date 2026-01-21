@@ -1,6 +1,6 @@
 export default function CatalogHeader({ query, setQuery, sort, genre, onSearch, onSortChange, onGenreChange }) {
     return (
-        <div className="modern-white-frame shadow-frame-dark ms-lg-5 h-100 mb-5">
+        <div className="modern-white-frame shadow-frame-dark ms-lg-2 h-100 mb-5">
             <div className="inner-dark-canvas h-100 p-2">
                 <div className="d-flex justify-content-between align-items-center flex-wrap gap-3">
                     <div className="p-3 border-secondary border-opacity-25">
