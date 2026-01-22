@@ -110,6 +110,7 @@ export default function CheckoutForm({ formData, handleChange, termsAccepted, se
                     />
                 </div>
             </div>
+            <p className="text-muted small mb-4 ms-0 ps-0">* Required fields</p>
 
             <div className="form-check mt-4">
                 <input
@@ -125,6 +126,7 @@ export default function CheckoutForm({ formData, handleChange, termsAccepted, se
                 <label className="form-check-label small text-blue fw-semibold" htmlFor="terms" style={{ cursor: loading ? 'not-allowed' : 'pointer' }}>
                     I accept the Terms of Service and Privacy Policy
                 </label>
+
             </div>
         </div>
     );

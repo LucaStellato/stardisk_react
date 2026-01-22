@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useProducts } from '../contexts/ProductContext';
 
 export default function ArtistPage() {
     const { id } = useParams();
     const { currentArtist, fetchArtistById, loading } = useProducts();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (id) {
@@ -26,8 +27,17 @@ export default function ArtistPage() {
 
     return (
         <div className='detail-wall'>
-            <div className="container py-5 text-white">
-                <div className="modern-white-frame shadow-frame-dark mb-5">
+            <div className="container py-2 text-white">
+                <div className="mb-4 pb-5">
+                    <span
+                        onClick={() => navigate(-1)}
+                        className="text-white text-decoration-none fs-3 ms-3 tracking-widest"
+                        style={{ cursor: 'pointer' }}
+                    >
+                        <i className="bi bi-arrow-left me-2"></i> BACK TO VINYL
+                    </span>
+                </div>
+                <div className="modern-white-frame shadow-frame-dark m-5">
                     <div className="inner-dark-canvas p-4 p-md-5" style={{ borderRadius: '0 0 5px 5px' }}>
                         <div className="row align-items-center">
                             <div className="col-md-4">
@@ -50,13 +60,13 @@ export default function ArtistPage() {
                     </div>
                 </div>
 
-                <div className="mt-5">
+                <div className="mt-5 ms-5">
                     <h2 className="text-uppercase fw-bold tracking-widest mb-4 h4">Discography</h2>
                     <div className="row g-4">
                         {currentArtist.vinyls && currentArtist.vinyls.length > 0 ? (
                             currentArtist.vinyls.map((vinyl, index) => (
                                 <div key={index} className="col-6 col-md-3">
-                                    <Link to={`/vinyl/${vinyl.slug || ''}`} className="text-decoration-none">
+                                    <Link to={`/products/${vinyl.slug || ''}`} className="text-decoration-none">
                                         <div className="card bg-transparent border-0 text-white artist-vinyl-card">
                                             <div className="overflow-hidden rounded shadow-sm mb-2">
                                                 <img

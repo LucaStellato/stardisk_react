@@ -10,29 +10,38 @@ export default function SuccessPage() {
     }, []);
 
     return (
-        <section className='detail-wall min-vh-100 d-flex align-items-center'>
-            <div className="container py-5">
-                <div className="row justify-content-center">
-                    <div className="col-12 col-md-8 col-lg-5">
-                        <div className="text-center p-5 shadow-lg rounded-4 bg-blue border-0"
-                            style={{ animation: 'scaleIn 0.5s ease-out' }}>
+        <div className="detail-wall py-5 min-vh-100 d-flex align-items-center">
+            <div className="container">
+                {/* GUSCIO ESTERNO DEL MANIFESTO */}
+                <div className="modern-white-frame shadow-frame-dark mx-auto" style={{ maxWidth: '600px' }}>
 
-                            <div className="mb-4">
-                                <i className="bi bi-disc text-yellow"
-                                    style={{ fontSize: '6rem', display: 'inline-block', animation: 'spin 4s linear infinite' }}>
-                                </i>
-                            </div>
+                    {/* INTERNO PERSONALIZZATO BLU */}
+                    <div className="bg-blue p-5 text-center" style={{ animation: 'scaleIn 0.5s ease-out' }}>
 
-                            <h1 className="fw-bold text-white text-uppercase mb-3">Order received!</h1>
-                            <p className="fs-5 text-blue mb-4 text-light">Thank you for choosing <strong>StarDisk</strong>.</p>
+                        <div className="mb-4">
+                            <i className="bi bi-disc text-yellow"
+                                style={{ fontSize: '6rem', display: 'inline-block', animation: 'spin 4s linear infinite' }}>
+                            </i>
+                        </div>
 
-                            <Link to="/vinyls" className="btn bg-yellow text-blue fw-bold w-100 py-3 shadow-sm border-0">
-                                BACK TO SHOP
+                        <h1 className="fw-bold text-white text-uppercase mb-3 h2 tracking-widest">
+                            Order received!
+                        </h1>
+
+                        <p className="fs-5 text-light mb-5">
+                            Thank you for choosing <strong>StarDisk</strong>. <br />
+                            Your collection is growing.
+                        </p>
+
+                        <div className="ps-4 ps-lg-0 mb-1 pt-2">
+                            <Link to="/" className=" text-yellow fw-bold  text-decoration-none fs-5 tracking-widest">
+                                <i className="bi bi-arrow-left me-2"></i> BACK TO HOME
                             </Link>
                         </div>
                     </div>
+
                 </div>
             </div>
-        </section>
+        </div>
     );
 }

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+
 
 export default function AboutusPage() {
     return (
@@ -8,8 +8,8 @@ export default function AboutusPage() {
                 <div className="modern-white-frame shadow-frame-dark mx-auto" style={{ maxWidth: '900px' }}>
                     <div className="inner-dark-canvas p-4 p-md-5">
 
-                        <div className="text-center mb-5">
-                            <span className="text-gold tracking-widest small text-uppercase">Est. 2024</span>
+                        <div className="text-center d-flex flex-column mb-5">
+                            <div className="text-gold tracking-widest small text-uppercase pe-2">Est. 2024</div>
                             <h1 className="fw-bold text-white text-uppercase tracking-widest mt-2 mb-0 h2">
                                 StarDisk Manifesto
                             </h1>
@@ -39,12 +39,12 @@ export default function AboutusPage() {
                                 </div>
 
                                 <div className="mt-5 pt-4 border-top border-secondary border-opacity-25">
-                                    <h4 className="text-white text-uppercase tracking-widest h6 mb-4">Join the Club</h4>
-                                    <div className="d-flex justify-content-center gap-3 flex-wrap">
-                                        <Link to="/vinyls" className="btn-add-collection px-4 py-2">
-                                            EXPLORE CATALOG
-                                        </Link>
-                                    </div>
+                                    <button
+                                        onClick={() => window.dispatchEvent(new Event('openWelcomePopup'))}
+                                        className="btn-add-collection px-4 py-2 border-0 mt-2"
+                                    >
+                                        JOIN THE CLUB
+                                    </button>
                                 </div>
                             </div>
                         </div>

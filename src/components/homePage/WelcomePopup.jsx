@@ -7,11 +7,23 @@ export default function WelcomePopup() {
     const [status, setStatus] = useState('');
 
     useEffect(() => {
+        // Funzione che apre il popup
+        const handleManualOpen = () => setIsVisible(true);
+
+        // Ascolta l'evento personalizzato
+        window.addEventListener('openWelcomePopup', handleManualOpen);
+
+        // Logica originale del timer
         const hasSeenPopup = localStorage.getItem('hasSeenPopup');
         if (!hasSeenPopup) {
             const timer = setTimeout(() => setIsVisible(true), 3000);
-            return () => clearTimeout(timer);
+            return () => {
+                clearTimeout(timer);
+                window.removeEventListener('openWelcomePopup', handleManualOpen);
+            };
         }
+
+        return () => window.removeEventListener('openWelcomePopup', handleManualOpen);
     }, []);
 
     const closePopup = () => {

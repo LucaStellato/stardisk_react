@@ -10,6 +10,8 @@ export default function DetailPage() {
     const { slug } = useParams();
     const { currentProduct, relatedProducts, fetchProductBySlug, loading } = useProducts();
 
+    const isTurntable = currentProduct?.category === 'turntable';
+
     useEffect(() => {
         fetchProductBySlug(slug);
         window.scrollTo(0, 0);
@@ -41,9 +43,13 @@ export default function DetailPage() {
 
                 <ProductExtras product={currentProduct} />
                 <RelatedProducts products={relatedProducts} />
-                <div className=" mb-5 pt-2 text-center">
-                    <Link to="/" className=" text-white  text-decoration-none fs-3 tracking-widest">
-                        <i className="bi bi-arrow-left me-2"></i> GO TO VINYLS
+                <div className="mb-5 pt-2 text-center">
+                    <Link
+                        to={isTurntable ? "/" : "/vinyls"}
+                        className="text-white text-decoration-none fs-3 tracking-widest"
+                    >
+                        <i className="bi bi-arrow-left me-2"></i>
+                        {isTurntable ? "BACK TO HOME" : "GO TO VINYLS"}
                     </Link>
                 </div>
 

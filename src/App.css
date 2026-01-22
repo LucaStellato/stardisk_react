@@ -89,9 +89,9 @@ div::-webkit-scrollbar-thumb {
 }
 
 .bg-graffiti-popup {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.89), rgba(255, 255, 255, 0.89)), url('metro-art');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.69), rgba(255, 255, 255, 0.69)), url('metro-art-3.jpg');
     background-size: cover;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .schizzi {

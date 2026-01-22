@@ -12,7 +12,7 @@ export default function ProductExtras({ product }) {
                 <div className="modern-white-frame shadow-frame-dark">
                     <div className="inner-dark-canvas">
                         <div className="p-3 border-bottom border-secondary border-opacity-25 text-center">
-                            <h2 className="fw-bold text-white m-0 h4 text-uppercase tracking-widest">
+                            <h2 className="fw-bold text-white m-0 h4 text-uppercase tracking-widest p-1">
                                 Tracklist
                             </h2>
                             <div className="accent-line mx-auto mt-2" style={{ width: '30px' }}></div>
@@ -42,14 +42,16 @@ export default function ProductExtras({ product }) {
             </div>
 
             <div className="col-12 col-md-8">
-                {/* 3. RIMOSSO h-100 (non c'era, ma assicurati che il div rimanga pulito) */}
                 <div className="modern-white-frame shadow-frame-dark mt-5 mt-md-0">
                     <div className="inner-dark-canvas">
-                        <div className="p-3 border-bottom border-secondary border-opacity-25">
-                            <h2 className="fw-bold text-white m-0 h4 text-uppercase text-center tracking-widest ps-3">
-                                Album Description
-                            </h2>
-                            <div className="accent-line mx-auto mt-2" style={{ width: '30px' }}></div>
+                        <div className="p-3 border-bottom border-secondary border-opacity-25 ">
+                            <div className="d-flex justify-content-center align-items-center">
+                                <h2 className="fw-bold text-white m-0 h4 text-uppercase text-center tracking-widest p-1 ps-3">
+                                    Album Description
+                                </h2>
+                            </div>
+
+                            <div className="accent-line mx-auto text-center mt-2" style={{ width: '30px' }}></div>
                         </div>
 
                         <div className="p-4">
